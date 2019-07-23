@@ -12,11 +12,6 @@ export default new Router({
       component: Home,
     },
     {
-      path: '/about',
-      name: 'about',
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
-    },
-    {
       path: '/cadastro',
       name: 'cadastro',
       component: () => import(/* webpackChunkName: "about" */ './views/SignUp/SignUp.vue'),

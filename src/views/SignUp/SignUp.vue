@@ -4,22 +4,18 @@
       <v-container class="form-container">
       <h6 class="title">Informações Pessoais</h6>  
       <v-layout>
-        <v-flex
-          xs12
-          md6
-        >
+        <v-flex xs12 md6 >
           <v-text-field
+            :rules="nameRules"
             v-model="form.firstName"
             label="Nome"
             required
           ></v-text-field>
         </v-flex>
 
-        <v-flex
-          xs12
-          md6
-        >
+        <v-flex xs12 md6>
           <v-text-field
+            :rules="nameRules"
             v-model="form.lastName"
             label="Sobrenome"
             required
@@ -28,31 +24,28 @@
       </v-layout>
 
       <v-text-field
+        :rules="emailRules"
         v-model="form.email"
         label="E-mail"
         required
       ></v-text-field>
 
       <v-layout>
-        <v-flex
-          xs12
-          md6
-        >
+        <v-flex xs12 md6 >
           <v-text-field
             v-model="form.birthDate"
             label="Data de Nascimento"
             required
+            mask="date"
           ></v-text-field>
         </v-flex>
 
-        <v-flex
-          xs12
-          md6
-        >
+        <v-flex xs12 md6 >
           <v-text-field
             v-model="form.phoneNumber"
             label="Telefone"
             required
+            mask="(##) #####-####"
           ></v-text-field>
         </v-flex>
       </v-layout>
@@ -61,54 +54,41 @@
           :items="institutions"
           :label="'Instituições'"
         >
-      </v-autocomplete>
+      </v-autocomplete>'' 
 
       <h6 class="title">Endereço</h6>  
       <v-layout>
-        <v-flex
-          xs12
-          md3
-        >
-      <v-text-field
-            v-model="form.cep"
-            label="CEP"
-            required
-          ></v-text-field>
-      </v-flex>
-
-      <v-flex xs12 md1>
-        <v-progress-circular indeterminate></v-progress-circular>
+        <v-flex xs12 md3 >
+        <v-text-field
+          v-model="form.cep"
+          label="CEP"
+          required
+          mask="#####-###"
+        ></v-text-field>
       </v-flex>
 
       </v-layout>
 
       <v-layout>
-        <v-flex
-          xs12
-          md3
-        >
+        <v-flex xs12 md3>
            <v-autocomplete
-              :items="states"
+              :items="siglas"
+              v-model="selectedState"
               :label="'Estado'"
             >
             </v-autocomplete>
         </v-flex>
 
-          <v-flex
-          xs12
-          md5
-        >
-           <v-autocomplete
-              :items="cities"
-              :label="'Cidade'"
-            >
-            </v-autocomplete>
+        <v-flex xs12 md5>
+          <v-autocomplete
+            :items="cities"
+            v-model="selectedCity"
+            :label="'Cidade'"
+          >
+          </v-autocomplete>
         </v-flex>
 
-        <v-flex
-           xs12
-           md4
-          >
+        <v-flex xs12 md4> 
           <v-text-field
             v-model="form.neighborhood"
             label="Bairro"
@@ -118,10 +98,7 @@
       </v-layout>
 
          <v-layout>
-        <v-flex
-          xs12
-          md6
-        >
+        <v-flex xs12 md6>
           <v-text-field
             v-model="form.street"
             label="Rua"
@@ -129,10 +106,7 @@
           ></v-text-field>
         </v-flex>
 
-        <v-flex
-          xs12
-          md2
-        >
+        <v-flex xs12 md2>
           <v-text-field
             v-model="form.street_number"
             label="Número"
@@ -140,14 +114,10 @@
           ></v-text-field>
         </v-flex>
 
-          <v-flex
-          xs12
-          md4
-        >
+          <v-flex xs12 md4>
            <v-text-field
             v-model="form.complement"
             label="Complemento"
-            required
           ></v-text-field>
         </v-flex>
       </v-layout>
@@ -165,7 +135,7 @@ import { Component, Vue, Watch } from 'vue-property-decorator';
 import SignUpForm from '@/models/forms/SignUpForm';
 import Cognito from '@/cognito/index';
 import { ValidationObserver, ValidationObserverInstance } from "vee-validate";
-import { getAdress } from '@/services/cep';
+import { getAdress, getStates, Estado, getCities } from '@/services/address';
 
 @Component({
   components: {
@@ -175,9 +145,18 @@ import { getAdress } from '@/services/cep';
 export default class SignUp extends Vue {
   private form: SignUpForm;
   private cognito: Cognito;
+
+  private nameRules: any;
+  private emailRules: any;
+
   private institutions: string[];
-  private states: string[];
+
+  private states: Estado[];
+  private siglas: string[];
+  private selectedState: string;
+
   private cities: string[];
+  private selectedCity: string;
 
   constructor() {
     super();
@@ -202,20 +181,34 @@ export default class SignUp extends Vue {
 
     this.cognito = new Cognito();
 
-    this.institutions = ["PUC"];
-    this.states = ["GO"];
+    this.states = [];
+    this.siglas = [];
+    this.selectedState = '';
+
     this.cities = ["GOIANIA"];
+    this.selectedCity = '';
+
+    this.institutions = ["PUC"];
+
+    this.nameRules = [
+      v => !!v || 'Campo obrigatório',
+    ];
+
+    this.emailRules = [
+      v => !!v || 'E-mail é obrigatório',
+      v => /.+@.+/.test(v) || 'Digite um E-mail válido'
+    ];
+  }
+
+  created() {
+    getStates().then(states => {
+      this.states = states;
+      this.siglas = states.map(state => state.sigla).sort();
+    });
   }
 
   private async addUser() {
 
-    const validator = this.$refs.validator as ValidationObserverInstance;
-    
-    if (await validator.validate()) {
-
-    }
-
-    return;
     console.log(this.form);
     this.cognito.signUp(this.form.email, this.form.password, 
     {
@@ -245,19 +238,46 @@ export default class SignUp extends Vue {
 
   private populateFields(): void {
 
+    let loader = this.$loading.show();
+
     getAdress(this.form.cep).then(address => {
       this.form.street = address.logradouro;
       this.form.neighborhood = address.bairro;
+      this.selectedState = address.uf;
+      this.selectedCity = address.localidade;
+
+      loader.hide();
     });
 
   }
 
   @Watch('form.cep')
-  onPropertyChanged(value: string, oldValue: string) {
+  onCepChanged(value: string, oldValue: string) {
     
     if (value.length === 8) {
       this.populateFields();
     }
+
+  }
+
+  @Watch('selectedState')
+  onSelectedStateChanged(value: string, oldValue: string) {
+      
+    if (value) {
+      this.selectedCity = '';
+
+      let codigoEstado = this.states.filter(state => state.sigla == value)[0].id;
+      
+      getCities(codigoEstado).then(cities => {
+        this.cities = cities;
+      })
+    }
+
+  }
+
+  @Watch('selectedCity')
+  onSelectedCityChanged(value: string, oldValue: string) {
+      
 
   }
 

@@ -15,6 +15,7 @@
     "vee-validate": "^2.2.13",
     "vue": "^2.6.10",
     "vue-class-component": "^7.0.2",
+    "vue-loading-overlay": "^3.2.0",
     "vue-localstorage": "^0.6.2",
     "vue-money": "^0.4.1",
     "vue-property-decorator": "^8.1.0",

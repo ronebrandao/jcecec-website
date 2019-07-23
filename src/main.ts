@@ -8,7 +8,9 @@ import VueLocalStorage from 'vue-localstorage';
 import VueTheMask from 'vue-the-mask';
 import Vuetify from 'vuetify';
 import VeeValidate from 'vee-validate';
+import Loading from 'vue-loading-overlay';
 
+import 'vue-loading-overlay/dist/vue-loading.css';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
@@ -18,6 +20,7 @@ Vue.use(VueTheMask);
 Vue.use(VueLocalStorage);
 Vue.use(Vuetify);
 Vue.use(VeeValidate);
+Vue.use(Loading);
 
 import 'vuetify/dist/vuetify.min.css';
 
