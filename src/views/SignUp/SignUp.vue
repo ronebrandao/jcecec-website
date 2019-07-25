@@ -1,12 +1,12 @@
 <template>
   <v-app class="mt-5">
-     <v-form ref="validation" @submit.prevent="addUser">
+     <v-form ref="form" v-model="valid" @submit.prevent="addUser">
       <v-container class="form-container">
       <h6 class="title">Informações Pessoais</h6>  
       <v-layout>
         <v-flex xs12 md6 >
           <v-text-field
-            :rules="nameRules"
+            :rules="requiredRule"
             v-model="form.firstName"
             label="Nome"
             required
@@ -15,7 +15,7 @@
 
         <v-flex xs12 md6>
           <v-text-field
-            :rules="nameRules"
+            :rules="requiredRule"
             v-model="form.lastName"
             label="Sobrenome"
             required
@@ -30,13 +30,23 @@
         required
       ></v-text-field>
 
+      <v-text-field
+        :rules="passwrodRules"
+        v-model="form.password"
+        label="Senha"
+        type="password"
+        required
+      ></v-text-field>
+
       <v-layout>
         <v-flex xs12 md6 >
           <v-text-field
             v-model="form.birthDate"
             label="Data de Nascimento"
             required
+            :rules="[v => !!v || 'You must agree to continue!']"
             mask="date"
+            return-masked-value
           ></v-text-field>
         </v-flex>
 
@@ -53,8 +63,10 @@
       <v-autocomplete
           :items="institutions"
           :label="'Instituições'"
+          :rules="requiredRule"
+          v-model="form.institution"
         >
-      </v-autocomplete>'' 
+      </v-autocomplete>
 
       <h6 class="title">Endereço</h6>  
       <v-layout>
@@ -75,6 +87,7 @@
               :items="siglas"
               v-model="selectedState"
               :label="'Estado'"
+              :rules="requiredRule"
             >
             </v-autocomplete>
         </v-flex>
@@ -84,6 +97,7 @@
             :items="cities"
             v-model="selectedCity"
             :label="'Cidade'"
+            :rules="requiredRule"
           >
           </v-autocomplete>
         </v-flex>
@@ -92,6 +106,7 @@
           <v-text-field
             v-model="form.neighborhood"
             label="Bairro"
+            :rules="requiredRule"
             required
           ></v-text-field>
           </v-flex>
@@ -102,14 +117,16 @@
           <v-text-field
             v-model="form.street"
             label="Rua"
+            :rules="requiredRule"
             required
           ></v-text-field>
         </v-flex>
 
         <v-flex xs12 md2>
           <v-text-field
-            v-model="form.street_number"
+            v-model="form.streetNumber"
             label="Número"
+            :rules="requiredRule"
             required
           ></v-text-field>
         </v-flex>
@@ -136,18 +153,24 @@ import SignUpForm from '@/models/forms/SignUpForm';
 import Cognito from '@/cognito/index';
 import { ValidationObserver, ValidationObserverInstance } from "vee-validate";
 import { getAdress, getStates, Estado, getCities } from '@/services/address';
+import { createUser } from '@/services/user';
+import moment from 'moment';
+import LoaderMixin from '@/mixins/loader';
 
 @Component({
   components: {
   },
+  mixins: [LoaderMixin]
 })
 
 export default class SignUp extends Vue {
   private form: SignUpForm;
   private cognito: Cognito;
+  private valid: boolean;
 
-  private nameRules: any;
+  private requiredRule: any;
   private emailRules: any;
+  private passwrodRules: any;
 
   private institutions: string[];
 
@@ -168,11 +191,11 @@ export default class SignUp extends Vue {
       password: '',
       birthDate: '',
       phoneNumber: '',
-      university: '',
+      institution: '',
       type: '',
       cep: '',
       street: '',
-      street_number: '',
+      streetNumber: '',
       state: '',
       city: '',
       neighborhood: '',
@@ -180,6 +203,7 @@ export default class SignUp extends Vue {
     };
 
     this.cognito = new Cognito();
+    this.valid = true;
 
     this.states = [];
     this.siglas = [];
@@ -190,13 +214,23 @@ export default class SignUp extends Vue {
 
     this.institutions = ["PUC"];
 
-    this.nameRules = [
+    this.requiredRule = [
+      // @ts-ignore
       v => !!v || 'Campo obrigatório',
     ];
 
     this.emailRules = [
+      // @ts-ignore
       v => !!v || 'E-mail é obrigatório',
-      v => /.+@.+/.test(v) || 'Digite um E-mail válido'
+      // @ts-ignore
+      v => /.+@.+/.test(v) || 'Digite um email válido'
+    ];
+
+    this.passwrodRules = [
+      // @ts-ignore
+      v => !!v || 'Campo obrigatório',
+      // @ts-ignore
+      v => (v && v.length >= 8) || 'A senha deve conter pelo menos 8 caracteres'
     ];
   }
 
@@ -208,24 +242,40 @@ export default class SignUp extends Vue {
   }
 
   private async addUser() {
+    // @ts-ignore
+    if (this.$refs.form.validate()) {
 
-    console.log(this.form);
-    this.cognito.signUp(this.form.email, this.form.password, 
+      // @ts-ignore
+      this.showLoader();
+      
+      this.signUp().then(result => {
+        if (result.success) {
+          this.signUpCognito()
+        }
+      });
+    }
+  } 
+
+  private signUpCognito() {
+
+     this.cognito.signUp(this.form.email, this.form.password, 
     {
       name: this.form.firstName,
       family_name: this.form.lastName,
       email: this.form.email,
       birthdate: this.form.birthDate,
-      phone_number: this.form.phoneNumber,
+      phone_number: "+55"+this.form.phoneNumber,
       "custom:type": 'user'
     })
     .then(result => {
 
       this.$store.commit("setUser", result);
-  
       this.$localStorage.set('user', JSON.stringify(this.form))
 
       console.log(result);
+
+      // @ts-ignore
+      this.hideLoader();
       
       this.$router.push("cadastro/confirmacao");
     })
@@ -236,9 +286,13 @@ export default class SignUp extends Vue {
 
   }
 
-  private populateFields(): void {
+  private async signUp() {
+    return await createUser(this.form);
+  }
 
-    let loader = this.$loading.show();
+  private populateFields(): void {
+    // @ts-ignore
+    this.showLoader();
 
     getAdress(this.form.cep).then(address => {
       this.form.street = address.logradouro;
@@ -246,7 +300,8 @@ export default class SignUp extends Vue {
       this.selectedState = address.uf;
       this.selectedCity = address.localidade;
 
-      loader.hide();
+      // @ts-ignore
+      this.hideLoader();
     });
 
   }

@@ -5,11 +5,11 @@ export default  interface SignUpForm {
     password: string;
     birthDate: string;
     phoneNumber: string;
-    university: string;
+    institution: string;
     type: string;
     cep: string;
     street: string;
-    street_number: string;
+    streetNumber: string;
     state: string;
     city: string;
     neighborhood: string;

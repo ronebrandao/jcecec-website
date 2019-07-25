@@ -46,7 +46,7 @@ export default class SignUp extends Vue {
   }
 
   private confirmUser() {
-      
+      // @ts-ignore
       this.$store.state.user.confirmRegistration(this.code, true, (err, result) => {
           if (err)
             alert("Deu ruim")

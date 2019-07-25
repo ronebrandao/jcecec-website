@@ -4,10 +4,13 @@ import router from './router';
 import store from './store';
 
 import BootstrapVue from 'bootstrap-vue';
+// @ts-ignore
 import VueLocalStorage from 'vue-localstorage';
+// @ts-ignore
 import VueTheMask from 'vue-the-mask';
 import Vuetify from 'vuetify';
 import VeeValidate from 'vee-validate';
+// @ts-ignore
 import Loading from 'vue-loading-overlay';
 
 import 'vue-loading-overlay/dist/vue-loading.css';
