@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <NavBar/>
+    <notifications position="top right"/>
     <router-view/>
   </div>
 </template>
@@ -20,7 +21,6 @@ export default class App extends Vue {
   constructor() {
     super();
   }
-
 }
 
 </script>

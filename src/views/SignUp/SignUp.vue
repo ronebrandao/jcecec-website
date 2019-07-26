@@ -156,14 +156,15 @@ import { getAdress, getStates, Estado, getCities } from '@/services/address';
 import { createUser } from '@/services/user';
 import moment from 'moment';
 import LoaderMixin from '@/mixins/loader';
+import NotificationMixin from '@/mixins/notification';
+import { mixins } from 'vue-class-component';
 
 @Component({
   components: {
-  },
-  mixins: [LoaderMixin]
+  }
 })
 
-export default class SignUp extends Vue {
+export default class SignUp extends mixins(LoaderMixin, NotificationMixin) {
   private form: SignUpForm;
   private cognito: Cognito;
   private valid: boolean;
@@ -245,12 +246,13 @@ export default class SignUp extends Vue {
     // @ts-ignore
     if (this.$refs.form.validate()) {
 
-      // @ts-ignore
       this.showLoader();
       
       this.signUp().then(result => {
         if (result.success) {
           this.signUpCognito()
+        } else {
+          this.showServerErorNotification();
         }
       });
     }
@@ -264,24 +266,19 @@ export default class SignUp extends Vue {
       family_name: this.form.lastName,
       email: this.form.email,
       birthdate: this.form.birthDate,
-      phone_number: "+55"+this.form.phoneNumber,
+      phone_number: "+55" + this.form.phoneNumber,
       "custom:type": 'user'
     })
     .then(result => {
-
       this.$store.commit("setUser", result);
       this.$localStorage.set('user', JSON.stringify(this.form))
 
-      console.log(result);
-
-      // @ts-ignore
       this.hideLoader();
       
       this.$router.push("cadastro/confirmacao");
     })
     .catch(err => {
-      alert("Deu errado");
-      console.log(err);
+      this.showServerErorNotification();
     })
 
   }
@@ -291,7 +288,7 @@ export default class SignUp extends Vue {
   }
 
   private populateFields(): void {
-    // @ts-ignore
+
     this.showLoader();
 
     getAdress(this.form.cep).then(address => {
@@ -300,7 +297,6 @@ export default class SignUp extends Vue {
       this.selectedState = address.uf;
       this.selectedCity = address.localidade;
 
-      // @ts-ignore
       this.hideLoader();
     });
 
@@ -341,8 +337,9 @@ export default class SignUp extends Vue {
 
 <style>
 .form-container {
-  background-color: #fff;
   max-width: 700px;
+  box-shadow: 0px 0px 9px 1px rgba(0, 0, 0, 0.22);
+  border-radius: 20px;
 }
 
 .wrapper {
