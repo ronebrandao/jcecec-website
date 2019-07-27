@@ -1,9 +1,9 @@
 <template>
-  <div id="app">
+  <v-app id="app">
     <NavBar/>
     <notifications position="top right"/>
     <router-view/>
-  </div>
+  </v-app>
 </template>
 
 <script lang="ts">

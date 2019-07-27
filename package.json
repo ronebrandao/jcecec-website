@@ -29,7 +29,8 @@
     "vue-router": "^3.0.3",
     "vue-the-mask": "^0.11.1",
     "vuetify": "^1.5.16",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "vuex-persist": "^2.0.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-typescript": "^3.9.0",

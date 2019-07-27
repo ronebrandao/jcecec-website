@@ -1,286 +1,322 @@
 <template>
-  <v-app class="mt-5">
-     <v-form ref="form" v-model="valid" @submit.prevent="addUser">
+  <div class="mt-5">
+    <v-form ref="form" v-model="valid" @submit.prevent="addUser">
       <v-container class="form-container">
-      <h6 class="title">Informações Pessoais</h6>  
-      <v-layout>
-        <v-flex xs12 md6 >
-          <v-text-field
-            :rules="requiredRule"
-            v-model="form.firstName"
-            label="Nome"
-            required
-          ></v-text-field>
-        </v-flex>
+        <h6 class="title">Informações Pessoais</h6>
+        <v-layout>
+          <v-flex xs12 md6>
+            <v-text-field :rules="requiredRule" v-model="form.firstName" label="Nome" required box></v-text-field>
+          </v-flex>
 
-        <v-flex xs12 md6>
-          <v-text-field
-            :rules="requiredRule"
-            v-model="form.lastName"
-            label="Sobrenome"
-            required
-          ></v-text-field>
-        </v-flex>
-      </v-layout>
+          <v-flex xs12 md6>
+            <v-text-field
+              :rules="requiredRule"
+              v-model="form.lastName"
+              label="Sobrenome"
+              required
+              box
+            ></v-text-field>
+          </v-flex>
+        </v-layout>
 
-      <v-text-field
-        :rules="emailRules"
-        v-model="form.email"
-        label="E-mail"
-        required
-      ></v-text-field>
+        <v-text-field :rules="emailRules" v-model="form.email" label="E-mail" required box></v-text-field>
 
-      <v-text-field
-        :rules="passwrodRules"
-        v-model="form.password"
-        label="Senha"
-        type="password"
-        required
-      ></v-text-field>
+        <v-text-field
+          :rules="passwrodRules"
+          v-model="form.password"
+          label="Senha"
+          type="password"
+          required
+          box
+        ></v-text-field>
 
-      <v-layout>
-        <v-flex xs12 md6 >
-          <v-text-field
-            v-model="form.birthDate"
-            label="Data de Nascimento"
-            required
-            :rules="[v => !!v || 'You must agree to continue!']"
-            mask="date"
-            return-masked-value
-          ></v-text-field>
-        </v-flex>
+        <v-layout>
+          <v-flex xs12 md6>
+            <v-menu
+              ref="menu"
+              v-model="menu"
+              :close-on-content-click="false"
+              transition="scale-transition"
+              offset-y
+              full-width
+              min-width="290px"
+            >
+              <template v-slot:activator="{ on }">
+                <v-text-field
+                  v-model="form.birthDate"
+                  label="Data de Nascimento"
+                  prepend-icon="event"
+                  @blur="date = parseDate(form.birthDate)"
+                  readonly
+                  required
+                  v-on="on"
+                  box
+                ></v-text-field>
+              </template>
+              <v-date-picker v-model="date" no-title @input="menu = false"></v-date-picker>
+            </v-menu>
+          </v-flex>
 
-        <v-flex xs12 md6 >
-          <v-text-field
-            v-model="form.phoneNumber"
-            label="Telefone"
-            required
-            mask="(##) #####-####"
-          ></v-text-field>
-        </v-flex>
-      </v-layout>
+          <v-flex xs12 md6>
+            <v-text-field
+              v-model="form.phoneNumber"
+              label="Telefone"
+              required
+              mask="(##) #####-####"
+              prepend-icon="phone"
+              box
+            ></v-text-field>
+          </v-flex>
+        </v-layout>
 
-      <v-autocomplete
-          :items="institutions"
+        <v-autocomplete
+          :items="institutionsNames"
           :label="'Instituições'"
           :rules="requiredRule"
           v-model="form.institution"
-        >
-      </v-autocomplete>
+          box
+        ></v-autocomplete>
 
-      <h6 class="title">Endereço</h6>  
-      <v-layout>
-        <v-flex xs12 md3 >
-        <v-text-field
-          v-model="form.cep"
-          label="CEP"
-          required
-          mask="#####-###"
-        ></v-text-field>
-      </v-flex>
+        <h6 class="title">Endereço</h6>
+        <v-layout>
+          <v-flex xs12 md3>
+            <v-text-field v-model="form.cep" label="CEP" required mask="#####-###" box></v-text-field>
+          </v-flex>
+        </v-layout>
 
-      </v-layout>
-
-      <v-layout>
-        <v-flex xs12 md3>
-           <v-autocomplete
+        <v-layout>
+          <v-flex xs12 md3>
+            <v-autocomplete
               :items="siglas"
               v-model="selectedState"
               :label="'Estado'"
               :rules="requiredRule"
-            >
-            </v-autocomplete>
-        </v-flex>
-
-        <v-flex xs12 md5>
-          <v-autocomplete
-            :items="cities"
-            v-model="selectedCity"
-            :label="'Cidade'"
-            :rules="requiredRule"
-          >
-          </v-autocomplete>
-        </v-flex>
-
-        <v-flex xs12 md4> 
-          <v-text-field
-            v-model="form.neighborhood"
-            label="Bairro"
-            :rules="requiredRule"
-            required
-          ></v-text-field>
+              box
+            ></v-autocomplete>
           </v-flex>
-      </v-layout>
 
-         <v-layout>
-        <v-flex xs12 md6>
-          <v-text-field
-            v-model="form.street"
-            label="Rua"
-            :rules="requiredRule"
-            required
-          ></v-text-field>
-        </v-flex>
-
-        <v-flex xs12 md2>
-          <v-text-field
-            v-model="form.streetNumber"
-            label="Número"
-            :rules="requiredRule"
-            required
-          ></v-text-field>
-        </v-flex>
+          <v-flex xs12 md5>
+            <v-autocomplete
+              :items="cities"
+              v-model="selectedCity"
+              :label="'Cidade'"
+              :rules="requiredRule"
+              box
+            ></v-autocomplete>
+          </v-flex>
 
           <v-flex xs12 md4>
-           <v-text-field
-            v-model="form.complement"
-            label="Complemento"
-          ></v-text-field>
-        </v-flex>
-      </v-layout>
-      
-       <v-btn type="submit" color="success">
-        Inscrever-se
-      </v-btn>
-    </v-container>
+            <v-text-field
+              v-model="form.neighborhood"
+              label="Bairro"
+              :rules="requiredRule"
+              required
+              box
+            ></v-text-field>
+          </v-flex>
+        </v-layout>
+
+        <v-layout>
+          <v-flex xs12 md6>
+            <v-text-field v-model="form.street" label="Rua" :rules="requiredRule" required box></v-text-field>
+          </v-flex>
+
+          <v-flex xs12 md2>
+            <v-text-field
+              v-model="form.streetNumber"
+              label="Número"
+              :rules="requiredRule"
+              required
+              box
+            ></v-text-field>
+          </v-flex>
+
+          <v-flex xs12 md4>
+            <v-text-field v-model="form.complement" label="Complemento" box></v-text-field>
+          </v-flex>
+        </v-layout>
+
+        <v-btn type="submit" color="success">Inscrever-se</v-btn>
+      </v-container>
     </v-form>
-  </v-app>
+  </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue, Watch } from 'vue-property-decorator';
-import SignUpForm from '@/models/forms/SignUpForm';
-import Cognito from '@/cognito/index';
-import { ValidationObserver, ValidationObserverInstance } from "vee-validate";
-import { getAdress, getStates, Estado, getCities } from '@/services/address';
-import { createUser } from '@/services/user';
-import moment from 'moment';
-import LoaderMixin from '@/mixins/loader';
-import NotificationMixin from '@/mixins/notification';
-import { mixins } from 'vue-class-component';
+import { Component, Vue, Watch } from "vue-property-decorator";
+import { mixins } from "vue-class-component";
+import SignUpForm from "@/models/forms/SignUpForm";
+import Cognito from "@/cognito/index";
+import {
+  ValidationObserver,
+  ValidationObserverInstance,
+  install
+} from "vee-validate";
+import { getAdress, getStates, getCities } from "@/services/address";
+import { Estado } from "@/services/models/adress";
+import { getInstitutions } from "@/services/institutions";
+import Institution from "@/services/models/institutions";
+import { createUser } from "@/services/user";
+import LoaderMixin from "@/mixins/loader";
+import NotificationMixin from "@/mixins/notification";
 
 @Component({
-  components: {
-  }
+  components: {}
 })
-
 export default class SignUp extends mixins(LoaderMixin, NotificationMixin) {
   private form: SignUpForm;
   private cognito: Cognito;
   private valid: boolean;
 
+  private menu: boolean = false;
+  private date: string = "";
+
   private requiredRule: any;
   private emailRules: any;
   private passwrodRules: any;
 
-  private institutions: string[];
+  private institutions: Institution[] = [];
+  private institutionsNames: string[] = [];
 
-  private states: Estado[];
-  private siglas: string[];
+  private states: Estado[] = [];
+  private siglas: string[] = [];
   private selectedState: string;
 
-  private cities: string[];
+  private cities: string[] = [];
   private selectedCity: string;
 
   constructor() {
     super();
 
     this.form = {
-      firstName: '',
-      lastName: '',
-      email: '',
-      password: '',
-      birthDate: '',
-      phoneNumber: '',
-      institution: '',
-      type: '',
-      cep: '',
-      street: '',
-      streetNumber: '',
-      state: '',
-      city: '',
-      neighborhood: '',
-      complement: ''
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      birthDate: "",
+      phoneNumber: "",
+      institution: "",
+      type: "",
+      cep: "",
+      street: "",
+      streetNumber: "",
+      state: "",
+      city: "",
+      neighborhood: "",
+      complement: ""
     };
 
     this.cognito = new Cognito();
     this.valid = true;
 
-    this.states = [];
-    this.siglas = [];
-    this.selectedState = '';
+    this.selectedState = "";
 
-    this.cities = ["GOIANIA"];
-    this.selectedCity = '';
-
-    this.institutions = ["PUC"];
+    this.selectedCity = "";
 
     this.requiredRule = [
       // @ts-ignore
-      v => !!v || 'Campo obrigatório',
+      v => !!v || "Campo obrigatório"
     ];
 
     this.emailRules = [
       // @ts-ignore
-      v => !!v || 'E-mail é obrigatório',
+      v => !!v || "E-mail é obrigatório",
       // @ts-ignore
-      v => /.+@.+/.test(v) || 'Digite um email válido'
+      v => /.+@.+/.test(v) || "Digite um email válido"
     ];
 
     this.passwrodRules = [
       // @ts-ignore
-      v => !!v || 'Campo obrigatório',
+      v => !!v || "Campo obrigatório",
       // @ts-ignore
-      v => (v && v.length >= 8) || 'A senha deve conter pelo menos 8 caracteres'
+      v => (v && v.length >= 8) || "A senha deve conter pelo menos 8 caracteres"
     ];
   }
+
+  @Watch("form.cep")
+  onCepChanged(value: string, oldValue: string) {
+    if (value.length === 8) {
+      this.populateFields();
+    }
+  }
+
+  @Watch("date")
+  onDateChanged(value: string, oldValue: string) {
+    this.form.birthDate = this.formatDate(value);
+  }
+
+  @Watch("selectedState")
+  onSelectedStateChanged(value: string, oldValue: string) {
+    if (value) {
+      this.selectedCity = "";
+
+      let codigoEstado = this.states.filter(state => state.sigla == value)[0]
+        .id;
+
+      this.showLoader();
+
+      getCities(codigoEstado).then(cities => {
+        this.cities = cities;
+
+        this.selectedCity = this.form.city;
+        this.hideLoader();
+      });
+    }
+  }
+
+  @Watch("selectedCity")
+  onSelectedCityChanged(value: string, oldValue: string) {}
 
   created() {
     getStates().then(states => {
       this.states = states;
       this.siglas = states.map(state => state.sigla).sort();
     });
+    getInstitutions().then(institutions => {
+      this.institutions = institutions;
+      this.institutionsNames = institutions.map(
+        institution => institution.nome
+      );
+    });
   }
 
   private async addUser() {
+    console.log(this.form);
     // @ts-ignore
     if (this.$refs.form.validate()) {
-
       this.showLoader();
-      
+
       this.signUp().then(result => {
         if (result.success) {
-          this.signUpCognito()
+          this.signUpCognito();
         } else {
           this.showServerErorNotification();
         }
       });
     }
-  } 
+  }
 
   private signUpCognito() {
+    this.cognito
+      .signUp(this.form.email, this.form.password, {
+        name: this.form.firstName,
+        family_name: this.form.lastName,
+        email: this.form.email,
+        birthdate: this.form.birthDate,
+        phone_number: "+55" + this.form.phoneNumber,
+        "custom:type": "user"
+      })
+      .then(result => {
+        this.$store.commit("setUser", result);
+        this.$localStorage.set("userForm", JSON.stringify(this.form));
 
-     this.cognito.signUp(this.form.email, this.form.password, 
-    {
-      name: this.form.firstName,
-      family_name: this.form.lastName,
-      email: this.form.email,
-      birthdate: this.form.birthDate,
-      phone_number: "+55" + this.form.phoneNumber,
-      "custom:type": 'user'
-    })
-    .then(result => {
-      this.$store.commit("setUser", result);
-      this.$localStorage.set('user', JSON.stringify(this.form))
+        this.hideLoader();
 
-      this.hideLoader();
-      
-      this.$router.push("cadastro/confirmacao");
-    })
-    .catch(err => {
-      this.showServerErorNotification();
-    })
-
+        this.$router.push("cadastro/confirmacao");
+      })
+      .catch(err => {
+        this.showServerErorNotification();
+      });
   }
 
   private async signUp() {
@@ -288,57 +324,42 @@ export default class SignUp extends mixins(LoaderMixin, NotificationMixin) {
   }
 
   private populateFields(): void {
-
     this.showLoader();
 
     getAdress(this.form.cep).then(address => {
       this.form.street = address.logradouro;
       this.form.neighborhood = address.bairro;
       this.selectedState = address.uf;
-      this.selectedCity = address.localidade;
+      this.form.city = address.localidade;
 
       this.hideLoader();
     });
-
   }
 
-  @Watch('form.cep')
-  onCepChanged(value: string, oldValue: string) {
-    
-    if (value.length === 8) {
-      this.populateFields();
+  private formatDate(date: string): string {
+    if (!date) {
+      return null;
     }
 
+    const [year, month, day] = date.split("-");
+    return `${day}/${month}/${year}`;
   }
-
-  @Watch('selectedState')
-  onSelectedStateChanged(value: string, oldValue: string) {
-      
-    if (value) {
-      this.selectedCity = '';
-
-      let codigoEstado = this.states.filter(state => state.sigla == value)[0].id;
-      
-      getCities(codigoEstado).then(cities => {
-        this.cities = cities;
-      })
+  private parseDate(date: string): string {
+    if (!date) {
+      return null;
     }
 
+    const [month, day, year] = date.split("/");
+    return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
   }
-
-  @Watch('selectedCity')
-  onSelectedCityChanged(value: string, oldValue: string) {
-      
-
-  }
-
 }
 </script>
 
 <style>
 .form-container {
   max-width: 700px;
-  box-shadow: 0px 0px 9px 1px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.11),
+    0 5px 15px 0 rgba(0, 0, 0, 0.08);
   border-radius: 20px;
 }
 

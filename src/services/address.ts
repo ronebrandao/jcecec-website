@@ -1,38 +1,12 @@
 import axios from 'axios';
+import {
+    Address,
+    Cidade,
+    Estado
+} from '@/services/models/adress';
 
 const API_CEP_URL = "https://viacep.com.br/ws/";
 const API_STATE_URL = "https://servicodados.ibge.gov.br/api/v1/localidades/estados";
-
-export interface Address {
-    cep: string;
-    logradouro: string;
-    complemento: string;
-    bairro: string;
-    localidade: string;
-    uf: string;
-    unidade: string;
-    ibge: string;
-    gia: string;
-}
-
-export interface Estado {
-    id: number;
-    sigla: string;
-    nome: string;
-    regiao: Regiao;
-  }
-
-export interface Regiao {
-    id: number;
-    sigla: string;
-    nome: string;
-}
-
-export interface Cidade {
-    id: number;
-    nome: string;
-}
-
 
 export function getAdress(cep: string): Promise<Address> {
     return axios.get(`${API_CEP_URL}${cep}/json`)
