@@ -92,9 +92,9 @@ export default class Cognito {
             resolve(result);
             console.log(result);
           },
-          onFailure: result => {
-            reject(result);
-            console.log(result);
+          onFailure: err => {
+            reject(err);
+            console.log(err);
           }
         }
       );

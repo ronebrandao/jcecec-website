@@ -21,5 +21,10 @@ export default new Router({
       name: 'confirmacao',
       component: () => import(/* webpackChunkName: "about" */ './views/SignUp/Confirm.vue'),
     },
+    {
+      path: '/submissao',
+      name: 'submissao',
+      component: () => import(/* webpackChunkName: "about" */ './views/Login.vue'),
+    },
   ],
 });

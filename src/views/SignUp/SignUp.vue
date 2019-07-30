@@ -363,10 +363,6 @@ export default class SignUp extends mixins(LoaderMixin, NotificationMixin) {
   border-radius: 20px;
 }
 
-.wrapper {
-  padding: 30px;
-}
-
 label {
   font-weight: 500;
   float: left;
