@@ -1,8 +1,13 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
-import { CognitoUser, CognitoUserSession } from 'amazon-cognito-identity-js';
+import Vue from "vue";
+import Vuex from "vuex";
+import { CognitoUser, CognitoUserSession } from "amazon-cognito-identity-js";
+import VuexPersistence from "vuex-persist";
 
 Vue.use(Vuex);
+
+const vuexLocal = new VuexPersistence({
+  storage: window.localStorage
+});
 
 interface CustomStore {
   user?: CognitoUser;
@@ -10,9 +15,7 @@ interface CustomStore {
 }
 
 export default new Vuex.Store<CustomStore>({
-  state: {
-
-  },
+  state: {},
   mutations: {
     setUser(state, user) {
       state.user = user;
@@ -21,7 +24,6 @@ export default new Vuex.Store<CustomStore>({
       state.userSession = userAuth;
     }
   },
-  actions: {
-
-  },
+  actions: {},
+  plugins: [vuexLocal.plugin]
 });

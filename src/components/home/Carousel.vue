@@ -1,47 +1,87 @@
 <template>
-  <div>
-      <v-carousel
-          hide-controls
-          hide-delimiters
-          height="700">
-        <v-carousel-item
-          v-for="(item,i) in items"
-          :key="i"
-          :src="item.src"
-          hide-controls
-        ></v-carousel-item>
+  <v-layout row wrap>
+    <v-flex xs12>
+      <v-carousel hide-controls hide-delimiters height="700">
+        <v-carousel-item v-for="(item,i) in items" :key="i" :src="item.src" hide-controls>
+          <v-container fill-height>
+            <v-layout align-center fill-height justify-center>
+              <div class="banner">
+                <div>
+                  <span class="date">6 a 9 de Novembro</span>
+                </div>
+                <v-divider></v-divider>
+                <div>
+                  <span class="jcecec">IV JCECEC</span>
+                </div>
+                <div>
+                  <span
+                    class="jcecec-sub"
+                  >Jornada Científica da Escola de Ciências Exatas e Computação</span>
+                </div>
+                <v-divider></v-divider>
+                <div>
+                  <span id="description">
+                    NOVAS TECNOLOGIAS NA
+                    <br />EDUCAÇÃO E NA INDÚSTRIA
+                  </span>
+                </div>
+              </div>
+            </v-layout>
+          </v-container>
+        </v-carousel-item>
       </v-carousel>
-    </div>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue } from "vue-property-decorator";
 
 @Component
 export default class Carousel extends Vue {
-    private items: any;
+  private items: any;
 
-    constructor() {
-        super();
+  constructor() {
+    super();
 
-        this.items = [
-            {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg'
-            },
-            {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg'
-            },
-            {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg'
-            },
-            {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg'
-            }
-      ]
-
-    }
+    this.items = [
+      {
+        src: "/assets/img/slider/3.jpg"
+      },
+      {
+        src: "/assets/img/slider/4.jpg"
+      },
+      {
+        src: "/assets/img/slider/6.jpg"
+      }
+    ];
+  }
 }
-
-
 </script>
 
+<style scoped>
+.banner {
+  padding: 30px 100px;
+  background-color: #2364adc4;
+  color: #fff;
+}
+
+#description {
+  letter-spacing: 3px;
+}
+
+.jcecec {
+  text-transform: uppercase;
+  font-size: 5em;
+  font-weight: 300;
+}
+
+.jcecec-sub {
+  font-size: 0.9em;
+}
+
+#logo {
+  width: 30%;
+  height: 30%;
+}
+</style>

@@ -12,6 +12,7 @@ import Vuetify from 'vuetify';
 import VeeValidate from 'vee-validate';
 // @ts-ignore
 import Loading from 'vue-loading-overlay';
+import Notifications from 'vue-notification';
 
 import 'vue-loading-overlay/dist/vue-loading.css';
 
@@ -24,6 +25,7 @@ Vue.use(VueLocalStorage);
 Vue.use(Vuetify);
 Vue.use(VeeValidate);
 Vue.use(Loading);
+Vue.use(Notifications);
 
 import 'vuetify/dist/vuetify.min.css';
 
