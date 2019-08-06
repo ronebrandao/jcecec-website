@@ -11,4 +11,12 @@ export default class NotificationMixin extends Vue {
           });
     }
 
+    public showPasswordMismatchNotification() {
+        this.$notify({
+            type: 'error',
+            title: 'Ops!',
+            text: 'As senhas devem ser iguais!'
+          });
+    }
+
 }
