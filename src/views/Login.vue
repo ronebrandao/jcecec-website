@@ -52,9 +52,7 @@ export default class Login extends mixins(LoaderMixin) {
 
     this.passwrodRules = [
       // @ts-ignore
-      v => !!v || "Campo obrigatório",
-      // @ts-ignore
-      v => (v && v.length >= 8) || "A senha deve conter pelo menos 8 caracteres"
+      v => !!v || "Campo obrigatório"
     ];
   }
 
@@ -66,8 +64,8 @@ export default class Login extends mixins(LoaderMixin) {
       this.cognito
         .authenticateUser(this.email, this.password)
         .then(session => {
-          this.$store.commit("setUserSesion", session);
-          alert("LOGADO");
+          this.$store.dispatch("setSession", session);
+          this.$router.push("/conta");
           this.hideLoader();
         })
         .catch(err => {
