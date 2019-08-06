@@ -21,14 +21,28 @@
 
         <v-text-field :rules="emailRules" v-model="form.email" label="E-mail" required box></v-text-field>
 
-        <v-text-field
-          :rules="passwrodRules"
-          v-model="form.password"
-          label="Senha"
-          type="password"
-          required
-          box
-        ></v-text-field>
+        <v-layout>
+          <v-flex xs12 md6>
+            <v-text-field
+              :rules="passwrodRules"
+              v-model="form.password"
+              label="Senha"
+              type="password"
+              required
+              box
+            ></v-text-field>
+          </v-flex>
+          <v-flex xs12 md6>
+            <v-text-field
+              :rules="passwrodRules"
+              v-model="secondPassword"
+              label="Confirme a senha"
+              type="password"
+              required
+              box
+            ></v-text-field>
+          </v-flex>
+        </v-layout>
 
         <v-layout>
           <v-flex xs12 md6>
@@ -170,6 +184,7 @@ export default class SignUp extends mixins(LoaderMixin, NotificationMixin) {
 
   private menu: boolean = false;
   private date: string = "";
+  private secondPassword: string = "";
 
   private requiredRule: any;
   private emailRules: any;
@@ -210,7 +225,7 @@ export default class SignUp extends mixins(LoaderMixin, NotificationMixin) {
     this.valid = true;
 
     this.selectedState = "";
-
+    this.secondPassword = "";
     this.selectedCity = "";
 
     this.requiredRule = [
@@ -229,7 +244,7 @@ export default class SignUp extends mixins(LoaderMixin, NotificationMixin) {
       // @ts-ignore
       v => !!v || "Campo obrigatório",
       // @ts-ignore
-      v => (v && v.length >= 8) || "A senha deve conter pelo menos 8 caracteres"
+      v => (v && v.length >= 6) || "A senha deve conter pelo menos 6 caracteres"
     ];
   }
 
@@ -281,9 +296,8 @@ export default class SignUp extends mixins(LoaderMixin, NotificationMixin) {
   }
 
   private async addUser() {
-    console.log(this.form);
     // @ts-ignore
-    if (this.$refs.form.validate()) {
+    if (this.$refs.form.validate() && this.validatePassword()) {
       this.showLoader();
 
       this.signUp().then(result => {
@@ -351,6 +365,13 @@ export default class SignUp extends mixins(LoaderMixin, NotificationMixin) {
 
     const [month, day, year] = date.split("/");
     return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
+  }
+  private validatePassword(): boolean {
+    if (this.form.password !== this.secondPassword) {
+      this.showPasswordMismatchNotification();
+      return false;
+    }
+    return true;
   }
 }
 </script>
