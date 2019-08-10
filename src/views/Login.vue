@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-5">
+  <v-layout class="mt-5">
     <v-form ref="form" v-model="valid" @submit.prevent="login">
       <v-container class="form-container">
         <h6>Login</h6>
@@ -18,7 +18,7 @@
         <v-btn flat color="indigo" @click="redirectSignUp">Não se inscreveu?</v-btn>
       </v-container>
     </v-form>
-  </div>
+  </v-layout>
 </template>
 
 <script lang="ts">
@@ -54,6 +54,12 @@ export default class Login extends mixins(LoaderMixin) {
       // @ts-ignore
       v => !!v || "Campo obrigatório"
     ];
+  }
+
+  private created() {
+    if (this.$store.state.userSession) {
+      this.$router.push("/conta");
+    }
   }
 
   private login() {

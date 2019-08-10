@@ -1,8 +1,13 @@
 <template>
   <div>
-    <h3 class="mt-5">Submissões</h3>
+    <h3 class="mt-5 mb-2">Submissões</h3>
     <v-container class="form-wrapper">
-      <v-data-table :headers="headers" :items="submissions" class="elevation-1">
+      <v-data-table
+        :headers="headers"
+        :items="submissions"
+        no-data-text="Ops! Parece que você ainda não tem nenhuma submissão."
+        class="elevation-1"
+      >
         <template v-slot:items="props">
           <td>{{ props.item.number }}</td>
           <td class="text-xs-center">{{ props.item.category }}</td>
@@ -11,6 +16,7 @@
           </td>
         </template>
       </v-data-table>
+      <SubmissionForm />
     </v-container>
   </div>
 </template>
@@ -19,9 +25,16 @@
 import { Component, Vue } from "vue-property-decorator";
 import { mixins } from "vue-class-component";
 import LoaderMixin from "@/mixins/loader";
+import SubmissionForm from "@/components/dialogs/admin/SubmissionForm.vue";
 
-@Component
+@Component({
+  components: {
+    SubmissionForm
+  }
+})
 export default class Submissions extends mixins(LoaderMixin) {
+  private showDialog: boolean = false;
+
   private headers = [
     {
       text: "Número",
@@ -31,20 +44,21 @@ export default class Submissions extends mixins(LoaderMixin) {
     { text: "Categoria", align: "center", value: "category" },
     { text: "Status", align: "center", value: "status" }
   ];
-  private submissions = [
-    {
-      number: "001",
-      category: "Poster",
-      status: "Aprovada",
-      color: "success"
-    },
-    {
-      number: "002",
-      category: "Artigo Científico",
-      status: "Revisão Pendente",
-      color: "warning"
-    }
-  ];
+  // private submissions = [
+  //   {
+  //     number: "001",
+  //     category: "Poster",
+  //     status: "Aprovada",
+  //     color: "success"
+  //   },
+  //   {
+  //     number: "002",
+  //     category: "Artigo Científico",
+  //     status: "Revisão Pendente",
+  //     color: "warning"
+  //   }
+  // ];
+  private submissions: any = [];
 }
 </script>
 

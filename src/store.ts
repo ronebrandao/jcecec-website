@@ -18,12 +18,20 @@ export default new Vuex.Store<CustomStore>({
     },
     setUserSession(state, session) {
       state.userSession = session;
+    },
+    clearUserSession(state) {
+      state.userSession = null;
     }
   },
   actions: {
     setSession(context, session) {
       context.commit("setUserSession", session);
+    },
+    clearSession(context) {
+      context.commit("clearUserSession");
     }
   },
-  plugins: [createPersistedState()]
+  plugins: [createPersistedState({
+    key: "jcecec"
+  })]
 });

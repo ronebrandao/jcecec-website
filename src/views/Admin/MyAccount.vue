@@ -5,7 +5,7 @@
       <v-toolbar-title>Conta</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn flat>Sair</v-btn>
+        <v-btn flat @click="signOut">Sair</v-btn>
       </v-toolbar-items>
     </v-toolbar>
     <Submissions />
@@ -17,6 +17,7 @@ import { Component, Vue } from "vue-property-decorator";
 import { mixins } from "vue-class-component";
 import LoaderMixin from "@/mixins/loader";
 import Submissions from "@/components/admin/Submissions.vue";
+import { logOut } from "@/services/authentication";
 
 @Component({
   components: {
@@ -28,6 +29,11 @@ export default class MyAccount extends mixins(LoaderMixin) {
     if (!this.$store.state.userSession) {
       this.$router.push("/submissao");
     }
+  }
+
+  private signOut() {
+    logOut();
+    this.$router.push("/");
   }
 }
 </script>

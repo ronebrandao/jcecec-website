@@ -101,6 +101,11 @@ export default class Cognito {
     });
   }
 
+  public logOut() {
+    this.cognitoUser = this.cognitoUser || this.userPool.getCurrentUser();
+    this.cognitoUser.signOut();
+  }
+
   private getAuthenticationDetails(
     username: string,
     password: string
