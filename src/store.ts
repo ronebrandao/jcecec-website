@@ -5,8 +5,27 @@ import createPersistedState from "vuex-persistedstate";
 
 Vue.use(Vuex);
 
+interface IUser {
+  id: number;
+  name: string;
+  family_name: string;
+  email: string;
+  institution: string;
+  birth_date: Date;
+  subscribed: boolean;
+  created_at: Date;
+  street: string;
+  street_number: number;
+  complement: string;
+  cep: string;
+  neighborhood: string;
+  state: string;
+  city: string;
+  type: string;
+}
+
 interface CustomStore {
-  user?: CognitoUser;
+  user?: IUser;
   userSession?: CognitoUserSession;
 }
 
@@ -27,11 +46,16 @@ export default new Vuex.Store<CustomStore>({
     setSession(context, session) {
       context.commit("setUserSession", session);
     },
+    setUser(context, user) {
+      context.commit("setUser", user);
+    },
     clearSession(context) {
       context.commit("clearUserSession");
     }
   },
-  plugins: [createPersistedState({
-    key: "jcecec"
-  })]
+  plugins: [
+    createPersistedState({
+      key: "jcecec"
+    })
+  ]
 });

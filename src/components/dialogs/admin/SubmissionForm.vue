@@ -13,6 +13,7 @@
                 <v-flex xs12>
                   <v-text-field
                     label="Título"
+                    v-model="title"
                     :rules="[v => !!v || 'Título é obrigatório']"
                     required
                   ></v-text-field>
@@ -23,7 +24,7 @@
                     prepend-icon="attach_file"
                     :rules="[v => !!v || 'Arquivo é obrigatório']"
                     required
-                    v-model="imageName"
+                    v-model="fileName"
                     @click="pickFile"
                   ></v-text-field>
                   <input
@@ -50,17 +51,24 @@
 
 <script lang="ts">
 import { Vue, Prop, Component, Watch, Inject } from "vue-property-decorator";
+import { mixins } from "vue-class-component";
+import { submitWork } from "@/services/api/submission";
+import LoaderMixin from "@/mixins/loader";
+import NotificationMixin from "@/mixins/notification";
 
-@Component({
-  components: {}
-})
-export default class SubmissionForm extends Vue {
+@Component
+export default class SubmissionForm extends mixins(
+  LoaderMixin,
+  NotificationMixin
+) {
   private dialog: boolean = false;
   private valid: boolean = false;
 
-  private imageName: string = "";
-  private imageUrl: string = "";
-  private imageFile: File = null;
+  private fileName: string = "";
+  private fileUrl: string = "";
+  private file: File = null;
+
+  private title: string = "";
 
   constructor() {
     super();
@@ -74,27 +82,38 @@ export default class SubmissionForm extends Vue {
   private onFilePicked(e: any) {
     const files = e.target.files;
     if (files[0] !== undefined) {
-      this.imageName = files[0].name;
-      if (this.imageName.lastIndexOf(".") <= 0) {
+      this.fileName = files[0].name;
+      if (this.fileName.lastIndexOf(".") <= 0) {
         return;
       }
       const fr = new FileReader();
       fr.readAsDataURL(files[0]);
       fr.addEventListener("load", () => {
-        this.imageUrl = fr.result as string;
-        this.imageFile = files[0]; // this is an image file that can be sent to server...
+        this.fileUrl = fr.result as string;
+        this.file = files[0]; // this is an image file that can be sent to server...
       });
     } else {
-      this.imageName = "";
-      this.imageFile = null;
-      this.imageUrl = "";
+      this.fileName = "";
+      this.file = null;
+      this.fileUrl = "";
     }
   }
 
-  private submit() {
-    // @ts-ignore
+  private async submit() {
+    //@ts-ignore
     if (this.$refs.form.validate()) {
-      alert("Enviado em");
+      this.showLoader();
+      submitWork(this.$store.state.user.id, this.title, this.file)
+        .then(result => {
+          if (result.success) {
+            this.hideLoader();
+            this.dialog = false;
+          }
+        })
+        .catch(err => {
+          this.hideLoader();
+          this.showServerErorNotification();
+        });
     }
   }
 }

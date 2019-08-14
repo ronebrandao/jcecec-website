@@ -1,7 +1,7 @@
 <template>
-  <v-layout class="mt-5">
-    <v-form ref="form" v-model="valid" @submit.prevent="login">
-      <v-container class="form-container">
+  <v-layout>
+    <v-container class="form-container">
+      <v-form ref="form" v-model="valid" @submit.prevent="login">
         <h6>Login</h6>
         <v-text-field :rules="emailRules" v-model="email" label="E-mail" required box></v-text-field>
         <v-text-field
@@ -16,8 +16,8 @@
         ></v-text-field>
         <v-btn type="submit" color="primary">Acessar</v-btn>
         <v-btn flat color="indigo" @click="redirectSignUp">Não se inscreveu?</v-btn>
-      </v-container>
-    </v-form>
+      </v-form>
+    </v-container>
   </v-layout>
 </template>
 
@@ -25,10 +25,12 @@
 import { Component, Vue } from "vue-property-decorator";
 import Cognito from "../cognito";
 import { mixins } from "vue-class-component";
-import LoaderMixin from "../mixins/loader";
+import LoaderMixin from "@/mixins/loader";
+import NotificationMixin from "@/mixins/notification";
+import { getUser } from "@/services/user";
 
 @Component
-export default class Login extends mixins(LoaderMixin) {
+export default class Login extends mixins(LoaderMixin, NotificationMixin) {
   private valid: boolean = false;
   private emailRules: any;
   private passwrodRules: any;
@@ -68,14 +70,28 @@ export default class Login extends mixins(LoaderMixin) {
       this.showLoader();
 
       this.cognito
-        .authenticateUser(this.email, this.password)
+        .authenticateUser(this.email.toLowerCase(), this.password)
         .then(session => {
           this.$store.dispatch("setSession", session);
+
+          getUser(session.getIdToken().payload["email"]).then(result => {
+            if (result.success) {
+              this.$store.dispatch("setUser", result.data);
+            }
+          });
+
           this.$router.push("/conta");
           this.hideLoader();
         })
         .catch(err => {
-          console.log(err);
+          if (err.code === "NotAuthorizedException") {
+            this.showInvalidDataNotification();
+          } else if (err.code === "UserNotFoundException") {
+            this.showNonExistentUserNotification();
+          } else {
+            this.showServerErorNotification();
+          }
+
           this.hideLoader();
         });
     }

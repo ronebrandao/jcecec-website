@@ -9,11 +9,12 @@
         class="elevation-1"
       >
         <template v-slot:items="props">
-          <td>{{ props.item.number }}</td>
-          <td class="text-xs-center">{{ props.item.category }}</td>
+          <td>{{ props.item.id }}</td>
+          <td class="text-xs-center">{{ props.item.title }}</td>
           <td class="text-xs-center">
             <v-btn small :color="props.item.color">{{ props.item.status }}</v-btn>
           </td>
+          <td class="text-xs-center">{{ props.item.created_at }}</td>
         </template>
       </v-data-table>
       <SubmissionForm />
@@ -26,6 +27,15 @@ import { Component, Vue } from "vue-property-decorator";
 import { mixins } from "vue-class-component";
 import LoaderMixin from "@/mixins/loader";
 import SubmissionForm from "@/components/dialogs/admin/SubmissionForm.vue";
+import { getUserSubmissions } from "@/services/api/submission";
+
+interface Submission {
+  id: number;
+  title: string;
+  status: string;
+  created_at: string;
+  color: string;
+}
 
 @Component({
   components: {
@@ -34,7 +44,7 @@ import SubmissionForm from "@/components/dialogs/admin/SubmissionForm.vue";
 })
 export default class Submissions extends mixins(LoaderMixin) {
   private showDialog: boolean = false;
-
+  private date: Date = null;
   private headers = [
     {
       text: "Número",
@@ -42,23 +52,42 @@ export default class Submissions extends mixins(LoaderMixin) {
       value: "number"
     },
     { text: "Categoria", align: "center", value: "category" },
-    { text: "Status", align: "center", value: "status" }
+    { text: "Status", align: "center", value: "status" },
+    { text: "Data de submissão", align: "center", value: "created_at" }
   ];
-  // private submissions = [
-  //   {
-  //     number: "001",
-  //     category: "Poster",
-  //     status: "Aprovada",
-  //     color: "success"
-  //   },
-  //   {
-  //     number: "002",
-  //     category: "Artigo Científico",
-  //     status: "Revisão Pendente",
-  //     color: "warning"
-  //   }
-  // ];
+
   private submissions: any = [];
+
+  private mounted() {
+    this.showLoader();
+    getUserSubmissions(this.$store.state.user.id)
+      .then(result => {
+        this.hideLoader();
+        if (result.success) {
+          result.data.forEach((item: Submission) => {
+            item.created_at = new Date(item.created_at).toLocaleDateString();
+            item.color = this.mapColor(item.status);
+          });
+
+          this.submissions = result.data;
+        }
+      })
+      .catch(err => {
+        this.hideLoader();
+      });
+  }
+
+  private mapColor(status: string) {
+    if (status === "pendente") {
+      return "";
+    } else if (status === "pendente-em-alteracao") {
+      return "warning";
+    } else if (status === "reprovado") {
+      return "error";
+    } else if (status === "aprovado") {
+      return "success";
+    }
+  }
 }
 </script>
 

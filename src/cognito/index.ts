@@ -59,12 +59,11 @@ export default class Cognito {
   }
 
   public resendCode(): Promise<boolean> {
-    this.cognitoUser = store.state.user;
-    console.log(this.cognitoUser);
+    this.cognitoUser = this.userPool.getCurrentUser();
+
     return new Promise((resolve, reject) => {
       this.cognitoUser.resendConfirmationCode((err: Error) => {
         if (err) {
-          console.log(err);
           reject(false);
         }
 
@@ -90,11 +89,9 @@ export default class Cognito {
         {
           onSuccess: result => {
             resolve(result);
-            console.log(result);
           },
           onFailure: err => {
             reject(err);
-            console.log(err);
           }
         }
       );
