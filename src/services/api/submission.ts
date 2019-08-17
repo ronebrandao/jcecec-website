@@ -1,4 +1,5 @@
 import axios from "axios";
+import { saveAs } from "file-saver";
 
 const API_URL = process.env.VUE_APP_API_URL;
 
@@ -27,4 +28,10 @@ export async function getUserSubmissions(userId: string) {
 
 export async function getSubmissions() {
   return axios.get(API_URL + "submissions").then(res => res.data);
+}
+
+export function downloadFile(fileName: string) {
+  return axios
+    .get(API_URL + "submissions/file/" + fileName, { responseType: "blob" })
+    .then(res => res.data);
 }

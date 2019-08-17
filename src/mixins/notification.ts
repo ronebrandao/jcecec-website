@@ -2,6 +2,14 @@ import { Vue, Component } from "vue-property-decorator";
 
 @Component
 export default class NotificationMixin extends Vue {
+  public showErrorNotification(text: string) {
+    this.$notify({
+      type: "error",
+      title: "Ops!",
+      text
+    });
+  }
+
   public showServerErorNotification() {
     this.$notify({
       type: "error",
