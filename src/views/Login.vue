@@ -10,10 +10,10 @@
           label="Senha"
           type="password"
           persistent-hint
-          hint="<a href=''>Esqueci minha senha</a>"
           required
           box
         ></v-text-field>
+        <a @click="esqueciSenha">Esqueci minha senha</a>
         <v-btn type="submit" color="primary">Acessar</v-btn>
         <v-btn flat color="indigo" @click="redirectSignUp">Não se inscreveu?</v-btn>
       </v-form>
@@ -77,11 +77,12 @@ export default class Login extends mixins(LoaderMixin, NotificationMixin) {
           getUser(session.getIdToken().payload["email"]).then(result => {
             if (result.success) {
               this.$store.dispatch("setUser", result.data);
+              this.$router.push("/conta");
+              this.hideLoader();
+            } else {
+              this.showServerErorNotification();
             }
           });
-
-          this.$router.push("/conta");
-          this.hideLoader();
         })
         .catch(err => {
           if (err.code === "NotAuthorizedException") {
@@ -99,6 +100,10 @@ export default class Login extends mixins(LoaderMixin, NotificationMixin) {
 
   private redirectSignUp() {
     this.$router.push("/cadastro");
+  }
+
+  private esqueciSenha() {
+    this.showWarningNotification("Função indisponível");
   }
 }
 </script>

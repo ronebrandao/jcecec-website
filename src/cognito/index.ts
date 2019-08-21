@@ -6,7 +6,6 @@ import {
   CognitoUserSession
 } from "amazon-cognito-identity-js";
 import AttributeList from "./models/attributes";
-import store from "@/store";
 
 export default class Cognito {
   private poolData = {
@@ -19,6 +18,15 @@ export default class Cognito {
 
   constructor() {
     this.userPool = new CognitoUserPool(this.poolData);
+  }
+
+  public setCognitoUser(username: string) {
+    const userData = {
+      Username: username,
+      Pool: this.userPool
+    };
+
+    this.cognitoUser = new CognitoUser(userData);
   }
 
   public signUp(
@@ -46,7 +54,6 @@ export default class Cognito {
 
   public confirmUser(code: string): Promise<boolean> {
     this.cognitoUser = this.cognitoUser || this.userPool.getCurrentUser();
-
     return new Promise((resolve, reject) => {
       this.cognitoUser.confirmRegistration(code, true, err => {
         if (err) {
@@ -101,6 +108,10 @@ export default class Cognito {
   public logOut() {
     this.cognitoUser = this.cognitoUser || this.userPool.getCurrentUser();
     this.cognitoUser.signOut();
+  }
+
+  public getCognitoUser() {
+    return this.userPool.getCurrentUser();
   }
 
   private getAuthenticationDetails(

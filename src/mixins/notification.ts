@@ -10,6 +10,14 @@ export default class NotificationMixin extends Vue {
     });
   }
 
+  public showWarningNotification(text: string) {
+    this.$notify({
+      type: "warn",
+      title: "Ops!",
+      text
+    });
+  }
+
   public showServerErorNotification() {
     this.$notify({
       type: "error",

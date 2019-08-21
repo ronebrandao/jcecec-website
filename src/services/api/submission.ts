@@ -35,3 +35,10 @@ export function downloadFile(fileName: string) {
     .get(API_URL + "submissions/file/" + fileName, { responseType: "blob" })
     .then(res => res.data);
 }
+
+export function setSubmissionProofreader(submissionId: number, proofreaderId: number) {
+  return axios.put(API_URL + "submissions/" + submissionId, {
+    proofreaderId
+  });
+}
+
