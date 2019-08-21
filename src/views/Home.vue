@@ -42,25 +42,35 @@
       </li>
     </ul>
 
-    <div mt-5 mb-5 id="inscricoes">
-      <v-container>
-        <v-layout row wrap>
-          <v-flex offset-md3 xs12 md3>
-            <span>Inscrições Gratuitas</span>
-          </v-flex>
-          <v-flex xs12 md3>
-            <span>Instruções para Submissões</span>
-          </v-flex>
-        </v-layout>
-        <v-layout row wrap>
-          <v-flex offset-md3 xs12 md3>
-            <v-btn color="primary">Faça sua inscrição</v-btn>
-          </v-flex>
-          <v-flex xs12 md3>
-            <v-btn color="primary">Submeta seu artigo</v-btn>
-          </v-flex>
-        </v-layout>
-      </v-container>
+    <div mt-5 mb-5 id="inscricoes" class="footer-subscribe">
+      <div>
+        <v-container>
+          <v-layout class="call">
+            <v-flex>
+              <p>INSCREVA-SE JÁ</p>
+            </v-flex>
+          </v-layout>
+          <v-layout class="call">
+            <v-flex>
+              <p>tandard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release</p>
+            </v-flex>
+          </v-layout>
+          <v-layout row wrap mt4>
+            <v-flex offset-md3 xs12 md3>
+              <v-btn color="primary" large>Faça sua inscrição</v-btn>
+            </v-flex>
+            <v-flex xs12 md3>
+              <v-btn large class="btn-submission">Submeta seu artigo</v-btn>
+            </v-flex>
+          </v-layout>
+          <v-layout class="line rights-reserved">
+            <v-flex>
+              <hr />
+              <p>&copy; ndard dummy text ever since the 1500s, when an unknown</p>
+            </v-flex>
+          </v-layout>
+        </v-container>
+      </div>
     </div>
   </v-app>
 </template>
@@ -127,12 +137,66 @@ export default class Home extends Vue {
   font-size: 18px;
 }
 
+.line {
+  margin-top: 42px;
+  justify-content: center;
+  z-index: 100;
+}
+
+.call p {
+  text-transform: uppercase;
+}
+
+.call p:first-child {
+  font-size: 40px;
+  font-weight: bold;
+  color: #ddd;
+}
+
+.call p:last-child {
+  font-size: 14px;
+  color: #ddd;
+}
+
+.btn-submission {
+  background-color: transparent !important;
+  color: #eee !important;
+  border: 1px solid #eee;
+}
+
+.line > div {
+  max-width: 1150px !important;
+}
+
+.line hr {
+  border: 1px solid #4e6083;
+}
+
+.rights-reserved p {
+  color: #eee;
+  padding: 20px 0 5px;
+  justify-content: start;
+}
+
 #quando {
   font-size: 32px;
 }
 
 #onde {
   font-size: 24px;
+}
+
+div > hr {
+  color: #cecece;
+}
+
+.footer-subscribe {
+  background-color: #13264a;
+  /* background-color: white; */
+}
+
+div > span {
+  color: white;
 }
 </style>
 
