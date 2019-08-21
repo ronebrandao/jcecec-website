@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-5">
+  <div class="my-5">
     <v-form ref="form" v-model="valid" @submit.prevent="addUser">
       <v-container class="form-container">
         <h6 class="title">Informações Pessoais</h6>
@@ -173,6 +173,7 @@ import Institution from "@/services/models/institutions";
 import { createUser } from "@/services/user";
 import LoaderMixin from "@/mixins/loader";
 import NotificationMixin from "@/mixins/notification";
+import { setCognitoUser } from "../../services/authentication";
 
 @Component({
   components: {}
@@ -323,6 +324,7 @@ export default class SignUp extends mixins(LoaderMixin, NotificationMixin) {
       .then(result => {
         this.$store.commit("setUser", result);
         this.$localStorage.set("userForm", JSON.stringify(this.form));
+        setCognitoUser(this.form.email); //gambi
 
         this.hideLoader();
 
@@ -334,6 +336,7 @@ export default class SignUp extends mixins(LoaderMixin, NotificationMixin) {
   }
 
   private async signUp() {
+    this.form.type = "user";
     return await createUser(this.form);
   }
 

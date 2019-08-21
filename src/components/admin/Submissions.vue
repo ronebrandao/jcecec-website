@@ -1,16 +1,110 @@
 <template>
   <div>
-    <h3 class="mt-5">Submissões</h3>
-    <v-container class="form-wrapper">
-      <v-data-table :headers="headers" :items="submissions" class="elevation-1">
-        <template v-slot:items="props">
-          <td>{{ props.item.number }}</td>
-          <td class="text-xs-center">{{ props.item.category }}</td>
-          <td class="text-xs-center">
-            <v-btn small :color="props.item.color">{{ props.item.status }}</v-btn>
-          </td>
-        </template>
-      </v-data-table>
+    <v-container class="mt-5 form-wrapper">
+      <v-tabs v-model="activeTab" fixed-tabs v-if="isAdmin">
+        <v-tab href="#mobile-tabs-5-1" class="primary--text">Submissões</v-tab>
+
+        <v-tab href="#mobile-tabs-5-2" class="primary--text">Usuários</v-tab>
+      </v-tabs>
+
+      <v-tabs-items v-model="activeTab">
+        <v-tab-item :value="'mobile-tabs-5-1'">
+          <v-divider></v-divider>
+          <v-toolbar flat color="white">
+            <v-toolbar-title>Submissões</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-text-field
+              v-model="search"
+              append-icon="search"
+              label="Pesquisar"
+              single-line
+              hide-details
+            ></v-text-field>
+          </v-toolbar>
+          <v-data-table
+            :headers="headers"
+            :items="submissions"
+            :loading="loading"
+            :search="search"
+            v-model="selected"
+            item-key="id"
+            select-all
+            rows-per-page-text="Itens por página:"
+            no-data-text="Ops! Parece que você ainda não tem nenhuma submissão."
+            class="elevation-1"
+          >
+            <template v-slot:items="props">
+              <td>
+                <v-checkbox v-model="props.selected" primary hide-details></v-checkbox>
+              </td>
+              <td>{{ props.item.id }}</td>
+              <td class="text-xs-center">{{ props.item.title }}</td>
+              <td class="text-xs-center">
+                <v-btn small :color="props.item.color">{{ props.item.status }}</v-btn>
+              </td>
+              <td class="text-xs-center">{{ props.item.created_at }}</td>
+              <td class="text-xs-center">
+                <v-tooltip bottom>
+                  <template v-slot:activator="{ on }">
+                    <v-btn
+                      fab
+                      flat
+                      small
+                      v-on="on"
+                      @click="downloadFile(props.item.file_url, props.item.title)"
+                    >
+                      <v-icon dark color="blue">cloud_download</v-icon>
+                    </v-btn>
+                  </template>
+                  <span>Baixar arquivo</span>
+                </v-tooltip>
+                <v-tooltip bottom>
+                  <template v-slot:activator="{ on }">
+                    <v-btn
+                      fab
+                      flat
+                      small
+                      v-on="on"
+                      v-if="isProofreader||isAdmin"
+                      @click="showProofread(props.item.id)"
+                    >
+                      <v-icon dark color="gray">rate_review</v-icon>
+                    </v-btn>
+                  </template>
+                  <span>Revisar submissão</span>
+                </v-tooltip>
+
+                <v-tooltip bottom>
+                  <template v-slot:activator="{ on }">
+                    <v-btn
+                      fab
+                      flat
+                      small
+                      v-on="on"
+                      v-if="isAdmin"
+                      @click="showSetProofreader(props.item.id)"
+                    >
+                      <v-icon dark color="teal">person_add</v-icon>
+                    </v-btn>
+                  </template>
+                  <span>Atribuir revisor</span>
+                </v-tooltip>
+              </td>
+            </template>
+            <template v-slot:no-results>
+              <v-alert
+                :value="true"
+                color="error"
+                icon="warning"
+              >Sua pesquisa por "{{ search }}" não teve nenhum resultado.</v-alert>
+            </template>
+          </v-data-table>
+          <SubmissionForm />
+          <ProofcheckForm :showDialog="showRevisionDialog" :submissionId="submissionId" />
+          <SetProofreader :showDialog="showProofreaderDialog" />
+        </v-tab-item>
+        <v-tab-item :value="'mobile-tabs-5-2'">Mano do ceu</v-tab-item>
+      </v-tabs-items>
     </v-container>
   </div>
 </template>
@@ -19,32 +113,120 @@
 import { Component, Vue } from "vue-property-decorator";
 import { mixins } from "vue-class-component";
 import LoaderMixin from "@/mixins/loader";
+import { getUserSubmissions, downloadFile } from "@/services/api/submission";
+import NotificationMixin from "../../mixins/notification";
+import { saveAs } from "file-saver";
+import SubmissionForm from "@/components/dialogs/admin/SubmissionForm.vue";
+import ProofcheckForm from "@/components/dialogs/admin/ProofcheckForm.vue";
+import SetProofreader from "@/components/dialogs/admin/SetProofreader.vue";
 
-@Component
-export default class Submissions extends mixins(LoaderMixin) {
+interface Submission {
+  id: number;
+  title: string;
+  status: string;
+  created_at: string;
+  color: string;
+}
+
+@Component({
+  components: {
+    SubmissionForm,
+    ProofcheckForm,
+    SetProofreader
+  }
+})
+export default class Submissions extends mixins(
+  LoaderMixin,
+  NotificationMixin
+) {
+  private isProofreader = false;
+  private isAdmin = false;
+  private activeTab: any = null;
+  private showRevisionDialog: boolean = false;
+  private showProofreaderDialog: boolean = false;
+  private submissionId: number = 0;
+  private loading = false;
+  private search = "";
+  private selected: any = [];
+  private date: Date = null;
   private headers = [
     {
       text: "Número",
       align: "center",
-      value: "number"
+      value: "id"
     },
-    { text: "Categoria", align: "center", value: "category" },
-    { text: "Status", align: "center", value: "status" }
+    { text: "Título", align: "center", value: "title" },
+    { text: "Status", align: "center", value: "status" },
+    { text: "Data de submissão", align: "center", value: "created_at" },
+    { text: "", align: "center", value: "actions" }
   ];
-  private submissions = [
-    {
-      number: "001",
-      category: "Poster",
-      status: "Aprovada",
-      color: "success"
-    },
-    {
-      number: "002",
-      category: "Artigo Científico",
-      status: "Revisão Pendente",
-      color: "warning"
+
+  private submissions: any = [];
+
+  private created() {
+    this.verifyUser();
+
+    this.loading = true;
+    getUserSubmissions(this.$store.state.user.id)
+      .then(result => {
+        this.loading = false;
+        if (result.success) {
+          result.data.forEach((item: Submission) => {
+            item.created_at = new Date(item.created_at).toLocaleDateString();
+            item.color = this.mapStatus(item.status).color;
+            item.status = this.mapStatus(item.status).text;
+          });
+
+          this.submissions = result.data;
+        }
+      })
+      .catch(err => {
+        this.loading = false;
+      });
+  }
+
+  private verifyUser() {
+    this.isProofreader = this.$store.state.user.type === "proofreader";
+    this.isAdmin = this.$store.state.user.type === "admin";
+  }
+
+  private downloadFile(fileUrl: string, title: string) {
+    this.loading = true;
+    downloadFile(
+      fileUrl.substring(fileUrl.lastIndexOf("/") + 1, fileUrl.length) // gambi braba
+    )
+      .then(file => {
+        saveAs(file, title);
+        this.loading = false;
+      })
+      .catch(err => {
+        this.showErrorNotification(
+          "Ocorreu um erro ao realizar o download do arquivo."
+        );
+        this.loading = false;
+      });
+  }
+
+  private mapStatus(status: string) {
+    if (status === "pendente") {
+      return { color: "", text: "PENDENTE" };
+    } else if (status === "aceito-em-revisao") {
+      return { color: "warning", text: "ACEITO - EM REVISÃO" };
+    } else if (status === "reprovado") {
+      return { color: "error", text: "NÃO ACEITO" };
+    } else if (status === "aprovado") {
+      return { color: "success", text: "ACEITO" };
     }
-  ];
+  }
+
+  private showProofread(submissionId: number) {
+    this.submissionId = submissionId;
+    this.showRevisionDialog = true;
+  }
+
+  private showSetProofreader(submissionId: number) {
+    this.showProofreaderDialog = true;
+  }
 }
 </script>
 
