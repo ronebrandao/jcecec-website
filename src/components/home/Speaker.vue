@@ -1,6 +1,9 @@
 <template>
   <div class="speaker">
-    <div><div></div></div>
+    <div>
+      <div v-bind:style="avatarStyle()"></div>
+    </div>
+
     <div>
       <h3>{{ speaker.name }}</h3>
       <p>{{ speaker.description }}</p>
@@ -9,9 +12,21 @@
 </template>
 
 <script>
+
 export default {
   name: "Speaker",
-  props: ["speaker"]
+  props: ["speaker"],
+  data() {
+    return {
+      avatarStyle() {
+        return {
+          backgroundImage: this.speaker.avatar ?
+          `url(${this.speaker.avatar})` :
+          `url(https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/512x512/plain/user.png)`
+        };
+      }
+    };
+  }
 };
 </script>
 
@@ -34,8 +49,8 @@ export default {
 .speaker > div:first-child div {
   width: 60px;
   height: 60px;
-  background: url(https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/512x512/plain/user.png);
   background-size: cover;
+  object-fit: cover;
 }
 .speaker > div:last-child {
   display: flex;
