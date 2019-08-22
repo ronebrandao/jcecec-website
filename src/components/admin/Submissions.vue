@@ -103,7 +103,7 @@
           <ProofcheckForm :showDialog="showRevisionDialog" :submissionId="submissionId" />
           <SetProofreader :showDialog="showProofreaderDialog" />
         </v-tab-item>
-        <v-tab-item :value="'mobile-tabs-5-2'">Mano do ceu</v-tab-item>
+        <v-tab-item :value="'mobile-tabs-5-2'">Tabela de usuários</v-tab-item>
       </v-tabs-items>
     </v-container>
   </div>
