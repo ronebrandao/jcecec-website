@@ -9,7 +9,7 @@
       <v-flex xs12 md5 offset-md-1>
         <div class="name-robot">
           <span class="name">
-            <h4>ROBOSAO DO ESQUEMA</h4>
+            <h4>COMPETIÇÃO DE ROBÔS</h4>
           </span>
         </div>
         <div class="f-desc text-justify">
