@@ -35,13 +35,18 @@ import Cognito from "@/cognito/index";
 import NotificationMixin from "../../mixins/notification";
 import { mixins } from "vue-class-component";
 import LoaderMixin from "../../mixins/loader";
+import {
+  confirmUser,
+  login,
+  resendCode,
+  getUser
+} from "../../services/authentication";
 
 @Component({
   components: {}
 })
 export default class Confirm extends mixins(NotificationMixin, LoaderMixin) {
   private code: string;
-  private cognito: Cognito;
   private user: SignUpForm;
   private valid: boolean = false;
 
@@ -51,8 +56,11 @@ export default class Confirm extends mixins(NotificationMixin, LoaderMixin) {
   constructor() {
     super();
 
-    this.cognito = new Cognito();
     this.code = "";
+  }
+
+  private created() {
+    console.log(getUser());
   }
 
   private confirmUser() {
@@ -60,15 +68,13 @@ export default class Confirm extends mixins(NotificationMixin, LoaderMixin) {
     if (this.$refs.form.validate()) {
       this.showLoader();
 
-      this.cognito
-        .confirmUser(this.code)
+      confirmUser(this.code)
         .then(() => {
           this.user = JSON.parse(
             this.$localStorage.get("userForm")
           ) as SignUpForm;
 
-          this.cognito
-            .authenticateUser(this.user.email, this.user.password)
+          login(this.user.email, this.user.password)
             .then(userSession => {
               this.$store.commit("setUserSession", userSession);
               this.hideLoader();
@@ -87,8 +93,7 @@ export default class Confirm extends mixins(NotificationMixin, LoaderMixin) {
   }
 
   private resendConfirmationCode() {
-    this.cognito
-      .resendCode()
+    resendCode()
       .then(() => this.disableButton())
       .catch(() => {
         this.showServerErorNotification();

@@ -1,26 +1,5 @@
 <template>
   <div id="container-sobre">
-    <v-layout class="text-left" row wrap mt-5 align-center>
-      <v-flex xs12 md6>
-        <h5>QUANDO /</h5>
-        <span id="quando">
-          De 06 a 09 de
-          <br />novembro de 2019
-        </span>
-      </v-flex>
-      <v-flex xs12 md6>
-        <h5>ONDE /</h5>
-        <span id="onde">
-          Escola de Ciências Exatas e da Computação
-          <br />Pontifícia Universidade Católica de Goiás
-        </span>
-        <br />
-        <span id="onde-endereco">
-          Av, 1ª Avenida, 458-590 - Setor Leste Universitário,
-          <br />Goiânia - GO, 74605-020
-        </span>
-      </v-flex>
-    </v-layout>
     <v-layout p-3 row wrap>
       <v-flex xs12 class="text-xs-justify" mt-5>
         <h2>IV Jornada Científica da Escola de Ciências Exatas e da Computação</h2>

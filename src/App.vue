@@ -1,34 +1,39 @@
 <template>
   <v-app id="app">
-    <NavBar/>
-    <notifications position="top right"/>
-    <router-view/>
+    <NavBar v-show="$route.path==='/conta' ? false : true" />
+    <notifications position="top right" />
+    <router-view />
   </v-app>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import NavBar from '@/components/NavBar.vue';
-
+import { Component, Vue } from "vue-property-decorator";
+import NavBar from "@/components/NavBar.vue";
 
 @Component({
   components: {
-    NavBar,
-  },
+    NavBar
+  }
 })
-
 export default class App extends Vue {
   constructor() {
     super();
   }
-}
 
+  private home() {
+    if (this.$route.path !== "/conta") {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
 </script>
 
 
 <style lang="scss">
 #app {
-  font-family: 'Roboto', Helvetica, Arial, sans-serif !important;
+  font-family: "Roboto", Helvetica, Arial, sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
