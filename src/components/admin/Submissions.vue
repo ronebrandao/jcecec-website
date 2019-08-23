@@ -12,6 +12,20 @@
           <v-divider></v-divider>
           <v-toolbar flat color="white">
             <v-toolbar-title>Submissões</v-toolbar-title>
+            <v-btn
+              small
+              color="info"
+              @click="loadData"
+              :loading="refreshing"
+              :disabled="refreshing"
+            >
+              Atualizar
+              <template v-slot:loader>
+                <span class="custom-loader">
+                  <v-icon light>cached</v-icon>
+                </span>
+              </template>
+            </v-btn>
             <v-spacer></v-spacer>
             <v-text-field
               v-model="search"
@@ -103,7 +117,9 @@
           <ProofcheckForm :showDialog="showRevisionDialog" :submissionId="submissionId" />
           <SetProofreader :showDialog="showProofreaderDialog" />
         </v-tab-item>
-        <v-tab-item :value="'mobile-tabs-5-2'">Tabela de usuários</v-tab-item>
+        <v-tab-item :value="'mobile-tabs-5-2'">
+          <Users />
+        </v-tab-item>
       </v-tabs-items>
     </v-container>
   </div>
@@ -119,6 +135,7 @@ import { saveAs } from "file-saver";
 import SubmissionForm from "@/components/dialogs/admin/SubmissionForm.vue";
 import ProofcheckForm from "@/components/dialogs/admin/ProofcheckForm.vue";
 import SetProofreader from "@/components/dialogs/admin/SetProofreader.vue";
+import Users from "@/components/admin/Users.vue";
 
 interface Submission {
   id: number;
@@ -132,7 +149,8 @@ interface Submission {
   components: {
     SubmissionForm,
     ProofcheckForm,
-    SetProofreader
+    SetProofreader,
+    Users
   }
 })
 export default class Submissions extends mixins(
@@ -166,6 +184,10 @@ export default class Submissions extends mixins(
   private created() {
     this.verifyUser();
 
+    this.loadData();
+  }
+
+  private loadData() {
     this.loading = true;
     getUserSubmissions(this.$store.state.user.id)
       .then(result => {
