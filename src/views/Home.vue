@@ -11,18 +11,16 @@
         <v-parallax dark src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg">
           <v-layout row wrap mt-5 align-center>
             <v-flex xs12 md6>
-              <h5>QUANDO /</h5>
+              <h5>QUANDO</h5>
               <span id="quando">
                 De 06 a 09 de
                 <br />novembro de 2019
               </span>
             </v-flex>
             <v-flex xs12 md6>
-              <h5>ONDE /</h5>
-              <span id="onde">
-                Escola de Ciências Exatas e da Computação
-                <br />Pontifícia Universidade Católica de Goiás
-              </span>
+              <h5>ONDE</h5>
+              <v-flex class="onde">Escola de Ciências Exatas e da Computação</v-flex>
+              <v-flex class="onde">Pontifícia Universidade Católica de Goiás</v-flex>
               <br />
               <span id="onde-endereco">
                 Av, 1ª Avenida, 458-590 - Setor Leste Universitário,
@@ -54,12 +52,12 @@
               <p>INSCREVA-SE JÁ</p>
             </v-flex>
           </v-layout>
-          <v-layout class="call">
+          <v-layout class="subcall text-left">
             <v-flex>
               <p>tandard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release</p>
             </v-flex>
           </v-layout>
-          <v-layout row wrap mt4>
+          <v-layout row wrap class="button-actions">
             <v-flex offset-md3 xs12 md3>
               <v-btn color="primary" large>Faça sua inscrição</v-btn>
             </v-flex>
@@ -133,6 +131,10 @@ export default class Home extends Vue {
 </script>
 
 <style>
+li {
+  list-style-type: none !important;
+}
+
 #sobre p {
   font-size: 24px;
 }
@@ -151,15 +153,28 @@ export default class Home extends Vue {
   text-transform: uppercase;
 }
 
-.call p:first-child {
-  font-size: 40px;
+.call p {
+  font-size: 32px;
   font-weight: bold;
   color: #ddd;
 }
 
-.call p:last-child {
-  font-size: 14px;
+.subcall {
+  justify-content: center;
+  padding: 0 15px;
+}
+
+.subcall p {
+  font-size: 12px;
   color: #ddd;
+}
+
+.button-actions {
+  margin-top: 20px;
+}
+
+.subcall > div {
+  max-width: 900px !important;
 }
 
 .btn-submission {
@@ -184,10 +199,17 @@ export default class Home extends Vue {
 
 #quando {
   font-size: 32px;
+  font-weight: 600 !important;
 }
 
-#onde {
+.onde {
   font-size: 24px;
+}
+
+@media screen and (max-width: 576px) {
+  .onde {
+    padding: 0 20px !important;
+  }
 }
 
 div > hr {
