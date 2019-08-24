@@ -103,26 +103,26 @@ export default class Home extends Vue {
     this.speakers = [
       {
         name: "CARLOS ALBERTO DE NOBREGA",
-        institution: "fessor at Hampden-Sydney College in Virginia, looked ",
-        speaking: "theory of ethics",
+        institution: "Professor at Hampden-Sydney College in Virginia, looked ",
+        speaking: "Theory of ethics",
         description:
-          "lievable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary,",
+          "If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary,",
         img: "/assets/img/speakers/sp1.jpg"
       },
       {
         name: "CARLOS ALBERTO DE NOBREGA",
-        institution: "fessor at Hampden-Sydney College in Virginia, looked ",
-        speaking: "theory of ethics",
+        institution: "Professor at Hampden-Sydney College in Virginia, looked ",
+        speaking: "Theory of ethics",
         description:
-          "lievable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary,",
+          "If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary,",
         img: "/assets/img/speakers/sp2.png"
       },
       {
         name: "CARLOS ALBERTO DE NOBREGA",
-        institution: "fessor at Hampden-Sydney College in Virginia, looked ",
-        speaking: "theory of ethics",
+        institution: "Professor at Hampden-Sydney College in Virginia, looked ",
+        speaking: "Theory of ethics",
         description:
-          "lievable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary,",
+          "If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary,",
         img: "/assets/img/speakers/sp3.png"
       }
     ];
