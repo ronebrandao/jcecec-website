@@ -66,6 +66,16 @@ export default class Carousel extends Vue {
   color: #fff;
 }
 
+@media screen and (max-width: 576px) {
+  .banner {
+    padding: 30px 5px;
+  }
+}
+
+.banner span {
+  text-align: center;
+}
+
 #description {
   letter-spacing: 3px;
 }
