@@ -164,6 +164,7 @@ export default class Submissions extends mixins(
   private showProofreaderDialog: boolean = false;
   private submissionId: number = 0;
   private loading = false;
+  private refreshing = false;
   private search = "";
   private selected: any = [];
   private date: Date = null;
@@ -189,9 +190,9 @@ export default class Submissions extends mixins(
 
   private loadData() {
     this.loading = true;
+    this.refreshing = true;
     getUserSubmissions(this.$store.state.user.id)
       .then(result => {
-        this.loading = false;
         if (result.success) {
           result.data.forEach((item: Submission) => {
             item.created_at = new Date(item.created_at).toLocaleDateString();
@@ -200,9 +201,20 @@ export default class Submissions extends mixins(
           });
 
           this.submissions = result.data;
+        } else {
+          this.showErrorNotification(
+            "Não foi possível carregar as submissões."
+          );
         }
+
+        this.loading = false;
+        this.refreshing = false;
       })
       .catch(err => {
+        this.showErrorNotification(
+          "Ocorreu um erro ao carregas as submissões."
+        );
+        this.refreshing = false;
         this.loading = false;
       });
   }
@@ -253,7 +265,7 @@ export default class Submissions extends mixins(
 </script>
 
  
-<style scoped>
+<style>
 .form-wrapper {
   max-width: 95%;
   box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.11),
@@ -268,5 +280,42 @@ export default class Submissions extends mixins(
 table td,
 table th {
   font-size: 1.2em !important;
+}
+
+.custom-loader {
+  animation: loader 1s infinite;
+  display: flex;
+}
+@-moz-keyframes loader {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes loader {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes loader {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes loader {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 </style>
