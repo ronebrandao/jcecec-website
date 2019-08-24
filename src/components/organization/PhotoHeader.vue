@@ -1,0 +1,71 @@
+<template>
+  <header v-bind:style="{backgroundImage: image ? `url(${image})` : `url(/assets/img/slider/3.jpg)`}">
+      <div>
+        <div>
+	  <h2>
+            {{title}}
+          </h2>
+        
+          <p v-if="description">
+            {{description}}
+          </p>
+        </div>
+        <div>
+	</div>
+      </div>
+    </header>
+</template>
+
+<script lang="ts">
+
+import { Component, Vue, Prop } from "vue-property-decorator";
+
+@Component({
+  components: {
+    
+  }
+})
+
+
+export default class PhotoHeader extends Vue {
+
+  @Prop(String) private title: string;
+  @Prop(String) private description: string;
+  @Prop(String) private image: string;
+
+  constructor() {
+    super();
+  }
+}
+</script>
+
+<style scoped>
+
+header {
+  height: 320px;
+  display: flex;
+  align-items: flex-end;
+  background-size: cover;
+}
+header > div {
+  text-align: left;
+  width: 100%;
+  padding: 35px 150px;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  background-image: linear-gradient(0deg, black, rgba(255, 255, 255, 0));
+}
+header > div > div p {
+  font-size: 13pt;
+}
+header > div > div:first-child {
+  max-width: calc(50% - 7.5px);
+}
+header > div > div:last-child {
+  text-align: right;
+  max-width: calc(50% - 7.5px);
+}
+
+</style>
+
