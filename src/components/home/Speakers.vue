@@ -65,6 +65,15 @@ img {
   margin: 60px auto;
 }
 
+@media screen and (max-width: 576px) {
+  .speaker-card {
+    margin: 20px auto !important;
+  }
+  .description p {
+    padding-right: 20px !important;
+  }
+}
+
 .name {
   font-size: 26px;
   font-style: normal;
@@ -79,12 +88,16 @@ img {
   font-family: "Poppins", sans-serif;
   font-weight: normal;
   font-style: normal;
-  font-size: 18px;
+  font-size: 16px;
   color: #626262;
   text-align: left;
 }
 
 .description {
+  margin-top: 20px;
+}
+
+.institution {
   margin-top: 20px;
 }
 

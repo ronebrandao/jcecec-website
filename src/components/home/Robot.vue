@@ -9,13 +9,13 @@
       <v-flex xs12 md5 offset-md-1>
         <div class="name-robot">
           <span class="name">
-            <h4>COMPETIÇÃO DE ROBÔS</h4>
+            <h2>Competição de robôs</h2>
           </span>
         </div>
-        <div class="f-desc text-justify">
+        <div class="f-desc text-left">
           <p>"lievable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary,"</p>
         </div>
-        <div class="s-desc text-justify">
+        <div class="s-desc text-left">
           <p>"lievable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary,"</p>
         </div>
         <div class="more">
@@ -47,6 +47,10 @@ img {
   text-align: start;
 }
 
+.more button {
+  width: 140px;
+}
+
 .img-robot {
   border: 1px solid #ececec;
 }
@@ -56,6 +60,16 @@ img {
   margin-top: 40px;
 }
 
+@media screen and (max-width: 576px) {
+  .img-robot img {
+    width: 375px !important;
+    height: 440px !important;
+  }
+  .more {
+    margin-left: 10px !important;
+  }
+}
+
 .robot-card {
   margin: 0 auto;
 }
@@ -63,14 +77,14 @@ img {
 .name {
   font-size: 30px !important;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 38px;
-  color: #0068a2;
+  color: #2776f5;
   text-align: left;
 }
 
-.name > h4 {
-  font-size: 30px;
+.name h2 {
+  margin-left: 10px;
 }
 
 .f-desc,
@@ -78,14 +92,15 @@ img {
   font-family: "Poppins", sans-serif;
   font-weight: normal;
   font-style: normal;
-  font-size: 18px;
+  font-size: 14px;
   color: #626262;
   text-align: center;
   margin-top: 30px;
+  padding: 0 20px;
 }
 
 .f-desc {
-  font-size: 21px;
+  font-size: 16px;
 }
 
 .s-desc {
@@ -96,7 +111,7 @@ img {
   max-width: 1170px;
 }
 
-h4 {
-  font-family: "Montserrat", sans-serif;
+h2 {
+  font-family: "Roboto", Helvetica, Arial, sans-serif !important;
 }
 </style>
