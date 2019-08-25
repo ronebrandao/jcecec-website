@@ -40,6 +40,9 @@ export default {
 .speaker {
   display: flex;
 }
+.speaker h3 {
+  text-transform: initial;
+}
 .speaker > div:first-child {
   border-radius: 50%;
   border: 2px solid black;
