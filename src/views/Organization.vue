@@ -37,7 +37,7 @@ import Main from "@/components/organization/Main.vue";
   }
 })
 
-export default class Obs extends Vue {
+export default class Organization extends Vue {
 
   constructor() {
     super();

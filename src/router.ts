@@ -39,7 +39,7 @@ export default new Router({
       path: "/organizacao",
       name: "organizacao",
       component: () =>
-        import(/* webpackChunkName: "account" */ "./views/Obs.vue")
+        import(/* webpackChunkName: "account" */ "./views/Organization.vue")
     },
   ]
 });
