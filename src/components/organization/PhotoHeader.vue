@@ -11,6 +11,7 @@
           </p>
         </div>
         <div>
+          <slot></slot>
 	</div>
       </div>
     </header>
@@ -45,12 +46,13 @@ header {
   height: 320px;
   display: flex;
   align-items: flex-end;
+  background-image: url(/assets/img/slider/3.jpg);
   background-size: cover;
 }
 header > div {
   text-align: left;
   width: 100%;
-  padding: 35px 150px;
+  padding: 35px 14.6484375vw;
   display: flex;
   justify-content: space-between;
   color: white;
@@ -65,6 +67,8 @@ header > div > div:first-child {
 header > div > div:last-child {
   text-align: right;
   max-width: calc(50% - 7.5px);
+  display: flex;
+  align-items: flex-end;
 }
 
 </style>
