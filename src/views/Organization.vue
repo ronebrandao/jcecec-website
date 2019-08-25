@@ -7,12 +7,8 @@
     </PhotoHeader>
 
     <Main>
-      <div>
-        <h3>
-          Title
-        </h3>
-        <p>
-    	  klokdfpsk kmsfçjkmvs kçsjidsvmk ksçdfvçmso çsfdiofmvk skçvmdfmjkç ksvmdimdçskm skvm km
+      <Paragraph title="Title">
+        klokdfpsk kmsfçjkmvs kçsjidsvmk ksçdfvçmso çsfdiofmvk skçvmdfmjkç ksvmdimdçskm skvm km
 	  kvsfmfslç kfsvkl klnkdsk n nskkldn nl knk dkkldnklv dfkl kkld kkfk kkk fnsn lfjnjf sfk
 	  klokdfpsk kmsfçjkmvs kçsjidsvmk ksçdfvçmso çsfdiofmvk skçvmdfmjkç ksvmdimdçskm skvm km
 	  kvsfmfslç kfsvkl klnkdsk n nskkldn nl knk dkkldnklv dfkl kkld kkfk kkk fnsn lfjnjf sfk
@@ -20,11 +16,17 @@
 	  kvsfmfslç kfsvkl klnkdsk n nskkldn nl knk dkkldnklv dfkl kkld kkfk kkk fnsn lfjnjf sfk
        	  klokdfpsk kmsfçjkmvs kçsjidsvmk ksçdfvçmso çsfdiofmvk skçvmdfmjkç ksvmdimdçskm skvm km
 	  kvsfmfslç kfsvkl klnkdsk n nskkldn nl knk dkkldnklv dfkl kkld kkfk kkk fnsn lfjnjf sfk
-        </p>
-      </div>
-      
-      <HorizontalList title="patrocinadores">
-        
+      </Paragraph>
+
+      <Paragraph title="our speakers">
+        Waitting for conclusion of small speakers component to place here.
+      </Paragraph>
+
+      <HorizontalList title="patrons">
+        <h4>Patron 1</h4>
+        <h4>Patron 2</h4>
+        <h4>Patron 3</h4>
+        <h4>Patron 4</h4>
       </HorizontalList>
 
     </Main>
@@ -37,12 +39,14 @@ import { Component, Vue } from "vue-property-decorator";
 import PhotoHeader from "@/components/organization/PhotoHeader.vue";
 import Main from "@/components/organization/Main.vue";
 import HorizontalList from "@/components/organization/HorizontalList.vue";
+import Paragraph from "@/components/organization/Paragraph.vue";
 
 @Component({
   components: {
     PhotoHeader,
     Main,
     HorizontalList,
+    Paragraph,
   }
 })
 

@@ -21,7 +21,7 @@ export default class Main extends Vue {
 }
 </script>
 
-<style scoped>
+<style>
 
 main {
   text-align: left;
