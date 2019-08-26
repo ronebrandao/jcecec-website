@@ -20,18 +20,15 @@ export default class Columns extends Vue {
 <style>
 .columns-component {
   display: flex;
+  flex-wrap: wrap;
+  margin: -7.5px;
 }
 .columns-component > * {
   flex: 1;
-  margin: 0 7.5px;
+  margin: 7.5px;
+  min-width: 220px;
 }
 .columns-component > * p {
   text-align: inherit;
-}
-.columns-component > *:first-child {
-  margin-left: 0;
-}
-.columns-component > *:last-child {
-  margin-right: 0;
 }
 </style>
