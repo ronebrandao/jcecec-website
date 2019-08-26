@@ -38,10 +38,10 @@ export default {
 .speaker {
   display: flex;
 }
-.speaker h3 {
-  text-transform: initial;
-}
 .speaker > div:first-child {
+  width: 60px;
+  height: 60px;
+  box-sizing: border-box;
   border-radius: 50%;
   border: 2px solid black;
   overflow: hidden;
@@ -57,7 +57,7 @@ export default {
   display: flex;
   flex-direction: column;
   text-align: left;
-  padding-top: 15px;
+  padding-top: 8px;
 }
 .speaker > div:last-child > *:not(:last-child) {
   margin-bottom: 5px;

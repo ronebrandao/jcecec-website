@@ -42,7 +42,7 @@ export default class PhotoHeader extends Vue {
 }
 </script>
 
-<style scoped>
+<style>
 
 </style>
 
