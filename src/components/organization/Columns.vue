@@ -5,17 +5,12 @@
 </template>
 
 <script lang="ts">
-
 import { Component, Vue, Prop } from "vue-property-decorator";
 
 @Component({
-  components: {
-    
-  }
+  components: {}
 })
-
 export default class Columns extends Vue {
-
   constructor() {
     super();
   }
@@ -23,7 +18,6 @@ export default class Columns extends Vue {
 </script>
 
 <style>
-
 .columns-component {
   display: flex;
 }
@@ -40,5 +34,4 @@ export default class Columns extends Vue {
 .columns-component > *:last-child {
   margin-right: 0;
 }
-
 </style>

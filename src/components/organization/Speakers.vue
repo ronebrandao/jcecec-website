@@ -1,6 +1,6 @@
 <template>
   <div class="speakers">
-    <Speaker v-for="speaker in speakers" v-bind:speaker="speaker" v-bind:key="Math.trunc(Math.random()*10000)" />
+    <Speaker v-for="(speaker, index) in speakers" v-bind:speaker="speaker" v-bind:key="index" />
   </div>
 </template>
 

@@ -12,7 +12,6 @@
 </template>
 
 <script>
-
 export default {
   name: "Speaker",
   props: ["speaker"],
@@ -20,9 +19,9 @@ export default {
     return {
       avatarStyle() {
         return {
-          backgroundImage: this.speaker.avatar ?
-          `url(${this.speaker.avatar})` :
-          `url(https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/512x512/plain/user.png)`
+          backgroundImage: this.speaker.avatar
+            ? `url(${this.speaker.avatar})`
+            : `url(https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/512x512/plain/user.png)`
         };
       }
     };
@@ -31,7 +30,6 @@ export default {
 </script>
 
 <style scoped>
-
 * {
   margin: 0;
   padding: 0;
@@ -64,5 +62,4 @@ export default {
 .speaker > div:last-child > *:not(:last-child) {
   margin-bottom: 5px;
 }
-
 </style>

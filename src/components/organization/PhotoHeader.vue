@@ -1,41 +1,33 @@
 <template>
-  <header v-bind:style="{backgroundImage: image ? `url(${image})` : `url(/assets/img/slider/3.jpg)`, height: size ? size : '320px', backgroundPositionY: offset ? offset : null}">
+  <header
+    v-bind:style="{backgroundImage: image ? `url(${image})` : `url(/assets/img/slider/3.jpg)`, 
+    height: size ? size : '320px', backgroundPositionY: offset ? offset : null}"
+  >
+    <div>
       <div>
-        <div>
-	  <h2>
-            {{title}}
-          </h2>
-        
-          <p v-if="description">
-            {{description}}
-          </p>
-        </div>
-        <div>
-          <slot></slot>
-	</div>
+        <h2>{{title}}</h2>
+
+        <p v-if="description">{{description}}</p>
       </div>
-    </header>
+      <div>
+        <slot></slot>
+      </div>
+    </div>
+  </header>
 </template>
 
 <script lang="ts">
-
 import { Component, Vue, Prop } from "vue-property-decorator";
 
 @Component({
-  components: {
-    
-  }
+  components: {}
 })
-
-
 export default class PhotoHeader extends Vue {
-
   @Prop(String) private title: string;
   @Prop(String) private description: string;
   @Prop(String) private image: string;
   @Prop(String) private size: string;
   @Prop(String) private offset: string;
-
 
   constructor() {
     super();
@@ -44,7 +36,6 @@ export default class PhotoHeader extends Vue {
 </script>
 
 <style scoped>
-
 header {
   display: flex;
   align-items: flex-end;
@@ -72,6 +63,5 @@ header > div > div:last-child {
   display: flex;
   align-items: flex-end;
 }
-
 </style>
 
