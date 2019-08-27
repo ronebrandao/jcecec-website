@@ -36,7 +36,9 @@ export default class PhotoHeader extends Vue {
 </script>
 
 <style scoped>
+
 header {
+  height: 320px;
   display: flex;
   align-items: flex-end;
   background-image: url(/assets/img/slider/3.jpg);
@@ -63,5 +65,19 @@ header > div > div:last-child {
   display: flex;
   align-items: flex-end;
 }
+@media screen and (max-width: 425px) {
+  header > div {
+    flex-direction: column;
+    padding: 15px 35px;
+  }
+  header > div > div {
+    max-width: unset !important;
+  }
+  header > div > div:last-child {
+    text-align: initial;
+  }
+}
+
+
 </style>
 
