@@ -17,32 +17,20 @@ import Speaker from "@/components/organization/Speaker.vue";
 
 export default class PhotoHeader extends Vue {
 
-  @Prop(Object) private speakers: object;
+  @Prop(Object) private speakers: any;
 
   constructor() {
     super();
-
-
-    this.speakers = [
-      {
-        name: "Speaker 1",
-        description: "Hello, i'm the first speaker"
-      },
-      {
-        name: "Speaker 2",
-        description: "Hello, i'm the second speaker"
-      },
-      {
-        name: "Speaker 3",
-        description: "Hello, i'm the third speaker"
-      },
-    ];
-
   }
 }
 </script>
 
 <style>
-
+.speakers {
+  margin: 25px 0;
+}
+.speakers .speaker {
+  margin-bottom: 85px;
+}
 </style>
 

@@ -5,12 +5,12 @@
     </PhotoHeader>
 
     <Main>
-      <Paragraph
-        title="Title"
-      >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae delectus voluptatum at sapiente, dolorum corporis excepturi dolores ipsam neque minus! Mollitia vitae odio molestiae itaque culpa asperiores laudantium odit? Illo perspiciatis dicta incidunt voluptate aspernatur at quia esse molestias dolorem ea repellat quisquam ipsum iusto dolores nisi iste saepe, corrupti neque, ratione animi, minima quod. Error ea molestiae reprehenderit libero nisi inventore, porro officia eaque laborum ducimus commodi hic nostrum obcaecati repellat voluptatem nemo sit, aliquam cum et pariatur consequuntur! Minima libero perspiciatis quidem molestiae commodi, nam tenetur maxime porro optio labore soluta, voluptas architecto ut animi voluptates nisi aperiam, blanditiis quasi ad fugiat nemo! Saepe perferendis quisquam laborum a ut, ex, iusto odio inventore laudantium neque totam, esse et? Asperiores dolores iusto corrupti fugiat dolore! Vel ab aliquid eos, quam velit cupiditate quis doloribus, est nesciunt deserunt omnis quas debitis voluptatibus aliquam tenetur ducimus assumenda, libero a veritatis illum odio ut aut fugit. Officia tenetur in doloribus reiciendis magni molestias porro quasi tempora similique! Quod, id voluptates dolore minus exercitationem vel aut cumque porro, eligendi ad nam officiis explicabo earum est beatae repellendus voluptatibus quia accusamus blanditiis modi eveniet. Eum ad harum velit neque voluptas? Deserunt, quidem consectetur. Unde reiciendis eligendi sint obcaecati vitae totam ab quaerat neque repellat quisquam natus quibusdam odio quod, optio nihil tempora officiis cupiditate consequuntur cumque cum nostrum corrupti explicabo! Sed ab itaque, sint mollitia quibusdam, laudantium quod cum magnam corporis iste animi, non consequatur repellat dignissimos nemo. Ducimus, nisi est! Beatae minus omnis eos molestias nisi quos totam neque culpa dignissimos facere, ea distinctio necessitatibus vitae maxime, excepturi aliquam aperiam. Obcaecati, necessitatibus tempore!</Paragraph>
+      <Paragraph>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae delectus voluptatum at sapiente, dolorum corporis excepturi dolores ipsam neque minus! Mollitia vitae odio molestiae itaque culpa asperiores laudantium odit? Illo perspiciatis dicta incidunt voluptate aspernatur at quia esse molestias dolorem ea repellat quisquam ipsum iusto dolores nisi iste saepe, corrupti neque, ratione animi, minima quod. Error ea molestiae reprehenderit libero nisi inventore, porro officia eaque laborum ducimus commodi hic nostrum obcaecati repellat voluptatem nemo sit, aliquam cum et pariatur consequuntur! Minima libero perspiciatis quidem molestiae commodi, nam tenetur maxime porro optio labore soluta, voluptas architecto ut animi voluptates nisi aperiam, blanditiis quasi ad fugiat nemo! Saepe perferendis quisquam laborum a ut, ex, iusto odio inventore laudantium neque totam, esse et? Asperiores dolores iusto corrupti fugiat dolore! Vel ab aliquid eos, quam velit cupiditate quis doloribus, est nesciunt deserunt omnis quas debitis voluptatibus aliquam tenetur ducimus assumenda, libero a veritatis illum odio ut aut fugit. Officia tenetur in doloribus reiciendis magni molestias porro quasi tempora similique! Quod, id voluptates dolore minus exercitationem vel aut cumque porro, eligendi ad nam officiis explicabo earum est beatae repellendus voluptatibus quia accusamus blanditiis modi eveniet. Eum ad harum velit neque voluptas? Deserunt, quidem consectetur. Unde reiciendis eligendi sint obcaecati vitae totam ab quaerat neque repellat quisquam natus quibusdam odio quod, optio nihil tempora officiis cupiditate consequuntur cumque cum nostrum corrupti explicabo! Sed ab itaque, sint mollitia quibusdam, laudantium quod cum magnam corporis iste animi, non consequatur repellat dignissimos nemo. Ducimus, nisi est! Beatae minus omnis eos molestias nisi quos totam neque culpa dignissimos facere, ea distinctio necessitatibus vitae maxime, excepturi aliquam aperiam. Obcaecati, necessitatibus tempore!
+      </Paragraph>
 
       <Paragraph title="our speakers">
-        <Speaker />
+        <Speakers v-bind:speakers="speakers" />
       </Paragraph>
 
       <Columns>
@@ -45,7 +45,7 @@ import Main from "@/components/organization/Main.vue";
 import HorizontalList from "@/components/organization/HorizontalList.vue";
 import Paragraph from "@/components/organization/Paragraph.vue";
 import Speakers from "@/components/organization/Speakers.vue";
-import Speaker from "@/components/organization/Speaker.vue";
+// import Speaker from "@/components/organization/Speaker.vue";
 import Columns from "@/components/organization/Columns.vue";
 
 @Component({
@@ -55,7 +55,7 @@ import Columns from "@/components/organization/Columns.vue";
     HorizontalList,
     Paragraph,
     Speakers,
-    Speaker,
+    // Speaker,
     Columns
   }
 })
@@ -72,7 +72,10 @@ export default class Organization extends Vue {
         speaking: "theory of ethics",
         description:
           "lievable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary,",
-        img: "/assets/img/speakers/sp1.jpg"
+        img: "/assets/img/speakers/sp1.jpg",
+        action: () => {
+          alert("You clicked on the first speaker");
+        }
       },
       {
         name: "CARLOS ALBERTO DE NOBREGA",
@@ -80,7 +83,10 @@ export default class Organization extends Vue {
         speaking: "theory of ethics",
         description:
           "lievable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary,",
-        img: "/assets/img/speakers/sp2.png"
+        img: "/assets/img/speakers/sp2.png",
+        action: () => {
+          alert("You clicked on the second speaker");
+        }
       },
       {
         name: "CARLOS ALBERTO DE NOBREGA",
@@ -88,7 +94,11 @@ export default class Organization extends Vue {
         speaking: "theory of ethics",
         description:
           "lievable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary,",
-        img: "/assets/img/speakers/sp3.png"
+        img: "/assets/img/speakers/sp3.png",
+        offset: "-15px",
+        action: () => {
+          alert("You clicked on the third speaker");
+        }
       }
     ];
   }

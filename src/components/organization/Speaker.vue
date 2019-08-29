@@ -1,32 +1,57 @@
 <template>
   <div class="speaker">
     <div class="avatar">
-      <div></div>
+      <div v-bind:style="{backgroundImage: avatar, backgroundPosition: speaker.offset}">
+      </div>
     </div>
     <span class="name">
-      <h4>PROFILE NAME</h4>
+      <h4>{{speaker.name}}</h4>
     </span>
     <div class="institution">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio!
+      {{speaker.institution}}
     </div>
     <div class="speaking">
-      <i>Lorem, ipsum dolor.</i>
+      <i>{{speaker.speaking}}</i>
     </div>
     <div class="description">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora eaque aperiam velit, voluptate necessitatibus distinctio corporis veniam ut assumenda. Fugit consectetur cumque sapiente ab consequuntur beatae tempore perspiciatis magni repellendus, sed facere error. Distinctio quibusdam quis rem, unde impedit soluta inventore ratione enim illo eligendi saepe, necessitatibus, mollitia vel deleniti maxime earum error dicta maiores sapiente dolorem ullam at architecto? Facilis modi consequatur veritatis similique architecto, expedita accusantium porro! Doloribus.
+      {{speaker.description}}
     </div>
     <div class="more">
-      <v-btn color="primary">Leia completo</v-btn>
+      <v-btn color="primary" v-on:click="action()">Leia completo</v-btn>
     </div>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 
 import { Component, Vue, Prop } from "vue-property-decorator";
 
+@Component({
+  components: {}
+})
 export default class Speaker extends Vue {
+  @Prop(Object) private speaker: any;
+  @Prop(Function) action: any;
 
+  private avatar: string;
+  
+  constructor(){
+    super();
+
+    this.avatar = this.speaker.img ? `url(${this.speaker.img})` : `url(https://png.pngtree.com/element_our/png/20181206/users-vector-icon-png_260862.jpg)`;
+
+    this.action = () => {      
+      if(this.speaker.action){
+        try{
+          this.speaker.action();
+        }
+        catch(e){
+          throw new Error(e);
+        }
+      }
+    }
+
+  }
 }
 
 </script>
@@ -54,7 +79,7 @@ export default class Speaker extends Vue {
   height: 240px;
   margin-right: 25px;
   border-radius: 50%;
-  background-image: url(https://png.pngtree.com/element_our/png/20181206/users-vector-icon-png_260862.jpg);
+  /* background-image: url(https://png.pngtree.com/element_our/png/20181206/users-vector-icon-png_260862.jpg); */
   background-size: cover;
 }
 .speaker .name {
