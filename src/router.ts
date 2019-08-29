@@ -34,6 +34,12 @@ export default new Router({
       name: "conta",
       component: () =>
         import(/* webpackChunkName: "account" */ "./views/Admin/MyAccount.vue")
-    }
+    },
+    {
+      path: "/organizacao",
+      name: "organizacao",
+      component: () =>
+        import(/* webpackChunkName: "account" */ "./views/Organization.vue")
+    },
   ]
 });
