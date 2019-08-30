@@ -77,6 +77,14 @@ header > div > div:last-child {
     text-align: initial;
   }
 }
+@media screen and (min-width: 1440px) {
+  header {
+    height: calc(0.1607*100vw + 88.5714px) !important;
+  }
+  header > div {
+    padding: 35px calc(50vw - 500px);
+  }
+}
 
 
 </style>

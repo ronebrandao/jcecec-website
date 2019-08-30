@@ -39,6 +39,12 @@ main > div:not(:last-child) {
     padding: 35px 35px 100px;
   }
 }
+@media screen and (min-width: 1440px) {
+  main {
+    padding: 100px calc(50vw - 500px);
+  }
+}
+
 
 
 </style>
