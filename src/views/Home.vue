@@ -11,14 +11,20 @@
         <v-parallax dark src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg">
           <v-layout row wrap mt-5 align-center>
             <v-flex xs12 md6>
-              <h5>QUANDO</h5>
+              <div class="icontitle">
+                <i class="fas fa-clock"></i>
+                <h5>QUANDO</h5>
+              </div>
               <span id="quando">
                 De 06 a 09 de
                 <br />novembro de 2019
               </span>
             </v-flex>
             <v-flex xs12 md6>
-              <h5>ONDE</h5>
+              <div class="icontitle">
+                <i class="fas fa-map-marked"></i>
+                <h5>ONDE</h5>
+              </div>
               <v-flex class="onde">Escola de Ciências Exatas e da Computação</v-flex>
               <v-flex class="onde">Pontifícia Universidade Católica de Goiás</v-flex>
               <br />
@@ -229,5 +235,25 @@ div > span {
   transform: none !important;
   width: 100% !important;
 } */
+
+/* Higor's resources */
+.icontitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 0;
+}
+.icontitle > i {
+  font-size: 18pt;
+  margin-right: 15px;
+}
+.icontitle > h5 {
+  margin: 0;
+  margin-top: 4px;
+}
+
+
+
+
 </style>
 
