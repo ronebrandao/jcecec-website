@@ -240,6 +240,11 @@ div > span {
 } */
 
 /* Higor's resources */
+#sobre p {
+  text-align: justify;
+  font-size: 1.2em;
+}
+
 .icontitle {
   display: flex;
   justify-content: center;
