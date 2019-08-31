@@ -9,30 +9,33 @@
     <v-layout row wrap>
       <v-flex xs12 sm12>
         <v-parallax dark src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg">
-          <v-layout row wrap mt-5 align-center>
-            <v-flex xs12 md6>
-              <div class="icontitle">
-                <i class="fas fa-clock"></i>
-                <h5>QUANDO</h5>
-              </div>
-              <span id="quando">
-                De 06 a 09 de
-                <br />novembro de 2019
-              </span>
-            </v-flex>
-            <v-flex xs12 md6>
-              <div class="icontitle">
-                <i class="fas fa-map-marked"></i>
-                <h5>ONDE</h5>
-              </div>
-              <v-flex class="onde">Escola de Ciências Exatas e da Computação</v-flex>
-              <v-flex class="onde">Pontifícia Universidade Católica de Goiás</v-flex>
-              <br />
-              <span id="onde-endereco">
-                Av, 1ª Avenida, 458-590 - Setor Leste Universitário,
-                <br />Goiânia - GO, 74605-020
-              </span>
-            </v-flex>
+          <v-layout id="whenwhere">
+            <div>
+              <!-- <v-flex> -->
+                <div class="icontitle">
+                  <i class="fas fa-clock"></i>
+                  <h5>QUANDO</h5>
+                </div>
+                <span id="quando">
+                  De 06 a 09 de
+                  <br />novembro de 2019
+                </span>
+              <!-- </v-flex> -->
+              <!-- <v-flex> -->
+                <div class="icontitle">
+                  <i class="fas fa-map-marked"></i>
+                  <h5>ONDE</h5>
+                </div>
+                <div>
+                  <v-flex class="onde">Escola de Ciências Exatas e da Computação</v-flex>
+                  <v-flex class="onde">Pontifícia Universidade Católica de Goiás</v-flex>
+                </div>
+                <span id="onde-endereco">
+                  Av, 1ª Avenida, 458-590 - Setor Leste Universitário,
+                  <br />Goiânia - GO, 74605-020
+                </span>
+              <!-- </v-flex> -->
+            </div>
           </v-layout>
         </v-parallax>
       </v-flex>
@@ -252,7 +255,58 @@ div > span {
   margin-top: 4px;
 }
 
-
+#whenwhere {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+#whenwhere > div {
+  max-width: 1170px;
+  margin: 0 auto !important;
+  display: inline-grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, auto);
+  grid-template-areas: "t1 t2" "c1 c2" "nn cc2";
+}
+#whenwhere > div > .icontitle {
+  grid-area: t1;
+}
+#whenwhere > div > .icontitle:nth-child(3) {
+  grid-area: t2;
+}
+#whenwhere > div #onde-endereco {
+  grid-area: cc2;
+}
+@media screen and (max-width: 768px) {
+  #whenwhere > div {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, auto);
+    grid-template-areas: unset;
+  }
+  #whenwhere > div > .icontitle {
+    grid-area: unset !important;
+  }
+  #whenwhere > div > .icontitle:nth-child(3) {
+    margin-top: 22px;
+  }
+  #whenwhere > div #onde-endereco {
+    grid-area: unset !important;
+  }
+  #whenwhere > div > span:nth-child(5) {
+    margin-top: 5px;
+  }
+}
+@media screen and (max-width: 425px) {
+  #whenwhere > div span:nth-child(2) {
+    font-size: 28px;
+  }
+  #whenwhere > div > div:nth-child(4) {
+    font-size: 18px;
+  }
+  #whenwhere > div > div:nth-child(4) > div {
+    font-size: inherit;
+  }
+}
 
 
 </style>
