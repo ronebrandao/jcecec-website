@@ -240,6 +240,37 @@ div > span {
 } */
 
 /* Higor's resources */
+.banner {
+  position: relative;
+  padding: 30px 100px 30px 220px !important;
+}
+.banner .logo {
+  position: absolute;
+  width: auto;
+  height: 480px;
+  left: -50px;
+  bottom: -80px;
+  z-index: 101;
+  filter: brightness(2);
+}
+.banner .back {
+  z-index: 100;
+  filter: blur(1px);
+}
+@media screen and (max-width: 768px) {
+  .banner {
+    padding: 30px 100px !important;
+  }
+  .banner .logo {
+    display: none;
+  }
+}
+@media screen and (max-width: 576px) {
+  .banner {
+    padding: 30px 5px !important;
+  }
+}
+
 #sobre p {
   text-align: justify;
   font-size: 1.2em;
