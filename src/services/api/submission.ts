@@ -39,6 +39,6 @@ export function downloadFile(fileName: string) {
 export function setSubmissionProofreader(submissionId: number, proofreaderId: number) {
   return axios.put(API_URL + "submissions/" + submissionId, {
     proofreaderId
-  });
+  }).then(res => res.data);
 }
 

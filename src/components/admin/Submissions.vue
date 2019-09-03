@@ -26,6 +26,12 @@
                 </span>
               </template>
             </v-btn>
+            <v-btn
+              small
+              color="success"
+              v-show="isAdmin && selected.length > 0"
+              @click="showSetProofreader(selected)"
+            >Atribuir revisor</v-btn>
             <v-spacer></v-spacer>
             <v-text-field
               v-model="search"
@@ -42,7 +48,6 @@
             :search="search"
             v-model="selected"
             item-key="id"
-            select-all
             rows-per-page-text="Itens por página:"
             no-data-text="Ops! Parece que você ainda não tem nenhuma submissão."
             class="elevation-1"
@@ -87,22 +92,6 @@
                   </template>
                   <span>Revisar submissão</span>
                 </v-tooltip>
-
-                <v-tooltip bottom>
-                  <template v-slot:activator="{ on }">
-                    <v-btn
-                      fab
-                      flat
-                      small
-                      v-on="on"
-                      v-if="isAdmin"
-                      @click="showSetProofreader(props.item.id)"
-                    >
-                      <v-icon dark color="teal">person_add</v-icon>
-                    </v-btn>
-                  </template>
-                  <span>Atribuir revisor</span>
-                </v-tooltip>
               </td>
             </template>
             <template v-slot:no-results>
@@ -114,8 +103,16 @@
             </template>
           </v-data-table>
           <SubmissionForm />
-          <ProofcheckForm :showDialog="showRevisionDialog" :submissionId="submissionId" />
-          <SetProofreader :showDialog="showProofreaderDialog" />
+          <ProofcheckForm
+            :showDialog="showRevisionDialog"
+            :submissionId="submissionId"
+            @hidden="hideProofreadDialog"
+          />
+          <SetProofreader
+            :showDialog="showSetProofreaderDialog"
+            :submission="selected"
+            @hidden="hideSetProofreader"
+          />
         </v-tab-item>
         <v-tab-item :value="'mobile-tabs-5-2'">
           <Users />
@@ -161,7 +158,7 @@ export default class Submissions extends mixins(
   private isAdmin = false;
   private activeTab: any = null;
   private showRevisionDialog: boolean = false;
-  private showProofreaderDialog: boolean = false;
+  private showSetProofreaderDialog: boolean = false;
   private submissionId: number = 0;
   private loading = false;
   private refreshing = false;
@@ -258,8 +255,16 @@ export default class Submissions extends mixins(
     this.showRevisionDialog = true;
   }
 
-  private showSetProofreader(submissionId: number) {
-    this.showProofreaderDialog = true;
+  private hideProofreadDialog() {
+    this.showRevisionDialog = false;
+  }
+
+  private showSetProofreader(seletedItems: any) {
+    this.showSetProofreaderDialog = true;
+  }
+
+  private hideSetProofreader() {
+    this.showSetProofreaderDialog = false;
   }
 }
 </script>
