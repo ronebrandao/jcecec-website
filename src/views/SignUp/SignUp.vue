@@ -87,6 +87,7 @@
           :items="institutionsNames"
           :label="'Instituições'"
           :rules="requiredRule"
+          no-data-text="Nenhuma instituição encontrada."
           v-model="form.institution"
           box
         ></v-autocomplete>
@@ -105,6 +106,7 @@
               v-model="selectedState"
               :label="'Estado'"
               :rules="requiredRule"
+              no-data-text="Nenhum estado encontrado."
               box
             ></v-autocomplete>
           </v-flex>
@@ -115,6 +117,7 @@
               v-model="selectedCity"
               :label="'Cidade'"
               :rules="requiredRule"
+              no-data-text="Nenhuma cidade encontrada."
               box
             ></v-autocomplete>
           </v-flex>

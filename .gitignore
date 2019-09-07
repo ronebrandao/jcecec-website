@@ -22,3 +22,5 @@ yarn-error.log*
 export.sh
 log
 .outter-css
+.OrgSass
+style

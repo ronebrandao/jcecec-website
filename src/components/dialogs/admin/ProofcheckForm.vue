@@ -160,12 +160,12 @@ export default class ProofcheckForm extends mixins(
       title: "Confiança do revisor: ",
       subtitle: "Qual é a sua confiança a respeito dessa revisão?",
       options: [
-        { value: "expert", text: "Sou um especialista na área" },
+        { value: 3, text: "Sou um especialista na área" },
         {
-          value: "familiar",
+          value: 2,
           text: "Sou familiarizado com trabalho nessa área"
         },
-        { value: "non-expert", text: "Não sou um especialista na área" }
+        { value: 1, text: "Não sou um especialista na área" }
       ]
     },
     {
@@ -213,7 +213,7 @@ export default class ProofcheckForm extends mixins(
   }
 
   private hideDialog() {
-    this.dialog = false;
+    this.$emit("hidden");
   }
 
   private mapValues(proofRead: Proofread) {
