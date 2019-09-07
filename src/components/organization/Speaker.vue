@@ -24,7 +24,7 @@
 
 <script lang="ts">
 
-import { Component, Vue, Prop } from "vue-property-decorator";
+import { Component, Vue, Prop, Watch } from "vue-property-decorator";
 
 @Component({
   components: {}
@@ -34,6 +34,11 @@ export default class Speaker extends Vue {
   @Prop(Function) action: any;
 
   private avatar: string;
+
+  @Watch('speaker')
+  speakerChanged(newVal: any) {
+    console.log(newVal);
+  }
   
   constructor(){
     super();
