@@ -240,10 +240,7 @@ div > span {
 } */
 
 /* Higor's resources */
-.banner {
-  position: relative;
-  padding: 30px 100px 30px 220px !important;
-}
+
 .banner .logo {
   position: absolute;
   width: auto;

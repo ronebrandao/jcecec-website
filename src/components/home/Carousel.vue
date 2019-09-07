@@ -6,8 +6,6 @@
           <v-container fill-height>
             <v-layout align-center fill-height justify-center>
               <div class="banner">
-                <img src="assets/img/logo-clean.webp" class="logo">
-                <img src="assets/img/logo-clean.webp" class="logo back">
                 <div>
                   <span class="date">6 a 9 de Novembro</span>
                 </div>
