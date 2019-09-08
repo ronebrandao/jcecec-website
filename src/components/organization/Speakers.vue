@@ -1,16 +1,12 @@
 <template>
   <div>
     <v-carousel light hide-delimiters height="auto">
-      <v-carousel-item v-for="(item, i) in speakersPaginated" :key="i">
-        <div class="speakers" v-for="(container, j) in speakersPaginated" :key="j">
-          <Speaker v-for="(speaker, index) in item.array" v-bind:speaker="speaker" v-bind:key="index" />
+      <v-carousel-item v-for="(page, p_index) in speakersPaginated" :key="p_index">
+        <div class="speakers">
+          <Speaker v-for="(speaker, index) in page.array" :key="index" :speaker="speaker" />
         </div>
       </v-carousel-item>
     </v-carousel>
-    
-    <!-- <div class="speakers">
-      <Speaker v-for="(speaker, index) in speakers" v-bind:speaker="speaker" v-bind:key="index" />
-    </div> -->
   </div>
 </template>
 
@@ -28,27 +24,25 @@ import Speaker from "@/components/organization/Speaker.vue";
 export default class PhotoHeader extends Vue {
 
   @Prop(Object) private speakers: any;
-  @Prop(Number) private per_page: number=2;
+  @Prop(Number) private paginate: number=2;
 
   private speakersPaginated: any = null;
 
   constructor() {
     super();
 
-    if(this.per_page){
+    if(this.paginate){
       
-      let pages = this.speakers.length/this.per_page | 0 + (() => (this.speakers.length%this.per_page == 0) ? 0 : 1)();
+      let pages = (this.speakers.length/this.paginate | 0) + (this.speakers.length % this.paginate);
       this.speakersPaginated = [];
-      /* let objectsPerPage = []; */
-
 
       for(let i = 0; i < pages; i++){
         this.speakersPaginated.push(
           (() => {
             let objectsPerPage: any = [];
 
-            if(this.speakers.length)
-              for(let j = 0; j < this.per_page; j++)
+            for(let j = 0; j < this.paginate; j++)
+              if(this.speakers.length)
                 objectsPerPage.push(this.speakers.shift());
 
             return {
@@ -57,7 +51,6 @@ export default class PhotoHeader extends Vue {
           })()
         );
       }
-      console.log(this.speakersPaginated);
     }
   }
 }
