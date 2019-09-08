@@ -21,10 +21,13 @@
             <router-link class="nav-link" to="/">Home</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/cadastro">Inscrição</router-link>
+            <router-link class="nav-link" to="/evento">Evento</router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link" to="/organizacao">Organização</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/cadastro">Inscrição</router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link" to="/submissao">Submissão</router-link>

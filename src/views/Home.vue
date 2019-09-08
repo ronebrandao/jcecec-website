@@ -9,24 +9,33 @@
     <v-layout row wrap>
       <v-flex xs12 sm12>
         <v-parallax dark src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg">
-          <v-layout row wrap mt-5 align-center>
-            <v-flex xs12 md6>
-              <h5>QUANDO</h5>
-              <span id="quando">
-                De 06 a 09 de
-                <br />novembro de 2019
-              </span>
-            </v-flex>
-            <v-flex xs12 md6>
-              <h5>ONDE</h5>
-              <v-flex class="onde">Escola de Ciências Exatas e da Computação</v-flex>
-              <v-flex class="onde">Pontifícia Universidade Católica de Goiás</v-flex>
-              <br />
-              <span id="onde-endereco">
-                Av, 1ª Avenida, 458-590 - Setor Leste Universitário,
-                <br />Goiânia - GO, 74605-020
-              </span>
-            </v-flex>
+          <v-layout id="whenwhere">
+            <div>
+              <!-- <v-flex> -->
+                <div class="icontitle">
+                  <i class="fas fa-clock"></i>
+                  <h5>QUANDO</h5>
+                </div>
+                <span id="quando">
+                  De 06 a 09 de
+                  <br />novembro de 2019
+                </span>
+              <!-- </v-flex> -->
+              <!-- <v-flex> -->
+                <div class="icontitle">
+                  <i class="fas fa-map-marked"></i>
+                  <h5>ONDE</h5>
+                </div>
+                <div>
+                  <v-flex class="onde">Escola de Ciências Exatas e da Computação</v-flex>
+                  <v-flex class="onde">Pontifícia Universidade Católica de Goiás</v-flex>
+                </div>
+                <span id="onde-endereco">
+                  Av, 1ª Avenida, 458-590 - Setor Leste Universitário,
+                  <br />Goiânia - GO, 74605-020
+                </span>
+              <!-- </v-flex> -->
+            </div>
           </v-layout>
         </v-parallax>
       </v-flex>
@@ -236,5 +245,117 @@ div > hr {
 div > span {
   color: white;
 }
+<<<<<<< HEAD
+=======
+
+/* .v-parallax__image {
+  transform: none !important;
+  width: 100% !important;
+} */
+
+/* Higor's resources */
+
+.banner .logo {
+  position: absolute;
+  width: auto;
+  height: 480px;
+  left: -50px;
+  bottom: -80px;
+  z-index: 101;
+  filter: brightness(2);
+}
+.banner .back {
+  z-index: 100;
+  filter: blur(1px);
+}
+@media screen and (max-width: 768px) {
+  .banner {
+    padding: 30px 100px !important;
+  }
+  .banner .logo {
+    display: none;
+  }
+}
+@media screen and (max-width: 576px) {
+  .banner {
+    padding: 30px 5px !important;
+  }
+}
+
+#sobre p {
+  text-align: justify;
+  font-size: 1.2em;
+}
+
+.icontitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 0;
+}
+.icontitle > i {
+  font-size: 18pt;
+  margin-right: 15px;
+}
+.icontitle > h5 {
+  margin: 0;
+  margin-top: 4px;
+}
+
+#whenwhere {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+#whenwhere > div {
+  max-width: 1170px;
+  margin: 0 auto !important;
+  display: inline-grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, auto);
+  grid-template-areas: "t1 t2" "c1 c2" "nn cc2";
+}
+#whenwhere > div > .icontitle {
+  grid-area: t1;
+}
+#whenwhere > div > .icontitle:nth-child(3) {
+  grid-area: t2;
+}
+#whenwhere > div #onde-endereco {
+  grid-area: cc2;
+}
+@media screen and (max-width: 768px) {
+  #whenwhere > div {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, auto);
+    grid-template-areas: unset;
+  }
+  #whenwhere > div > .icontitle {
+    grid-area: unset !important;
+  }
+  #whenwhere > div > .icontitle:nth-child(3) {
+    margin-top: 22px;
+  }
+  #whenwhere > div #onde-endereco {
+    grid-area: unset !important;
+  }
+  #whenwhere > div > span:nth-child(5) {
+    margin-top: 5px;
+  }
+}
+@media screen and (max-width: 425px) {
+  #whenwhere > div span:nth-child(2) {
+    font-size: 28px;
+  }
+  #whenwhere > div > div:nth-child(4) {
+    font-size: 18px;
+  }
+  #whenwhere > div > div:nth-child(4) > div {
+    font-size: inherit;
+  }
+}
+
+
+>>>>>>> 69156d8d78f5e89fde229cf67db5c53ca8df20aa
 </style>
 

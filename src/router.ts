@@ -41,5 +41,11 @@ export default new Router({
       component: () =>
         import(/* webpackChunkName: "account" */ "./views/Organization.vue")
     },
+    {
+      path: "/evento",
+      name: "evento",
+      component: () =>
+        import(/* webpackChunkName: "account" */ "./views/Evento.vue")
+    },
   ]
 });

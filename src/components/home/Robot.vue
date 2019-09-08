@@ -1,10 +1,11 @@
 <template>
   <v-container class="robot-card">
     <v-layout row wrap>
-      <v-flex xs12 md5>
-        <span class="img-robot">
-          <img src="/assets/img/robot/rb1.jpg" height="625" width="560" />
-        </span>
+      <v-flex xs12 md5 class="rb-icon">
+        <div>
+          <img src="/assets/img/robot/rb1.jpg"/>
+          <div></div>
+        </div>
       </v-flex>
       <v-flex xs12 md5 offset-md-1>
         <div class="name-robot">
@@ -114,4 +115,19 @@ img {
 h2 {
   font-family: "Roboto", Helvetica, Arial, sans-serif !important;
 }
+
+/* Higor's resources */
+.rb-icon{
+  display: flex;
+  justify-content: center;
+}
+
+.rb-icon > div {
+  position: relative;
+}
+
+.rb-icon > div img {
+  mix-blend-mode: multiply;
+}
+
 </style>

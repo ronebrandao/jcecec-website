@@ -1,14 +1,26 @@
 <template>
   <v-layout>
-    <v-dialog v-model="dialog" persistent max-width="400">
+    <v-dialog v-model="dialog" persistent max-width="450">
       <v-card>
+        <v-card-title class="headline">Escolha os revisores do trabalho N° {{submissionId}}</v-card-title>
         <v-card-text>
           <v-autocomplete
             :items="revisores"
-            :label="'Revisores'"
-            v-model="revisor"
+            :label="'1°'"
+            v-model="revisor1"
             no-data-text="Nenhum revisor encontrado."
-            box
+          ></v-autocomplete>
+          <v-autocomplete
+            :items="revisores"
+            :label="'2°'"
+            v-model="revisor2"
+            no-data-text="Nenhum revisor encontrado."
+          ></v-autocomplete>
+          <v-autocomplete
+            :items="revisores"
+            :label="'3̣°'"
+            v-model="revisor3"
+            no-data-text="Nenhum revisor encontrado."
           ></v-autocomplete>
         </v-card-text>
 
@@ -43,9 +55,12 @@ export default class SetProofreaderDialog extends mixins(
   @Prop({ type: Boolean, default: false }) private showDialog: boolean;
   @Prop(Array) private submission: any[] = [];
   private dialog: boolean = false;
-  private revisor: any = null;
   private revisores: any = null;
   private submissionId: any = null;
+
+  private revisor1: any = null;
+  private revisor2: any = null;
+  private revisor3: any = null;
 
   constructor() {
     super();
@@ -89,25 +104,27 @@ export default class SetProofreaderDialog extends mixins(
   }
 
   private hideDialog() {
-    this.revisor = null;
+    this.revisor1 = null;
+    this.revisor2 = null;
+    this.revisor3 = null;
     this.submissionId = null;
     this.$emit("hidden");
   }
 
   private setProofreader() {
-    this.showLoader();
-    setSubmissionProofreader(this.submissionId, this.revisor)
-      .then((resp: any) => {
-        if (resp.success) {
-          this.showSuccessNotification("Revisor atribuido com sucesso!");
-        }
-        this.hideLoader();
-        this.hideDialog();
-      })
-      .catch(err => {
-        this.showErrorNotification("Ocorreu um erro ao atribuir o revisor.");
-        this.hideLoader();
-      });
+    // this.showLoader();
+    // setSubmissionProofreader(this.submissionId, this.revisor)
+    //   .then((resp: any) => {
+    //     if (resp.success) {
+    //       this.showSuccessNotification("Revisor atribuido com sucesso!");
+    //     }
+    //     this.hideLoader();
+    //     this.hideDialog();
+    //   })
+    //   .catch(err => {
+    //     this.showErrorNotification("Ocorreu um erro ao atribuir o revisor.");
+    //     this.hideLoader();
+    //   });
   }
 }
 </script>
