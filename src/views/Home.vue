@@ -54,21 +54,25 @@
           </v-layout>
           <v-layout class="subcall text-left">
             <v-flex>
-              <p>tandard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release</p>
+              <p class="text-justify">
+                A IV JCECEC e I Jornada Científica Regional (JCR) será realizada de 11 a 14 de Novembro de
+                2019. A IV JCECEC e I JCR será a primeira internacional e vai contar com pesquisadores de três paises.
+                Nessa edição conta-se com a participação do Instituto Federal de Goiás (IFG).
+              </p>
             </v-flex>
           </v-layout>
           <v-layout row wrap class="button-actions">
             <v-flex offset-md3 xs12 md3>
-              <v-btn color="primary" large>Faça sua inscrição</v-btn>
+              <v-btn @click="goToSubscription" color="primary" large>Faça sua inscrição</v-btn>
             </v-flex>
             <v-flex xs12 md3>
-              <v-btn large class="btn-submission">Submeta seu artigo</v-btn>
+              <v-btn @click="goToSubmission" large class="btn-submission">Submeta seu artigo</v-btn>
             </v-flex>
           </v-layout>
           <v-layout class="line rights-reserved">
             <v-flex>
               <hr />
-              <p>&copy; ndard dummy text ever since the 1500s, when an unknown</p>
+              <p>&copy; 4º Jornada Científica da Escola de Ciências Exatas e da Computação - JCECEC 2019</p>
             </v-flex>
           </v-layout>
         </v-container>
@@ -127,6 +131,14 @@ export default class Home extends Vue {
       }
     ];
   }
+
+  private goToSubscription() {
+    this.$router.push("/cadastro");
+  }
+
+  private goToSubmission() {
+    this.$router.push("/submissao");
+  }
 }
 </script>
 
@@ -165,7 +177,7 @@ li {
 }
 
 .subcall p {
-  font-size: 12px;
+  font-size: 14px;
   color: #ddd;
 }
 
@@ -224,10 +236,5 @@ div > hr {
 div > span {
   color: white;
 }
-
-/* .v-parallax__image {
-  transform: none !important;
-  width: 100% !important;
-} */
 </style>
 
