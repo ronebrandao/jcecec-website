@@ -245,8 +245,6 @@ div > hr {
 div > span {
   color: white;
 }
-<<<<<<< HEAD
-=======
 
 /* .v-parallax__image {
   transform: none !important;
@@ -356,6 +354,5 @@ div > span {
 }
 
 
->>>>>>> 69156d8d78f5e89fde229cf67db5c53ca8df20aa
 </style>
 
