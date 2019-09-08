@@ -24,12 +24,14 @@ import Speaker from "@/components/organization/Speaker.vue";
 export default class PhotoHeader extends Vue {
 
   @Prop(Object) private speakers: any;
-  @Prop(Number) private paginate: number=2;
+  @Prop(Number) private paginate: number;
 
   private speakersPaginated: any = null;
 
   constructor() {
     super();
+
+    if(!this.paginate) this.paginate = 2;
 
     if(this.paginate){
       
