@@ -24,7 +24,7 @@
 
 <script lang="ts">
 
-import { Component, Vue, Prop, Watch } from "vue-property-decorator";
+import { Component, Vue, Prop } from "vue-property-decorator";
 
 @Component({
   components: {}
@@ -34,11 +34,6 @@ export default class Speaker extends Vue {
   @Prop(Function) action: any;
 
   private avatar: string;
-
-  @Watch('speaker')
-  speakerChanged(newVal: any) {
-    console.log(newVal);
-  }
   
   constructor(){
     super();
@@ -84,7 +79,6 @@ export default class Speaker extends Vue {
   height: 240px;
   margin-right: 25px;
   border-radius: 50%;
-  /* background-image: url(https://png.pngtree.com/element_our/png/20181206/users-vector-icon-png_260862.jpg); */
   background-size: cover;
 }
 .speaker .name {

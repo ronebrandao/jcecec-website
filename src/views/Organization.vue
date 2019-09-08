@@ -45,7 +45,6 @@ import Main from "@/components/organization/Main.vue";
 import HorizontalList from "@/components/organization/HorizontalList.vue";
 import Paragraph from "@/components/organization/Paragraph.vue";
 import Speakers from "@/components/organization/Speakers.vue";
-// import Speaker from "@/components/organization/Speaker.vue";
 import Columns from "@/components/organization/Columns.vue";
 
 @Component({
@@ -55,7 +54,6 @@ import Columns from "@/components/organization/Columns.vue";
     HorizontalList,
     Paragraph,
     Speakers,
-    // Speaker,
     Columns
   }
 })
