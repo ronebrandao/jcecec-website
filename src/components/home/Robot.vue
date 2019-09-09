@@ -3,7 +3,7 @@
     <v-layout row wrap>
       <v-flex xs12 md5 class="rb-icon">
         <div>
-          <img src="/assets/img/robot/rb1.jpg"/>
+          <img src="/assets/img/robot/rb1.jpg" />
           <div></div>
         </div>
       </v-flex>
@@ -14,13 +14,20 @@
           </span>
         </div>
         <div class="f-desc text-left">
-          <p>"lievable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary,"</p>
-        </div>
-        <div class="s-desc text-left">
-          <p>"lievable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary,"</p>
-        </div>
-        <div class="more">
-          <v-btn color="primary">Saiba mais</v-btn>
+          <p>
+            As competições de robôs reúnem construtores de robôs que competem para mostrar qual deles é
+            capaz de cumprir da melhor forma um determinado objetivo especificado anteriormente à competição. As
+            competições podem ser diferenciadas segundo alguns critérios básicos, a saber: propósitos científicos e
+            acadêmicos, grau de autonomia exigida dos protótipos de robôs para a realização das tarefas a eles
+            solicitadas, restrições para a construção do protótipo, ou seja, o quão livre é a escolha das plataformas
+            robóticas que podem ser empregadas na construção dos protótipos e Ua maneira como a organização da
+            equipe está vinculada a iniciativas de instituições educacionais ou organizações formais. A competição de
+            robôs da IV JCECEC tem vai explorar dois dos critérios propósitos científicos e acadêmicos, grau de
+            autonomia exigida dos protótipos de robôs para a realização das tarefas a eles solicitadas.
+          </p>
+          <div class="more">
+            <v-btn color="primary">Saiba mais</v-btn>
+          </div>
         </div>
       </v-flex>
     </v-layout>
@@ -117,7 +124,7 @@ h2 {
 }
 
 /* Higor's resources */
-.rb-icon{
+.rb-icon {
   display: flex;
   justify-content: center;
 }
@@ -129,5 +136,4 @@ h2 {
 .rb-icon > div img {
   mix-blend-mode: multiply;
 }
-
 </style>
