@@ -1,48 +1,41 @@
 <template>
   <div>
-      <header class="banner" :style="{backgroundImage: `url(${defaults.bgBanner})`}">
+    <header class="banner" :style="{backgroundImage: `url(${defaults.bgBanner})`}">
+      <div>
+        <div :style="{backgroundImage: `url(${speaker.img})`}"></div>
+        <div>
           <div>
-              <div :style="{backgroundImage: `url(${speaker.img})`}">
-
-              </div>
-              <div>
-                  <div>
-                      <h1>{{speaker.name}}</h1>
-                      <h4>{{speaker.institution}}</h4>
-                  </div>
-              </div>
+            <h1>{{speaker.name}}</h1>
+            <h4>{{speaker.institution}}</h4>
           </div>
-      </header>
-
-      <div class="main">
-          <label for="curriculum">
-              <h4>Curriculum</h4>
-          </label>
-          <input type="checkbox" id="curriculum" class="toggle">
-          <div>
-            <div>
-                <p>
-                    {{speaker.description}}
-                </p>
-            </div>
-          </div>
-
-
-          <label for="palestra">
-              <h4>Palestra</h4>
-          </label>
-          <input type="checkbox" id="palestra" class="toggle">
-          <div>
-              <div>
-                <i>
-                    <h5>{{speaker.speaking}}</h5>
-                </i>
-                <p>
-                    {{speaker.subjectResume}}
-                </p>
-              </div>
-          </div>
+        </div>
       </div>
+    </header>
+
+    <div class="main">
+      <label for="curriculum">
+        <h4>Curriculum</h4>
+      </label>
+      <input type="checkbox" id="curriculum" class="toggle" />
+      <div>
+        <div>
+          <p>{{speaker.description}}</p>
+        </div>
+      </div>
+
+      <label for="palestra">
+        <h4>Palestra</h4>
+      </label>
+      <input type="checkbox" id="palestra" class="toggle" />
+      <div>
+        <div>
+          <i>
+            <h5>{{speaker.speaking}}</h5>
+          </i>
+          <p>{{speaker.subjectResume}}</p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -51,7 +44,6 @@ import { Component, Vue, Prop } from "vue-property-decorator";
 
 @Component
 export default class SpeakerProfile extends Vue {
-  
   private speaker: any;
   private defaults: any;
 
@@ -59,8 +51,9 @@ export default class SpeakerProfile extends Vue {
     super();
 
     this.defaults = {
-        bgBanner: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
-    }
+      bgBanner:
+        "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+    };
 
     this.speaker = {
       name: "Rosa Maria de Castro Fernandes Vasconcelos",
@@ -102,9 +95,7 @@ export default class SpeakerProfile extends Vue {
     console.log(this.$router.currentRoute.query);
   }
 
-  private mounted(){
-
-  }
+  private mounted() {}
 }
 </script>
 
@@ -131,7 +122,8 @@ export default class SpeakerProfile extends Vue {
   height: 250px;
   border-radius: 35px;
   border: 5px solid white;
-  box-shadow: 12px 13px 20px black;
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.25),
+    0 10px 15px 0 rgba(0, 0, 0, 0.08);
   background-size: cover;
 }
 .banner > div > div:last-child {
@@ -166,11 +158,10 @@ export default class SpeakerProfile extends Vue {
 .main label {
   display: block;
 }
-.main input[type=checkbox] {
+.main input[type="checkbox"] {
   display: none !important;
 }
 .main .toggle:checked + div {
   height: 0;
 }
-
 </style>
