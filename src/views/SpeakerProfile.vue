@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <div>
       <header class="banner" :style="{backgroundImage: `url(${defaults.bgBanner})`}">
           <div>
               <div :style="{backgroundImage: `url(${speaker.img})`}">
@@ -14,10 +14,36 @@
           </div>
       </header>
 
-      <!-- <main>
-          <h4>Curriculum</h4>
-      </main> -->
-  </v-app>
+      <div class="main">
+          <label for="curriculum">
+              <h4>Curriculum</h4>
+          </label>
+          <input type="checkbox" id="curriculum" class="toggle">
+          <div>
+            <div>
+                <p>
+                    {{speaker.description}}
+                </p>
+            </div>
+          </div>
+
+
+          <label for="palestra">
+              <h4>Palestra</h4>
+          </label>
+          <input type="checkbox" id="palestra" class="toggle">
+          <div>
+              <div>
+                <i>
+                    <h5>{{speaker.speaking}}</h5>
+                </i>
+                <p>
+                    {{speaker.subjectResume}}
+                </p>
+              </div>
+          </div>
+      </div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -89,15 +115,16 @@ export default class SpeakerProfile extends Vue {
   height: 250px;
   background-size: cover;
   background-attachment: fixed;
-  padding: 0 220px;
+  padding: 0 16.284233901vw;
   margin-bottom: 125px;
 }
 .banner > div {
   position: absolute;
   height: 250px;
   display: flex;
-  bottom: calc(-100%/2);
+  bottom: -60%;
   text-align: left;
+  width: 67.431532198vw;
 }
 .banner > div > div:first-child {
   width: 250px;
@@ -110,6 +137,40 @@ export default class SpeakerProfile extends Vue {
 .banner > div > div:last-child {
   padding-left: 45px;
   align-self: flex-end;
+}
+
+.main {
+  padding: 120px 220px;
+  text-align: left;
+}
+.main h4 {
+  user-select: none;
+  text-transform: uppercase;
+  border-bottom: 2px solid;
+  padding: 5px 0;
+  transition: background-color 300ms ease;
+}
+.main h4:hover {
+  cursor: pointer;
+  background-color: lightgray;
+}
+.main p {
+  text-align: justify;
+}
+.main > div {
+  overflow: hidden;
+}
+.main > div > div {
+  padding: 10px 0;
+}
+.main label {
+  display: block;
+}
+.main input[type=checkbox] {
+  display: none !important;
+}
+.main .toggle:checked + div {
+  height: 0;
 }
 
 </style>
