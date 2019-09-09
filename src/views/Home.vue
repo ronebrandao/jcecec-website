@@ -12,28 +12,28 @@
           <v-layout id="whenwhere">
             <div>
               <!-- <v-flex> -->
-                <div class="icontitle">
-                  <i class="fas fa-clock"></i>
-                  <h5>QUANDO</h5>
-                </div>
-                <span id="quando">
-                  De 06 a 09 de
-                  <br />novembro de 2019
-                </span>
+              <div class="icontitle">
+                <i class="fas fa-clock"></i>
+                <h5>QUANDO</h5>
+              </div>
+              <span id="quando">
+                De 06 a 09 de
+                <br />novembro de 2019
+              </span>
               <!-- </v-flex> -->
               <!-- <v-flex> -->
-                <div class="icontitle">
-                  <i class="fas fa-map-marked"></i>
-                  <h5>ONDE</h5>
-                </div>
-                <div>
-                  <v-flex class="onde">Escola de Ciências Exatas e da Computação</v-flex>
-                  <v-flex class="onde">Pontifícia Universidade Católica de Goiás</v-flex>
-                </div>
-                <span id="onde-endereco">
-                  Av, 1ª Avenida, 458-590 - Setor Leste Universitário,
-                  <br />Goiânia - GO, 74605-020
-                </span>
+              <div class="icontitle">
+                <i class="fas fa-map-marked"></i>
+                <h5>ONDE</h5>
+              </div>
+              <div>
+                <v-flex class="onde">Escola de Ciências Exatas e da Computação</v-flex>
+                <v-flex class="onde">Pontifícia Universidade Católica de Goiás</v-flex>
+              </div>
+              <span id="onde-endereco">
+                Av, 1ª Avenida, 458-590 - Setor Leste Universitário,
+                <br />Goiânia - GO, 74605-020
+              </span>
               <!-- </v-flex> -->
             </div>
           </v-layout>
@@ -53,7 +53,7 @@
       </li>
     </ul>
 
-    <div mt-5 mb-5 id="inscricoes" class="footer-subscribe">
+    <div mt-5 mb-5 id="inscricoes" class="footer-subscription">
       <div>
         <v-container>
           <v-layout class="call">
@@ -237,7 +237,7 @@ div > hr {
   color: #cecece;
 }
 
-.footer-subscribe {
+.footer-subscription {
   background-color: #13264a;
   /* background-color: white; */
 }
@@ -352,7 +352,5 @@ div > span {
     font-size: inherit;
   }
 }
-
-
 </style>
 
