@@ -4,7 +4,7 @@ import Home from "./views/Home.vue";
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: "/",
@@ -41,5 +41,27 @@ export default new Router({
       component: () =>
         import(/* webpackChunkName: "account" */ "./views/Organization.vue")
     },
+    {
+      path: "/evento",
+      name: "evento",
+      component: () =>
+        import(/* webpackChunkName: "account" */ "./views/Evento.vue")
+    },
+    {
+      path: "/manutencao",
+      name: "manutencao",
+      component: () =>
+        import(/* webpackChunkName: "account" */ "./views/Maintenance.vue")
+    }
   ]
 });
+
+// router.beforeEach((to, from, next) => {
+//   if (to.path.startsWith("/manutencao")) {
+//     next();
+//   } else {
+//     next("/manutencao");
+//   }
+// });
+
+export default router;

@@ -12,28 +12,28 @@
           <v-layout id="whenwhere">
             <div>
               <!-- <v-flex> -->
-                <div class="icontitle">
-                  <i class="fas fa-clock"></i>
-                  <h5>QUANDO</h5>
-                </div>
-                <span id="quando">
-                  De 06 a 09 de
-                  <br />novembro de 2019
-                </span>
+              <div class="icontitle">
+                <i class="fas fa-clock"></i>
+                <h5>QUANDO</h5>
+              </div>
+              <span id="quando">
+                De 06 a 09 de
+                <br />novembro de 2019
+              </span>
               <!-- </v-flex> -->
               <!-- <v-flex> -->
-                <div class="icontitle">
-                  <i class="fas fa-map-marked"></i>
-                  <h5>ONDE</h5>
-                </div>
-                <div>
-                  <v-flex class="onde">Escola de Ciências Exatas e da Computação</v-flex>
-                  <v-flex class="onde">Pontifícia Universidade Católica de Goiás</v-flex>
-                </div>
-                <span id="onde-endereco">
-                  Av, 1ª Avenida, 458-590 - Setor Leste Universitário,
-                  <br />Goiânia - GO, 74605-020
-                </span>
+              <div class="icontitle">
+                <i class="fas fa-map-marked"></i>
+                <h5>ONDE</h5>
+              </div>
+              <div>
+                <v-flex class="onde">Escola de Ciências Exatas e da Computação</v-flex>
+                <v-flex class="onde">Pontifícia Universidade Católica de Goiás</v-flex>
+              </div>
+              <span id="onde-endereco">
+                Av, 1ª Avenida, 458-590 - Setor Leste Universitário,
+                <br />Goiânia - GO, 74605-020
+              </span>
               <!-- </v-flex> -->
             </div>
           </v-layout>
@@ -53,7 +53,7 @@
       </li>
     </ul>
 
-    <div mt-5 mb-5 id="inscricoes" class="footer-subscribe">
+    <div mt-5 mb-5 id="inscricoes" class="footer-subscription">
       <div>
         <v-container>
           <v-layout class="call">
@@ -63,21 +63,25 @@
           </v-layout>
           <v-layout class="subcall text-left">
             <v-flex>
-              <p>tandard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release</p>
+              <p class="text-justify">
+                A IV JCECEC e I Jornada Científica Regional (JCR) será realizada de 11 a 14 de Novembro de
+                2019. A IV JCECEC e I JCR será a primeira internacional e vai contar com pesquisadores de três paises.
+                Nessa edição conta-se com a participação do Instituto Federal de Goiás (IFG).
+              </p>
             </v-flex>
           </v-layout>
           <v-layout row wrap class="button-actions">
             <v-flex offset-md3 xs12 md3>
-              <v-btn color="primary" large>Faça sua inscrição</v-btn>
+              <v-btn @click="goToSubscription" color="primary" large>Faça sua inscrição</v-btn>
             </v-flex>
             <v-flex xs12 md3>
-              <v-btn large class="btn-submission">Submeta seu artigo</v-btn>
+              <v-btn @click="goToSubmission" large class="btn-submission">Submeta seu artigo</v-btn>
             </v-flex>
           </v-layout>
           <v-layout class="line rights-reserved">
             <v-flex>
               <hr />
-              <p>&copy; ndard dummy text ever since the 1500s, when an unknown</p>
+              <p>&copy; 4º Jornada Científica da Escola de Ciências Exatas e da Computação - JCECEC 2019</p>
             </v-flex>
           </v-layout>
         </v-container>
@@ -136,6 +140,14 @@ export default class Home extends Vue {
       }
     ];
   }
+
+  private goToSubscription() {
+    this.$router.push("/cadastro");
+  }
+
+  private goToSubmission() {
+    this.$router.push("/submissao");
+  }
 }
 </script>
 
@@ -174,7 +186,7 @@ li {
 }
 
 .subcall p {
-  font-size: 12px;
+  font-size: 14px;
   color: #ddd;
 }
 
@@ -225,7 +237,7 @@ div > hr {
   color: #cecece;
 }
 
-.footer-subscribe {
+.footer-subscription {
   background-color: #13264a;
   /* background-color: white; */
 }
@@ -340,7 +352,5 @@ div > span {
     font-size: inherit;
   }
 }
-
-
 </style>
 

@@ -1,14 +1,22 @@
 <template>
   <v-app id="app">
-    <NavBar v-show="$route.path==='/conta' ? false : true" />
+    <NavBar v-if="$route.path==='/conta' ? false : true" />
     <notifications position="top right" />
     <router-view />
+
+    <div
+      v-if="$route.path==='/conta' || $route.path==='/'? false : true"
+      class="footer-subscribe rights-reserved"
+    >
+      <p>&copy; 4º Jornada Científica da Escola de Ciências Exatas e da Computação - JCECEC 2019</p>
+    </div>
   </v-app>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import NavBar from "@/components/NavBar.vue";
+import router from "@/router";
 
 @Component({
   components: {
@@ -18,14 +26,6 @@ import NavBar from "@/components/NavBar.vue";
 export default class App extends Vue {
   constructor() {
     super();
-  }
-
-  private home() {
-    if (this.$route.path !== "/conta") {
-      return true;
-    } else {
-      return false;
-    }
   }
 }
 </script>
@@ -50,5 +50,10 @@ export default class App extends Vue {
       color: #42b983;
     }
   }
+}
+
+.footer-subscribe {
+  background-color: #13264a;
+  height: 56px;
 }
 </style>
