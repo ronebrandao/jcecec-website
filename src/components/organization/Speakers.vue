@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-carousel light hide-delimiters height="auto">
+    <v-carousel interval="3000" light hide-delimiters height="auto">
       <v-carousel-item v-for="(page, p_index) in speakersPaginated" :key="p_index">
         <div class="speakers">
           <Speaker v-for="(speaker, index) in page.array" :key="index" :speaker="speaker" />
@@ -11,38 +11,38 @@
 </template>
 
 <script lang="ts">
-
 import { Component, Vue, Prop } from "vue-property-decorator";
 import Speaker from "@/components/organization/Speaker.vue";
 
 @Component({
   components: {
-    Speaker,
+    Speaker
   }
 })
-
-export default class PhotoHeader extends Vue {
-
-  @Prop(Object) private speakers: any;
-  @Prop(Number) private paginate: number=2;
+export default class Speakers extends Vue {
+  @Prop(Array) private speakers: any;
+  @Prop(Number) private paginate: number;
 
   private speakersPaginated: any = null;
 
   constructor() {
     super();
 
-    if(this.paginate){
-      
-      let pages = (this.speakers.length/this.paginate | 0) + (this.speakers.length % this.paginate);
+    if (!this.paginate) this.paginate = 2;
+
+    if (this.paginate) {
+      let pages =
+        ((this.speakers.length / this.paginate) | 0) +
+        (this.speakers.length % this.paginate);
       this.speakersPaginated = [];
 
-      for(let i = 0; i < pages; i++){
+      for (let i = 0; i < pages; i++) {
         this.speakersPaginated.push(
           (() => {
             let objectsPerPage: any = [];
 
-            for(let j = 0; j < this.paginate; j++)
-              if(this.speakers.length)
+            for (let j = 0; j < this.paginate; j++)
+              if (this.speakers.length)
                 objectsPerPage.push(this.speakers.shift());
 
             return {

@@ -48,6 +48,12 @@ const router = new Router({
         import(/* webpackChunkName: "account" */ "./views/Evento.vue")
     },
     {
+      path: "/profile",
+      name: "speakerProfile",
+      component: () =>
+        import(/* webpackChunkName: "account" */ "./views/SpeakerProfile.vue")
+    },
+    {
       path: "/manutencao",
       name: "manutencao",
       component: () =>

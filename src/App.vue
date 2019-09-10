@@ -4,12 +4,12 @@
     <notifications position="top right" />
     <router-view />
 
-    <div
+    <!-- <div
       v-if="$route.path==='/conta' || $route.path==='/'? false : true"
       class="footer-subscribe rights-reserved"
     >
       <p>&copy; 4º Jornada Científica da Escola de Ciências Exatas e da Computação - JCECEC 2019</p>
-    </div>
+    </div>-->
   </v-app>
 </template>
 
@@ -54,6 +54,7 @@ export default class App extends Vue {
 
 .footer-subscribe {
   background-color: #13264a;
-  height: 56px;
+  min-height: 86px;
+  vertical-align: middle;
 }
 </style>

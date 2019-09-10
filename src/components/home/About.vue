@@ -5,8 +5,19 @@
         <h2>IV Jornada Científica da Escola de Ciências Exatas e da Computação</h2>
       </v-flex>
       <v-flex id="sobre" xs12 class="text-xs-left" mt-3>
-        <p>A partir da organização da estrutura administrativa da PUC-Goiás em escolas decidiu-se por criar um um evento científico da Escola de Ciências Exatas e da Computação (ECEC) para contemplar a natureza dos seis cursos de graduação que compõem a ECEC: Matemática, Física, Ciência da Computação, Engenharia de Computação, Química e Análise de Desenvolvimento de Sistemas.</p>
-        <p>Desta forma, os eventos UCG-COMP e a JORCEX foram unidos e nomeado como Jornada de Científica da ECEC – JCECEC. Sua realização é anual, e ao longo das três edições anteriores foram mais de XX participantes, contemplando mais de YY trabalhos científicos. Pela primeira vez a JCECEC será um evento internacinal</p>
+        <p>
+          emos o prazer de anunciar a realização da IV
+          Jornada Científica da Escola de Ciências Exatas e
+          da Computação (JCECEC) da Pontifícia Universi-
+          dade Católica de Goiás (PUC Goiás) e I Jornada
+          Científica Regional (JCR) que será realizada de
+          11 a 14 de Novembro de 2019. A IV JCECEC e
+          I JCR será a primeira internacional e vai contar
+          com pesquisadores do Canadá, Inglaterra e Portu-
+          gal. Ainda da tempo de submeter o seu trabalho
+          online em http://ecec.pucgoias.edu.br. Os melhores
+          trabalhos da IV JCECEC e I JCR serão convidados para publicação na revista da ECEC.
+        </p>
       </v-flex>
     </v-layout>
   </div>

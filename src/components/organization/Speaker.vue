@@ -1,29 +1,23 @@
 <template>
   <div class="speaker">
     <div class="avatar">
-      <div v-bind:style="{backgroundImage: avatar, backgroundPosition: speaker.offset}">
-      </div>
+      <div v-bind:style="{backgroundImage: avatar, backgroundPosition: speaker.offset}"></div>
     </div>
     <span class="name">
       <h4>{{speaker.name}}</h4>
     </span>
-    <div class="institution">
-      {{speaker.institution}}
-    </div>
+    <div class="institution">{{speaker.institution}}</div>
     <div class="speaking">
       <i>{{speaker.speaking}}</i>
     </div>
-    <div class="description">
-      {{speaker.description}}
-    </div>
+    <div class="description">{{speaker.description}}</div>
     <div class="more">
-      <v-btn color="primary" v-on:click="action()">Leia completo</v-btn>
+      <v-btn color="primary" @click="showProfile(speaker.name)">Leia completo</v-btn>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-
 import { Component, Vue, Prop } from "vue-property-decorator";
 
 @Component({
@@ -31,33 +25,24 @@ import { Component, Vue, Prop } from "vue-property-decorator";
 })
 export default class Speaker extends Vue {
   @Prop(Object) private speaker: any;
-  @Prop(Function) action: any;
 
   private avatar: string;
-  
-  constructor(){
+
+  constructor() {
     super();
 
-    this.avatar = this.speaker.img ? `url(${this.speaker.img})` : `url(https://png.pngtree.com/element_our/png/20181206/users-vector-icon-png_260862.jpg)`;
+    this.avatar = this.speaker.img
+      ? `url(${this.speaker.img})`
+      : `url(https://png.pngtree.com/element_our/png/20181206/users-vector-icon-png_260862.jpg)`;
+  }
 
-    this.action = () => {      
-      if(this.speaker.action){
-        try{
-          this.speaker.action();
-        }
-        catch(e){
-          throw new Error(e);
-        }
-      }
-    }
-
+  private showProfile(name: string) {
+    this.$router.push({ path: "/profile", query: { name } });
   }
 }
-
 </script>
 
 <style scoped>
-
 .speaker {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -88,7 +73,12 @@ export default class Speaker extends Vue {
   flex-direction: column;
   justify-content: flex-end;
 }
-.speaker .name h1, .speaker .name h2, .speaker .name h3, .speaker .name h4, .speaker .name h5, .speaker .name h6 {
+.speaker .name h1,
+.speaker .name h2,
+.speaker .name h3,
+.speaker .name h4,
+.speaker .name h5,
+.speaker .name h6 {
   font-weight: inherit;
   text-transform: uppercase;
 }
@@ -143,5 +133,4 @@ export default class Speaker extends Vue {
     height: 140px;
   }
 }
-
 </style>
