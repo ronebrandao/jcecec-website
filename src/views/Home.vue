@@ -41,17 +41,7 @@
       </v-flex>
     </v-layout>
 
-    <ul>
-      <li v-for="(speaker,i) in speakers" :key="i">
-        <Speakers
-          :name="speaker.name"
-          :institution="speaker.institution"
-          :description="speaker.description"
-          :speaking="speaker.speaking"
-          :img="speaker.img"
-        />
-      </li>
-    </ul>
+    <Speakers :speakers="speakersList" :paginate="1" />
 
     <div mt-5 mb-5 id="inscricoes" class="footer-subscription">
       <div>
@@ -94,9 +84,13 @@
 import { Component, Vue } from "vue-property-decorator";
 import HelloWorld from "@/components/HelloWorld.vue";
 import Carousel from "@/components/home/Carousel.vue";
-import Speakers from "@/components/home/Speakers.vue";
+import Speakers from "@/components/organization/Speakers.vue";
 import About from "@/components/home/About.vue";
 import Robot from "@/components/home/Robot.vue";
+import Main from "@/components/organization/Main.vue";
+import Paragraph from "@/components/organization/Paragraph.vue";
+
+import speakers from "@/models/speakers";
 
 @Component({
   components: {
@@ -104,41 +98,18 @@ import Robot from "@/components/home/Robot.vue";
     Carousel,
     Speakers,
     About,
-    Robot
+    Robot,
+    Main,
+    Paragraph
   }
 })
 export default class Home extends Vue {
-  private speakers: any = null;
+  private speakersList: any = null;
 
   constructor() {
     super();
 
-    this.speakers = [
-      {
-        name: "CARLOS ALBERTO DE NOBREGA",
-        institution: "Professor at Hampden-Sydney College in Virginia, looked ",
-        speaking: "Theory of ethics",
-        description:
-          "If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary,",
-        img: "/assets/img/speakers/sp1.jpg"
-      },
-      {
-        name: "CARLOS ALBERTO DE NOBREGA",
-        institution: "Professor at Hampden-Sydney College in Virginia, looked ",
-        speaking: "Theory of ethics",
-        description:
-          "If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary,",
-        img: "/assets/img/speakers/sp2.png"
-      },
-      {
-        name: "CARLOS ALBERTO DE NOBREGA",
-        institution: "Professor at Hampden-Sydney College in Virginia, looked ",
-        speaking: "Theory of ethics",
-        description:
-          "If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary,",
-        img: "/assets/img/speakers/sp3.png"
-      }
-    ];
+    this.speakersList = speakers;
   }
 
   private goToSubscription() {
