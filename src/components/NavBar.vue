@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="light" variant="light">
+    <b-navbar fixed="top" toggleable="lg" type="light" variant="light">
       <b-navbar-brand href="#" class="navbar-brand mobile-hidden big-ml">
         <img src="../assets/lampada.png" width="53" height="91" alt />
       </b-navbar-brand>
@@ -48,6 +48,11 @@ export default class NavBar extends Vue {}
 <style scoped >
 .nav-link {
   font-size: 18px !important;
+}
+
+.navbar {
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.11),
+    0 5px 15px 0 rgba(0, 0, 0, 0.08);
 }
 
 .navbar-toggler {
