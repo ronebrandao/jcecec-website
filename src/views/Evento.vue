@@ -124,7 +124,7 @@ export default class Evento extends Vue {
         `,
         img: "/assets/img/speakers/sp1.jpg",
         action: () => {
-          alert("You clicked on the first speaker");
+          // this.$router.push({path: "/profile", query: {name: "test"}});
         }
       },
       {
