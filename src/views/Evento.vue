@@ -61,7 +61,7 @@
       </Columns>
 
       <Paragraph title="palestrantes">
-        <Speakers :speakers="speakers" :paginate="3" />
+        <Speakers :speakers="speakers" :paginate="1" />
       </Paragraph>
     </Main>
   </div>

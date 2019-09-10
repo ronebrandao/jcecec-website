@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-carousel light hide-delimiters height="auto" interval="180000">
+    <v-carousel light hide-delimiters height="auto">
       <v-carousel-item v-for="(page, p_index) in speakersPaginated" :key="p_index">
         <div class="speakers">
           <Speaker v-for="(speaker, index) in page.array" :key="index" :speaker="speaker" />
