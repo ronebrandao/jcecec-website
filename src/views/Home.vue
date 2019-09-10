@@ -352,9 +352,5 @@ div > span {
     font-size: inherit;
   }
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/dev
 </style>
 

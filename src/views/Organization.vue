@@ -11,24 +11,15 @@
         >{{organizador.coordenador}}</a>
         <p class="font-italic">{{organizador.area}}</p>
       </div>
-      <div>
-        <a href="javascript:void(0);" @click="showInfo">REPRESENTAÇÃO ESTUDANTIL</a>
-        <p class="font-italic">Centro Acadêmico de Física</p>
-        <p class="font-italic">Centro Acadêmico de Matemática</p>
-        <p class="font-italic">Centro Acadêmico de Química</p>
-        <p class="font-italic">Centro Acadêmico de Ciência da Computação</p>
-        <p class="font-italic">Centro Acadêmico de Engenharia de Computação</p>
-        <p class="font-italic">Centro Acadêmico de Desenvolvimento de Sistemas</p>
-      </div>
-
-      <div class="row">
+      <v-divider></v-divider>
+      <div class="row mt-5">
         <div class="col-md-6 text-center">
           <h6>Realização</h6>
-          <img src="/assets/img/puc.png" />
+          <img src="/assets/img/puc.png" width="60%" />
         </div>
         <div class="col-md-6 text-center">
           <h6>Apoio</h6>
-          <img src="/assets/img/fapeg.jpg" width="60%" height="60%" />
+          <img src="/assets/img/fapeg.png" width="60%" />
         </div>
       </div>
     </Main>
@@ -107,6 +98,18 @@ export default class Organization extends Vue {
     {
       coordenador: "Prof. Dr. Cloves Gonçalves – PUC Goiás",
       area: "Coordenador de postêres"
+    },
+    {
+      coordenador: "Representação Estudantil",
+      area: "Centros Acadêmicos",
+      participantes: [
+        "Centro Acadêmico de Física",
+        "Centro Acadêmico de Matemática",
+        "Centro Acadêmico de Química",
+        "Centro Acadêmico de Ciência da Computação",
+        "Centro Acadêmico de Engenharia de Computação",
+        "Centro Acadêmico de Desenvolvimento de Sistemas"
+      ]
     }
   ];
   private showInfo(organizador: any) {
