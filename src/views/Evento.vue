@@ -1,8 +1,6 @@
 <template>
   <div class="obs-page">
-    <PhotoHeader title="Evento" description="Descrição dos eventos da jornada">
-      <!-- <p>Something to place here, like buttons or links</p> -->
-    </PhotoHeader>
+    <PhotoHeader title="Evento" description="Descrição dos eventos da jornada"></PhotoHeader>
 
     <Main>
       <Paragraph title="Histórico">
@@ -71,8 +69,8 @@
 import { Component, Vue } from "vue-property-decorator";
 import PhotoHeader from "@/components/organization/PhotoHeader.vue";
 import Main from "@/components/organization/Main.vue";
-import HorizontalList from "@/components/organization/HorizontalList.vue";
 import Paragraph from "@/components/organization/Paragraph.vue";
+import HorizontalList from "@/components/organization/HorizontalList.vue";
 import Speakers from "@/components/organization/Speakers.vue";
 import Columns from "@/components/organization/Columns.vue";
 
@@ -97,7 +95,7 @@ export default class Evento extends Vue {
         name: "Rosa Maria de Castro Fernandes Vasconcelos",
         institution: "Universidade do Minho – Portugal",
         speaking: "O Meu Futuro “Uma nova abordagem”",
-        description:`
+        description: `
           Professora Associada do Departamento de Engenharia Têxtil (DET) da EEUM desde 2005.
           Licenciada em Engenharia Têxtil pela Universidade do Minho. É professora na Universidade do Minho
           desde 1984. Doutora em Engenharia - Tecnologia e Química Têxtil pela Universidade do Minho, concluída
@@ -130,7 +128,8 @@ export default class Evento extends Vue {
       {
         name: "Prof. Dr. Alejandro Pedro Ayala",
         institution: "Universidade Federal do Ceará",
-        speaking: "Desafios para a engenharia de cristais na indústria farmacêutica",
+        speaking:
+          "Desafios para a engenharia de cristais na indústria farmacêutica",
         description: `
           Bolsista de produtividade em pesquisa do CNPq nível 1B. Possui graduação em Física -
           Universidad Nacional de Córdoba (1990) e Doutorado em Física - Universidad Nacional de La Plata (1995).
@@ -174,8 +173,10 @@ export default class Evento extends Vue {
       },
       {
         name: "Dr. Fabício Augusto de Lima",
-        institution: "Clínica de Radioterapia e Quimioterapia de Presidente Prudente.",
-        speaking: "Novas tecnologias e novas profissões: perspectivas da Física Médica no Brasil",
+        institution:
+          "Clínica de Radioterapia e Quimioterapia de Presidente Prudente.",
+        speaking:
+          "Novas tecnologias e novas profissões: perspectivas da Física Médica no Brasil",
         description: `
           Bacharelado em Física Médica (2010), Doutorado Sanduíche (2016) e Pós Doutorado (2017)
           pela Universidade de São Paulo (USP). Concluiu o Programa de Residência Multiprofissional do Hospital
@@ -242,7 +243,7 @@ de câncer`,
           diversos tipos de câncer.
         `,
         offset: ``,
-        action: ``,
+        action: ``
       },
       {
         name: `Jancarlos Menezes Lapa`,
@@ -272,7 +273,7 @@ uma abordagem STEAM`,
           estado da Bahia.
         `,
         offset: ``,
-        action: ``,
+        action: ``
       },
       {
         name: `Prof. Dra. Adda Daniela Lima Figueiredo Echalar`,
@@ -316,7 +317,7 @@ uma abordagem STEAM`,
           humanos de modo a fomentar mudanças estruturais no que está posto nas políticas.
         `,
         offset: ``,
-        action: ``,
+        action: ``
       },
       {
         name: `Feliz Alberto Ribeiro Gouveia`,
@@ -340,7 +341,7 @@ uma abordagem STEAM`,
           automação já contribuiu bastante, e identificar as áreas onde a IA pode trazer uma nova perspetiva.
         `,
         offset: ``,
-        action: ``,
+        action: ``
       },
       {
         name: `Luciano Lacerda`,
@@ -361,7 +362,7 @@ uma abordagem STEAM`,
           acadêmico.
         `,
         offset: ``,
-        action: ``,
+        action: ``
       },
       {
         name: `Prof. Dr. André Lage Freitas`,
@@ -390,7 +391,7 @@ uma abordagem STEAM`,
           court. To our knowledge, this is the first study to forecast judge decisions in Brazil.        
         `,
         offset: ``,
-        action: ``,
+        action: ``
       },
       {
         name: `Engenheiro Alessandro Cunha`,
@@ -414,7 +415,7 @@ uma abordagem STEAM`,
           e vamos mostrar alguns projetos bem interessantes que estão sendo desenvolvidos nesta área.
         `,
         offset: ``,
-        action: ``,
+        action: ``
       },
       {
         name: `Prof. Msc. Clélia Brandão Alvarenga Craveiro`,
@@ -435,7 +436,7 @@ uma abordagem STEAM`,
           que 40% dos brasileiros de até 19 anos ainda não concluíram o ensino médio.
         `,
         offset: ``,
-        action: ``,
+        action: ``
       },
       {
         name: `Prof. Dr. Sergio Carrazedo Dantas`,
@@ -463,7 +464,7 @@ uma abordagem STEAM`,
           matemática.
         `,
         offset: ``,
-        action: ``,
+        action: ``
       },
       {
         name: `Prof. Richard Frayne`,
@@ -496,7 +497,7 @@ Constrained Reconstruction`,
           reconstruction when employing these methods.
         `,
         offset: ``,
-        action: ``,
+        action: ``
       },
       {
         name: `Prof. Dra. Letícia Rittner`,
@@ -531,7 +532,7 @@ Constrained Reconstruction`,
           áreas do conhecimento? Até onde podemos (e devemos!) chegar?
         `,
         offset: ``,
-        action: ``,
+        action: ``
       },
       {
         name: `Amadeu Moura Bego`,
@@ -545,7 +546,7 @@ professores de química`,
           profissionais necessários para a valorização da atividade docente e a ressignificação de seus status social.
         `,
         offset: ``,
-        action: ``,
+        action: ``
       }
     ];
   }

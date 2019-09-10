@@ -63,8 +63,6 @@ export default class SpeakerProfile extends Vue {
       (speaker: any) => speaker.name === this.$router.currentRoute.query.name
     )[0];
   }
-
-  private mounted() {}
 }
 </script>
 

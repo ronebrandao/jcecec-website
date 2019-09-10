@@ -56,7 +56,7 @@ export default class Speakers extends Vue {
 }
 </script>
 
-<style>
+<style lang="scss">
 .speakers {
   margin: 25px 0;
 }
@@ -65,8 +65,8 @@ export default class Speakers extends Vue {
 }
 
 .v-carousel {
-  box-shadow: unset;
-  -webkit-box-shadow: unset;
+  box-shadow: unset !important;
+  -webkit-box-shadow: unset !important;
   padding: 0 50px;
   box-sizing: content-box;
   position: relative;
