@@ -1,7 +1,7 @@
 <template>
   <div class="navbar-h">
     <div class="nav-info">
-      <!-- <img src="assets/lampada.png" alt=""> -->
+      <img src="assets/img/lampada.png" alt="">
       <div>
         <span class="title">IV JCECEC</span><br>
         <span>Jornada Científica da Escola de<br> Ciências Exatas e da Computação</span>
@@ -57,13 +57,18 @@ export default class NavBar extends Vue {}
   justify-content: space-between;
   margin-bottom: 15px;
 }
+.navbar-h .nav-info img {
+  position: absolute;
+  height: 113px;
+  left: -80px;
+}
 .navbar-h .nav-info .title {
   font-size: 30px;
 }
 .navbar-h .nav-info > div {
   position: relative;
 }
-.navbar-h .nav-info > div:first-child {
+.navbar-h .nav-info > div:nth-child(2) {
   text-align: left;
 }
 .navbar-h .nav-info > div:last-child {
