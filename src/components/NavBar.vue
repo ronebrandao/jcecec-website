@@ -47,9 +47,10 @@ export default class NavBar extends Vue {}
 <style scoped >
 .navbar-h {
   position: relative;
-  padding: 12px 0;
+  padding: 20px 0;
   background-color: white;
   margin: auto;
+  max-width: 1000px;
 }
 .navbar-h .nav-info {
   color: #576574;
