@@ -1,17 +1,21 @@
 <template>
   <div class="navbar-h">
     <div class="nav-info">
-      <img src="assets/img/lampada.png" alt="">
+      <img src="assets/img/lampada.png" alt />
       <div>
-        <span class="title">IV JCECEC</span><br>
-        <span>Jornada Científica da Escola de<br> Ciências Exatas e da Computação</span>
+        <span class="title">IV JCECEC</span>
+        <br />
+        <span>
+          Jornada Científica da Escola de
+          <br />Ciências Exatas e da Computação
+        </span>
       </div>
-      
+
       <div class="nav-date">
         <span>
-          De 6 a 9 de Novembro<br>
-          PUC Goiás<br>
-          Goiânia-GO
+          De 6 a 9 de Novembro
+          <br />PUC Goiás
+          <br />Goiânia-GO
         </span>
       </div>
     </div>
@@ -22,9 +26,6 @@
         </li>
         <li>
           <router-link to="/evento">Evento</router-link>
-        </li>
-        <li>
-          <router-link to="/organizacao">Organização</router-link>
         </li>
         <li>
           <router-link to="/cadastro">Inscrição</router-link>
@@ -75,7 +76,11 @@ export default class NavBar extends Vue {}
 .navbar-h .nav-info > div:last-child {
   text-align: right;
 }
-.navbar-h .nav-info span, .navbar-h .nav-info p, .navbar-h .nav-info h1, .navbar-h .nav-info h2, .navbar-h .nav-info h3 {
+.navbar-h .nav-info span,
+.navbar-h .nav-info p,
+.navbar-h .nav-info h1,
+.navbar-h .nav-info h2,
+.navbar-h .nav-info h3 {
   color: inherit;
 }
 .navbar-h .nav-date {
