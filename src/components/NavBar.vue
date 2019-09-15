@@ -96,14 +96,15 @@ export default class NavBar extends Vue {}
   border-top: 2px solid #576574;
 }
 .navbar-h .nav-container > ul li {
+  position: relative;
   padding: 15px 45px;
   font-family: "Montserrat", sans-serif;
   color: #576574;
   transition: all 300ms ease;
 }
 .navbar-h .nav-container > ul li:hover {
-  background-color: #576574;
-  color: white;
+  border-bottom: 2px solid #576574;
+  margin-bottom: -2px;
   cursor: pointer;
 }
 .navbar-h .nav-container > ul li a {
