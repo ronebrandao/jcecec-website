@@ -1,29 +1,18 @@
 <template>
-  <div class="obs-page">
-    <PhotoHeader title="Organização" description="Descrição dos organizadores da IV JCECEC"></PhotoHeader>
-
-    <Main>
-      <div v-for="(organizador, index) in organizacao" :key="index">
+  <div class="organization-container">
+    <div>
+      <h2 class="mt-3">COMITÊS</h2>
+      <hr />
+      <div class="text-center" v-for="(organizador, index) in organizacao" :key="index">
         <a
           href="javascript:void(0);"
           :class="{'no-dialog': !organizador.participantes}"
           @click="showInfo(organizador)"
         >{{organizador.coordenador}}</a>
-        <p class="font-italic">{{organizador.area}}</p>
+        <p class="text-center font-italic">{{organizador.area}}</p>
       </div>
-      <v-divider></v-divider>
-      <div class="row mt-5">
-        <div class="col-md-6 text-center">
-          <h6>Realização</h6>
-          <img src="/assets/img/puc.png" width="60%" />
-        </div>
-        <div class="col-md-6 text-center">
-          <h6>Apoio</h6>
-          <img src="/assets/img/fapeg.png" width="60%" />
-        </div>
-      </div>
-    </Main>
-    <Comissao :organizacao="comite" :showDialog="showComissao" @hidden="hideComissao" />
+      <Comissao :organizacao="comite" :showDialog="showComissao" @hidden="hideComissao" />
+    </div>
   </div>
 </template>
 
@@ -45,13 +34,14 @@ export default class Organization extends Vue {
   private comite = {};
   private organizacao = [
     {
-      coordenador: "Prof. Dr. Clarimar José Coelho - PUC Goiás",
+      coordenador: "Prof. Dr. Clarimar José Coelho",
       area: "Coordenador da IV JCECEC"
     },
     {
-      coordenador: "Profa. Dra. Carmen Cecília Centeno – PUC Goiás",
+      coordenador: "Profa. Dra. Carmen Cecília Centeno",
       area: "Coordenadora do comitê científico",
       participantes: [
+        "Coordenadora: Profa. Dra. Carmen Cecília Centeno - PUC Goiás",
         "Prof. Dr. Adelino Candido Pimenta - PUC Goiás",
         "Prof. Dr. Anderson da Silva Soares – UFG",
         "Prof. Dr. Antônio Newton Borges – PUC Goiás",
@@ -72,9 +62,10 @@ export default class Organization extends Vue {
       ]
     },
     {
-      coordenador: "Prof. Dr. Arlindo Rodrigues Galvão Filho – PUC Goiás",
+      coordenador: "Prof. Dr. Arlindo Rodrigues Galvão Filho",
       area: "Coordenador do comitê organizacional",
       participantes: [
+        "Coordenador: Prof. Dr. Arlindo Rodrigues Galvão Filho - PUC Goiás",
         "Prof. Dr. Raffael Costa Figueiredo Pinto - PUC Goiás",
         "Prof. Dr. Anderson Costa da Silva – PUC Goiás",
         "Prof. Dr. Danns Pereira Barbosa – PUC Goiás",
@@ -96,7 +87,7 @@ export default class Organization extends Vue {
       ]
     },
     {
-      coordenador: "Prof. Dr. Cloves Gonçalves – PUC Goiás",
+      coordenador: "Prof. Dr. Cloves Gonçalves",
       area: "Coordenador de postêres"
     },
     {
@@ -126,14 +117,42 @@ export default class Organization extends Vue {
 </script>
 
 <style lang="scss" scoped>
-a {
+a,
+h2 {
   text-transform: uppercase;
   font-weight: 540;
-  color: #2776f5;
+  color: #fff;
+}
+
+p {
+  color: #ececec;
+}
+
+hr {
+  border: 2px solid #fff;
+  border-radius: 2px;
+  margin-bottom: 20px;
 }
 
 .no-dialog:hover {
   text-decoration: none;
   cursor: inherit;
+}
+
+.organization-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #373b44; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #4286f4,
+    #373b44
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #4286f4,
+    #373b44
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 </style>

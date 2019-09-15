@@ -13,7 +13,7 @@
             <h2>Competição de robôs</h2>
           </span>
         </div>
-        <div class="f-desc text-left">
+        <div class="f-desc text-justify">
           <p>
             As competições de robôs reúnem construtores de robôs que competem para mostrar qual deles é
             capaz de cumprir da melhor forma um determinado objetivo especificado anteriormente à competição. As
