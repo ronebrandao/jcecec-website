@@ -139,7 +139,7 @@ export default class Home extends Vue {
           em competências no futuro - e que reforçam o interesse e adaptação, dos candidatos ao lugar a que se propõe,
           é o desafio mais importante desta atividade.
         `,
-        img: "/assets/img/speakers/sp1.jpg",
+        img: "",
         action: () => {
           // this.$router.push({path: "/profile", query: {name: "test"}});
         }
@@ -185,7 +185,7 @@ export default class Home extends Vue {
           sólido, que contribui para caracterizar, entender e predizer os mecanismos que levam ao empacotamento
           molecular nos fármacos e suas consequências na qualidade e eficácia dos medicamentos.
         `,
-        img: "/assets/img/speakers/sp2.png",
+        img: "",
         action: () => {
           alert("You clicked on the second speaker");
         }
@@ -209,7 +209,7 @@ export default class Home extends Vue {
           experiência em Dosimetria e Controle de Qualidade de equipamentos Varian, Elekta e Siemens, bem como
           em IGRT via Portal Imaging e CBCT.
         `,
-        img: "/assets/img/speakers/sp3.png",
+        img: "",
         subjectResume: `
           O avanço da tecnologia e dos processos de produção no Brasil tem se acentuado fortemente nas
           últimas décadas. Fatores como o aumento da competitividade e o cenário econômico instável têm forçado
