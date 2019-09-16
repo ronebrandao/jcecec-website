@@ -11,7 +11,7 @@
       </div>
       <ul>
         <li>
-          <router-link to="/">HOME</router-link>
+          <router-link to="/">Home</router-link>
         </li>
         <li>
           <router-link to="/evento">Evento</router-link>
@@ -62,7 +62,7 @@
     <div class="nav-container desktop">
       <ul>
         <li>
-          <router-link to="/">HOME</router-link>
+          <router-link to="/">Home</router-link>
         </li>
         <li>
           <router-link to="/evento">Evento</router-link>
