@@ -1,5 +1,5 @@
 <template>
-  <v-layout>
+  <v-layout class="view">
     <v-container class="form-container">
       <v-form ref="form" v-model="valid" @submit.prevent="login">
         <h6>Login</h6>

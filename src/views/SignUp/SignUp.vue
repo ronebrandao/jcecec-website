@@ -1,5 +1,5 @@
 <template>
-  <div class="my-5">
+  <div class="py-5 view">
     <v-form ref="form" v-model="valid" @submit.prevent="addUser">
       <v-container class="form-container">
         <h6 class="title">Informações Pessoais</h6>

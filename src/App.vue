@@ -57,4 +57,9 @@ export default class App extends Vue {
   min-height: 86px;
   vertical-align: middle;
 }
+
+.view {
+  box-shadow: inset 0 15px 30px 0 rgba(0, 0, 0, 0.11),
+    0 5px 15px 0 rgba(0, 0, 0, 0.08);
+}
 </style>
