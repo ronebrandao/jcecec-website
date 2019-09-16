@@ -1,7 +1,7 @@
 <template>
-  <div class="mt-5">
-    <v-form ref="form" v-model="valid" @submit.prevent="confirmUser">
-      <div class="container form-container">
+  <div class="d-flex justify-content-center view confirm-view">
+    <div class="container form-container">
+      <v-form ref="form" v-model="valid" @submit.prevent="confirmUser">
         <div class="wrapper">
           <v-text-field
             :rules="[v => !!v || 'Campo obrigatório']"
@@ -23,8 +23,8 @@
             </template>
           </v-btn>
         </div>
-      </div>
-    </v-form>
+      </v-form>
+    </div>
   </div>
 </template>
 
@@ -57,10 +57,6 @@ export default class Confirm extends mixins(NotificationMixin, LoaderMixin) {
     super();
 
     this.code = "";
-  }
-
-  private created() {
-    console.log(getUser());
   }
 
   private confirmUser() {
@@ -129,5 +125,9 @@ export default class Confirm extends mixins(NotificationMixin, LoaderMixin) {
 label {
   font-weight: 500;
   float: left;
+}
+
+.confirm-view {
+  min-height: 768px !important;
 }
 </style>

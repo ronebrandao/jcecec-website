@@ -1,6 +1,5 @@
 <template>
   <div class="navbar-h">
-    
     <input type="checkbox" id="open-mmenu" :style="{display:'none'}" />
     <div class="mobile menu-mobile">
       <div>

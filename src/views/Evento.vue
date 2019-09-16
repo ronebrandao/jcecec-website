@@ -1,5 +1,5 @@
 <template>
-  <div class="obs-page">
+  <div class="obs-page view">
     <PhotoHeader title="Evento" description="Descrição dos eventos da jornada"></PhotoHeader>
 
     <Main>
