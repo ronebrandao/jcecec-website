@@ -69,9 +69,6 @@
           <router-link to="/evento">Evento</router-link>
         </li>
         <li>
-          <router-link to="/organizacao">Organização</router-link>
-        </li>
-        <li>
           <router-link to="/cadastro">Inscrição</router-link>
         </li>
         <li>
@@ -120,7 +117,11 @@ export default class NavBar extends Vue {}
 .navbar-h .nav-info > div:last-child {
   text-align: right;
 }
-.navbar-h .nav-info span, .navbar-h .nav-info p, .navbar-h .nav-info h1, .navbar-h .nav-info h2, .navbar-h .nav-info h3 {
+.navbar-h .nav-info span,
+.navbar-h .nav-info p,
+.navbar-h .nav-info h1,
+.navbar-h .nav-info h2,
+.navbar-h .nav-info h3 {
   color: inherit;
 }
 .navbar-h .nav-date {

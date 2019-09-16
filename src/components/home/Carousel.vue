@@ -1,15 +1,17 @@
 <template>
   <v-layout row wrap>
     <v-flex xs12>
-      <v-carousel hide-controls hide-delimiters height="700">
+      <v-carousel hide-controls hide-delimiters height="900">
         <v-carousel-item v-for="(item,i) in items" :key="i" :src="item.src" hide-controls>
           <v-container fill-height>
             <v-layout align-center fill-height justify-center>
               <div class="banner">
+                <img src="assets/img/logo-clean.webp" class="logo" />
+                <img src="assets/img/logo-clean.webp" class="logo back" />
                 <div>
                   <span class="date">6 a 9 de Novembro</span>
                 </div>
-                <v-divider></v-divider>
+                <hr />
                 <div>
                   <span class="jcecec">IV JCECEC</span>
                 </div>
@@ -18,7 +20,7 @@
                     class="jcecec-sub"
                   >Jornada Científica da Escola de Ciências Exatas e Computação</span>
                 </div>
-                <v-divider></v-divider>
+                <hr />
                 <div>
                   <span id="description">
                     NOVAS TECNOLOGIAS NA
@@ -47,13 +49,13 @@ export default class Carousel extends Vue {
     this.items = [
       {
         src: "/assets/img/slider/3.jpg"
-      },
-      {
-        src: "/assets/img/slider/4.jpg"
-      },
-      {
-        src: "/assets/img/slider/6.jpg"
       }
+      // {
+      //   src: "/assets/img/slider/4.jpg"
+      // },
+      // {
+      //   src: "/assets/img/slider/1.jpg"
+      // }
     ];
   }
 }
@@ -61,7 +63,7 @@ export default class Carousel extends Vue {
 
 <style scoped>
 .banner {
-  padding: 30px 100px;
+  padding: 30px 120px;
   background-color: #2364adc4;
   color: #fff;
 }
@@ -93,5 +95,14 @@ export default class Carousel extends Vue {
 #logo {
   width: 30%;
   height: 30%;
+}
+
+.banner {
+  position: relative;
+  padding: 30px 150px 60px 250px !important;
+}
+
+hr {
+  border: 1px solid #fff;
 }
 </style>

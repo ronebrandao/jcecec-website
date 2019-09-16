@@ -36,12 +36,6 @@ const router = new Router({
         import(/* webpackChunkName: "account" */ "./views/Admin/MyAccount.vue")
     },
     {
-      path: "/organizacao",
-      name: "organizacao",
-      component: () =>
-        import(/* webpackChunkName: "account" */ "./views/Organization.vue")
-    },
-    {
       path: "/evento",
       name: "evento",
       component: () =>

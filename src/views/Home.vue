@@ -41,7 +41,9 @@
       </v-flex>
     </v-layout>
 
-    <Speakers :speakers="speakersList" :paginate="1" />
+    <Main>
+      <Speakers :speakers="speakersList" :paginate="1" />
+    </Main>
 
     <div mt-5 mb-5 id="inscricoes" class="footer-subscription">
       <div>

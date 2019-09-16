@@ -6,7 +6,7 @@
       </v-flex>
       <v-flex id="sobre" xs12 class="text-xs-left" mt-3>
         <p>
-          emos o prazer de anunciar a realização da IV
+          Temos o prazer de anunciar a realização da IV
           Jornada Científica da Escola de Ciências Exatas e
           da Computação (JCECEC) da Pontifícia Universi-
           dade Católica de Goiás (PUC Goiás) e I Jornada

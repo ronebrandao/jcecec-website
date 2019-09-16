@@ -10,7 +10,6 @@
     <div class="speaking">
       <i>{{speaker.speaking}}</i>
     </div>
-    <div class="description">{{speaker.description}}</div>
     <div class="more">
       <v-btn color="primary" @click="showProfile(speaker.name)">Leia completo</v-btn>
     </div>

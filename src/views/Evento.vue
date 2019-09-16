@@ -57,10 +57,16 @@
           autonomia exigida dos protótipos de robôs para a realização das tarefas a eles solicitadas.
         </Paragraph>
       </Columns>
+    </Main>
 
+    <Organization />
+
+    <Main>
       <Paragraph title="palestrantes">
         <Speakers :speakers="speakers" :paginate="1" />
       </Paragraph>
+
+      <Supporters />
     </Main>
   </div>
 </template>
@@ -73,6 +79,8 @@ import Paragraph from "@/components/organization/Paragraph.vue";
 import HorizontalList from "@/components/organization/HorizontalList.vue";
 import Speakers from "@/components/organization/Speakers.vue";
 import Columns from "@/components/organization/Columns.vue";
+import Organization from "@/components/organization/Names.vue";
+import Supporters from "@/components/organization/Supporters.vue";
 
 @Component({
   components: {
@@ -81,7 +89,9 @@ import Columns from "@/components/organization/Columns.vue";
     HorizontalList,
     Paragraph,
     Speakers,
-    Columns
+    Columns,
+    Organization,
+    Supporters
   }
 })
 export default class Evento extends Vue {
@@ -278,7 +288,7 @@ uma abordagem STEAM`,
       {
         name: `Prof. Dra. Adda Daniela Lima Figueiredo Echalar`,
         institution: `Universidade Federal de Goiás`,
-        speaking: `T ecnologias na Educação`,
+        speaking: `Tecnologias na Educação`,
         description: `
           Doutora em Educação pela Pontifícia Universidade Católica de Goiás (PUC Goiás), na linha
           de pesquisa de Teorias da Educação e Processos Pedagógicos. Mestre em Biologia pela Universidade Federal
