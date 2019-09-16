@@ -49,13 +49,13 @@ export default class Carousel extends Vue {
     this.items = [
       {
         src: "/assets/img/slider/3.jpg"
-      },
-      {
-        src: "/assets/img/slider/4.jpg"
-      },
-      {
-        src: "/assets/img/slider/1.jpg"
       }
+      // {
+      //   src: "/assets/img/slider/4.jpg"
+      // },
+      // {
+      //   src: "/assets/img/slider/1.jpg"
+      // }
     ];
   }
 }

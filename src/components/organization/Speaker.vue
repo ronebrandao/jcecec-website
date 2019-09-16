@@ -13,6 +13,10 @@
     <div class="more">
       <v-btn color="primary" @click="showProfile(speaker.name)">Leia completo</v-btn>
     </div>
+
+    <div class="n1"></div>
+    <div class="n2"></div>
+
   </div>
 </template>
 
@@ -45,8 +49,8 @@ export default class Speaker extends Vue {
 .speaker {
   display: grid;
   grid-template-columns: auto 1fr;
-  grid-template-rows: repeat(6, auto);
-  grid-template-areas: "avatar name" "avatar institution" "avatar speaking" "avatar description" "null more";
+  grid-template-rows: repeat(5, auto);
+  grid-template-areas: "avatar n1" "avatar name" "avatar institution" "avatar speaking" "avatar more" "avatar n2";
 }
 .speaker > * {
   margin: 0;
@@ -63,6 +67,7 @@ export default class Speaker extends Vue {
   height: 240px;
   margin-right: 25px;
   border-radius: 50%;
+  background-image: url(https://png.pngtree.com/element_our/png/20181206/users-vector-icon-png_260862.jpg);
   background-size: cover;
 }
 .speaker .name {
@@ -72,12 +77,7 @@ export default class Speaker extends Vue {
   flex-direction: column;
   justify-content: flex-end;
 }
-.speaker .name h1,
-.speaker .name h2,
-.speaker .name h3,
-.speaker .name h4,
-.speaker .name h5,
-.speaker .name h6 {
+.speaker .name h1, .speaker .name h2, .speaker .name h3, .speaker .name h4, .speaker .name h5, .speaker .name h6 {
   font-weight: inherit;
   text-transform: uppercase;
 }
@@ -98,11 +98,14 @@ export default class Speaker extends Vue {
 .speaker .more {
   grid-area: more;
 }
+.speaker .n1, .speaker .n2 {
+  display: initial;
+}
 @media screen and (max-width: 768px) {
   .speaker {
     grid-template-columns: auto;
     grid-template-rows: repeat(6, auto);
-    grid-template-areas: "avatar" "name" "institution" "speaking" "description" "more";
+    grid-template-areas: "avatar" "name" "institution" "speaking" "description" "more" "n1" "n2";
     text-align: center;
   }
   .speaker .avatar > div {
