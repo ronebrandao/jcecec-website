@@ -6,6 +6,8 @@
 
     <Robot />
 
+    <Dates />
+
     <v-layout row wrap>
       <v-flex xs12 sm12>
         <v-parallax dark src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg">
@@ -91,6 +93,7 @@ import About from "@/components/home/About.vue";
 import Robot from "@/components/home/Robot.vue";
 import Main from "@/components/organization/Main.vue";
 import Paragraph from "@/components/organization/Paragraph.vue";
+import Dates from "@/components/home/Dates.vue";
 
 @Component({
   components: {
@@ -100,7 +103,8 @@ import Paragraph from "@/components/organization/Paragraph.vue";
     About,
     Robot,
     Main,
-    Paragraph
+    Paragraph,
+    Dates
   }
 })
 export default class Home extends Vue {
@@ -139,7 +143,8 @@ export default class Home extends Vue {
           em competências no futuro - e que reforçam o interesse e adaptação, dos candidatos ao lugar a que se propõe,
           é o desafio mais importante desta atividade.
         `,
-        img: "",
+        img: "/assets/img/speakers/rosa_maria_castro.jpg",
+        customSize: "85%",
         action: () => {
           // this.$router.push({path: "/profile", query: {name: "test"}});
         }
@@ -185,7 +190,7 @@ export default class Home extends Vue {
           sólido, que contribui para caracterizar, entender e predizer os mecanismos que levam ao empacotamento
           molecular nos fármacos e suas consequências na qualidade e eficácia dos medicamentos.
         `,
-        img: "",
+        img: "/assets/img/speakers/alejandro_pedro.jpg",
         action: () => {
           alert("You clicked on the second speaker");
         }
@@ -209,7 +214,7 @@ export default class Home extends Vue {
           experiência em Dosimetria e Controle de Qualidade de equipamentos Varian, Elekta e Siemens, bem como
           em IGRT via Portal Imaging e CBCT.
         `,
-        img: "",
+        img: "/assets/img/speakers/fabicio_augusto.jpg",
         subjectResume: `
           O avanço da tecnologia e dos processos de produção no Brasil tem se acentuado fortemente nas
           últimas décadas. Fatores como o aumento da competitividade e o cenário econômico instável têm forçado
@@ -245,7 +250,7 @@ de câncer`,
           University of Central Lancashire, Reino Unido. Pesquisador honorário do Departamento de Neuropatologia
           na Lancashire Teaching Hospitals NHS Foundation Trust, Royal Preston Hospital, Reino Unido.
         `,
-        img: ``,
+        img: `/assets/img/speakers/camilo_lelis.jpg`,
         subjectResume: `
           O uso de espectroscopia vibracional (infravermelho e Raman) para análise não-destrutiva de
           materiais biológicos é uma área de rápida expansão, em que existe um alto foco no desenvolvimento de
@@ -278,7 +283,7 @@ uma abordagem STEAM`,
           Educação, Ciência e Tecnologia da Bahia - IFBA .Tem experiência na área de Física, com ênfase em Ensino
           de Física e formação de professores
         `,
-        img: ``,
+        img: `/assets/img/speakers/jancarlos_menezes.jpg`,
         subjectResume: `
           Objetiva-se retratar a experiência vivida em uma Comunidade de Prática de Ensino de Ciências
           enquanto estratégia formativa de professores de Ciências dentro de uma abordagem STEAM. O relato
@@ -297,7 +302,7 @@ uma abordagem STEAM`,
       {
         name: `Prof. Dra. Adda Daniela Lima Figueiredo Echalar`,
         institution: `Universidade Federal de Goiás`,
-        speaking: `T ecnologias na Educação`,
+        speaking: `Tecnologias na Educação`,
         description: `
           Doutora em Educação pela Pontifícia Universidade Católica de Goiás (PUC Goiás), na linha
           de pesquisa de Teorias da Educação e Processos Pedagógicos. Mestre em Biologia pela Universidade Federal
@@ -311,7 +316,7 @@ uma abordagem STEAM`,
           2018). Tem experiência na área de educação, com ênfase em educação e tecnologias, teorias da educação,
           processos pedagógicos, formação de professores e educação em Ciências.
         `,
-        img: ``,
+        img: `/assets/img/speakers/adda_daniela_lima.jpg`,
         subjectResume: `
           A presente exposição busca analisar o conteúdo de políticas públicas com o objetivo de desvelar as
           intencionalidades político-pedagógicas que fomentam a inserção das tecnologias digitais em rede em
@@ -373,7 +378,7 @@ uma abordagem STEAM`,
           Finanças Empresariais (1998 – 1999). Universidade Federal de Uberlândia – UFU – Graduação, Engenharia
           Eletrônica (1990 – 1994).
         `,
-        img: ``,
+        img: `/assets/img/speakers/luciano_lacerda.jpg`,
         subjectResume: `
           A palestra abordará os aspectos relativos a transformação digital os desafios que ela impõe para os
           negócios, seus profissionais e o que você deve fazer para estar alinhado a essa nova realidade. Diversos
@@ -400,7 +405,7 @@ uma abordagem STEAM`,
           reviewer of the IEEE Geoscience and Remote Sensing Letters journal. He is a member of the IEEE and of
           the SBC (Sociedade Brasileira de Computação).
         `,
-        img: ``,
+        img: `/assets/img/speakers/andre_lage.jpg`,
         subjectResume: `
           Predicting case outcomes is useful but still an extremely hard task for attorneys and other Law
           professionals. However, it is not easy to extract valuable information from cases as this requires dealing with
@@ -425,7 +430,7 @@ uma abordagem STEAM`,
           Telecomunicações, atuando principalmente nos temas: microcontroladores, sistemas embarcados e
           robótica. (Texto informado pelo autor)
         `,
-        img: ``,
+        img: `/assets/img/speakers/alessandro_cunha.jpg`,
         subjectResume: `
           A palavra IoT (Internet of Things) tem sido utilizada em diversas previsões de futuro como algo
           que vai revolucionar a experiência humana nas mais diversas áreas (agricultura, medicina, advocacia,
@@ -446,7 +451,7 @@ uma abordagem STEAM`,
           Universidade Federal de Goiás (1987). Tem experiência na área de Educação , com ênfase em Administração
           Educacional.
         `,
-        img: ``,
+        img: `/assets/img/speakers/clelia_brandao.jpg`,
         subjectResume: `
           A humanidade encontra-se num contexto de super complexidade, assim é desafiadora a exigência
           que contemporaneidade apresenta à educação entendida como processo e prática que se concretizam nas
@@ -472,7 +477,7 @@ uma abordagem STEAM`,
           formação de professores, intitulado Curso de GeoGebra (atualmente na 13a edição) com uma equipe formada
           por 90 profissionais de educação matemática de vários estados do Brasil.
         `,
-        img: ``,
+        img: `/assets/img/speakers/sergio_dantas.jpg`,
         subjectResume: `
           Nessa palestra apresento minha perspectiva pessoal de resolução de problemas utilizando
           Matemática e Tecnologia. Abordo problemas de aritmética, álgebra e geometria, explorando algumas formas
@@ -495,7 +500,7 @@ Constrained Reconstruction`,
           Institute, University of Calgary; and Scientific Director, Seaman Family MR Research Centre, oothills
           Medical Centre, Alberta Health Services Calgary, Alberta, CANADA T2N 2T9.
         `,
-        img: ``,
+        img: `/assets/img/speakers/richard_frayne.jpg`,
         subjectResume: `
           Magnetic resonance (MR) imaging is a powerful non-invasive tool in modern medicine and is used
           worldwide to support important diagnostic medical decisions. Building on earlier discoveries in nuclear
@@ -536,7 +541,7 @@ Constrained Reconstruction`,
           Processamento de Imagens para a comunidade acadêmica. Desde 2012 dedica-se também à organização e
           oferecimento de oficinas de programação para crianças e adolescentes.
         `,
-        img: ``,
+        img: `/assets/img/speakers/leticia_ritner.jpg`,
         subjectResume: `
           Se alguém me dissesse há 20 anos atrás que construíriamos máquinas capazes de detectar micro
           sangramentos no cérebro, ou capaz de antever crises epilépticas ou ainda, adivinhar a idade de uma pessoa a
@@ -559,7 +564,7 @@ Constrained Reconstruction`,
         speaking: `Você trabalha ou só dá aula? Um olhar sobre as pesquisas acerca da formação profissional de
 professores de química`,
         description: ``,
-        img: ``,
+        img: `/assets/img/speakers/amadeu_moura.jpg`,
         subjectResume: `
           Esta palestra discute a questão da profissionalização do trabalho docente e quais são os saberes
           profissionais necessários para a valorização da atividade docente e a ressignificação de seus status social.

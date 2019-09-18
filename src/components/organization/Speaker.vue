@@ -1,7 +1,9 @@
 <template>
   <div class="speaker">
     <div class="avatar">
-      <div v-bind:style="{backgroundImage: avatar, backgroundPosition: speaker.offset}"></div>
+      <div
+        v-bind:style="{backgroundImage: avatar, backgroundPosition: speaker.offset, backgroundSize: customSize}"
+      ></div>
     </div>
     <span class="name">
       <h4>{{speaker.name}}</h4>
@@ -16,7 +18,6 @@
 
     <div class="n1"></div>
     <div class="n2"></div>
-
   </div>
 </template>
 
@@ -30,6 +31,7 @@ export default class Speaker extends Vue {
   @Prop(Object) private speaker: any;
 
   private avatar: string;
+  private customSize: any;
 
   constructor() {
     super();
@@ -37,6 +39,8 @@ export default class Speaker extends Vue {
     this.avatar = this.speaker.img
       ? `url(${this.speaker.img})`
       : `url(https://png.pngtree.com/element_our/png/20181206/users-vector-icon-png_260862.jpg)`;
+
+    this.customSize = this.speaker.customSize;
   }
 
   private showProfile(name: string) {
@@ -69,6 +73,7 @@ export default class Speaker extends Vue {
   border-radius: 50%;
   background-image: url(https://png.pngtree.com/element_our/png/20181206/users-vector-icon-png_260862.jpg);
   background-size: cover;
+  background-color: black;
 }
 .speaker .name {
   font-weight: 350;
@@ -77,7 +82,12 @@ export default class Speaker extends Vue {
   flex-direction: column;
   justify-content: flex-end;
 }
-.speaker .name h1, .speaker .name h2, .speaker .name h3, .speaker .name h4, .speaker .name h5, .speaker .name h6 {
+.speaker .name h1,
+.speaker .name h2,
+.speaker .name h3,
+.speaker .name h4,
+.speaker .name h5,
+.speaker .name h6 {
   font-weight: inherit;
   text-transform: uppercase;
 }
@@ -98,7 +108,8 @@ export default class Speaker extends Vue {
 .speaker .more {
   grid-area: more;
 }
-.speaker .n1, .speaker .n2 {
+.speaker .n1,
+.speaker .n2 {
   display: initial;
 }
 @media screen and (max-width: 768px) {
