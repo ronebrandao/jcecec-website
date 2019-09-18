@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar-h">
+  <div class="navbar-h mx-auto">
     <input type="checkbox" id="open-mmenu" :style="{display:'none'}" />
     <div class="mobile menu-mobile">
       <div>
@@ -10,21 +10,10 @@
         </dir>
       </div>
       <ul>
-        <li>
-          <router-link to="/">HOME</router-link>
-        </li>
-        <li>
-          <router-link to="/evento">Evento</router-link>
-        </li>
-        <li>
-          <router-link to="/organizacao">Organização</router-link>
-        </li>
-        <li>
-          <router-link to="/cadastro">Inscrição</router-link>
-        </li>
-        <li>
-          <router-link to="/submissao">Submissão</router-link>
-        </li>
+        <router-link to="/" tag="li">Home</router-link>
+        <router-link to="/evento" tag="li">Evento</router-link>
+        <router-link to="/cadastro" tag="li">Inscrição</router-link>
+        <router-link to="/submissao" tag="li">Submissão</router-link>
       </ul>
     </div>
 
@@ -61,18 +50,10 @@
     </div>
     <div class="nav-container desktop">
       <ul>
-        <li>
-          <router-link to="/">HOME</router-link>
-        </li>
-        <li>
-          <router-link to="/evento">Evento</router-link>
-        </li>
-        <li>
-          <router-link to="/cadastro">Inscrição</router-link>
-        </li>
-        <li>
-          <router-link to="/submissao">Submissão</router-link>
-        </li>
+        <router-link to="/" tag="li">Home</router-link>
+        <router-link to="/evento" tag="li">Evento</router-link>
+        <router-link to="/cadastro" tag="li">Inscrição</router-link>
+        <router-link to="/submissao" tag="li">Submissão</router-link>
       </ul>
     </div>
   </div>
@@ -90,7 +71,6 @@ export default class NavBar extends Vue {}
   position: relative;
   padding: 20px 0;
   background-color: white;
-  margin: auto;
   max-width: 1000px;
 }
 .navbar-h .nav-info {
@@ -145,11 +125,11 @@ export default class NavBar extends Vue {}
   padding: 15px 45px;
   font-family: "Montserrat", sans-serif;
   color: #576574;
-  transition: all 300ms ease;
+  transition: all 50ms ease;
+  height: 51px;
 }
 .navbar-h .nav-container > ul li:hover {
   border-bottom: 2px solid #576574;
-  margin-bottom: -2px;
   cursor: pointer;
 }
 .navbar-h .nav-container > ul li a {
