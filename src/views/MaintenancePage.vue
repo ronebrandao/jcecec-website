@@ -7,7 +7,7 @@
         <i class="fa fa-5x fa-cog fa-spin" aria-hidden="true"></i>
         <i class="fa fa-3x fa-cog" aria-hidden="true"></i>
       </div>
-      <h1 class="maintenance">Em Manutenção</h1>
+      <h1 class="maintenance">Em Construção</h1>
       <h2>Nossos desenvolvedores estão trabalhando para atualizar o site.</h2>
     </div>
   </div>

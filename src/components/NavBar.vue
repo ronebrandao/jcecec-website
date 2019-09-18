@@ -12,6 +12,8 @@
       <ul>
         <router-link to="/" tag="li">Home</router-link>
         <router-link to="/evento" tag="li">Evento</router-link>
+        <router-link to="/minicursos" tag="li">Minicursos</router-link>
+        <router-link to="/competicao" tag="li">Competição</router-link>
         <router-link to="/cadastro" tag="li">Inscrição</router-link>
         <router-link to="/submissao" tag="li">Submissão</router-link>
       </ul>
@@ -52,6 +54,8 @@
       <ul>
         <router-link to="/" tag="li">Home</router-link>
         <router-link to="/evento" tag="li">Evento</router-link>
+        <router-link to="/minicursos" tag="li">Minicursos</router-link>
+        <router-link to="/competicao" tag="li">Competição</router-link>
         <router-link to="/cadastro" tag="li">Inscrição</router-link>
         <router-link to="/submissao" tag="li">Submissão</router-link>
       </ul>
