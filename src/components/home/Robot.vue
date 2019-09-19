@@ -3,7 +3,7 @@
     <v-layout row wrap>
       <v-flex xs12 md5 class="rb-icon">
         <div>
-          <img src="/assets/img/robot/rb1.jpg" />
+          <img src="/assets/img/robot/rb1.jpg" width="80%" />
           <div></div>
         </div>
       </v-flex>
@@ -26,7 +26,7 @@
             autonomia exigida dos protótipos de robôs para a realização das tarefas a eles solicitadas.
           </p>
           <div class="more">
-            <v-btn color="primary">Saiba mais</v-btn>
+            <v-btn color="primary" @click="goToCompetition">Saiba mais</v-btn>
           </div>
         </div>
       </v-flex>
@@ -41,6 +41,10 @@ import { Component, Vue, Prop } from "vue-property-decorator";
 export default class Speakers extends Vue {
   constructor() {
     super();
+  }
+
+  private goToCompetition() {
+    this.$router.push("/competicao");
   }
 }
 </script>

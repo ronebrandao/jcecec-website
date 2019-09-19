@@ -32,13 +32,13 @@
 
       <div class="nav-date">
         <span class="desktop" :style="{textAlign: 'right'}">
-          De 6 a 9 de Novembro
+          De 11 a 14 de Novembro
           <br />PUC Goiás
           <br />Goiânia-GO
         </span>
 
         <span class="mobile sm-device">
-          De 6 a 9 de Novembro
+          De 11 a 14 de Novembro
           PUC Goiás
           Goiânia-GO
         </span>
