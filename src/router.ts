@@ -52,6 +52,18 @@ const router = new Router({
       name: "manutencao",
       component: () =>
         import(/* webpackChunkName: "account" */ "./views/Maintenance.vue")
+    },
+    {
+      path: "/minicursos",
+      name: "minicursos",
+      component: () =>
+        import(/* webpackChunkName: "account" */ "./views/MaintenancePage.vue")
+    },
+    {
+      path: "/competicao",
+      name: "competicao",
+      component: () =>
+        import(/* webpackChunkName: "account" */ "./views/MaintenancePage.vue")
     }
   ]
 });
