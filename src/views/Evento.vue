@@ -102,7 +102,7 @@ export default class Evento extends Vue {
     super();
     this.speakers = [
       {
-        name: "Rosa Maria de Castro Fernandes Vasconcelos",
+        name: "Prof. Dra. Rosa Maria de Castro Fernandes Vasconcelos",
         institution: "Universidade do Minho – Portugal",
         speaking: "O Meu Futuro “Uma nova abordagem”",
         description: `
@@ -131,10 +131,7 @@ export default class Evento extends Vue {
       é o desafio mais importante desta atividade.
     `,
         img: "/assets/img/speakers/rosa_maria_castro.jpg",
-        customSize: "85%",
-        action: () => {
-          // this.$router.push({path: "/profile", query: {name: "test"}});
-        }
+        customSize: "85%"
       },
       {
         name: "Prof. Dr. Alejandro Pedro Ayala",
@@ -177,13 +174,10 @@ export default class Evento extends Vue {
       sólido, que contribui para caracterizar, entender e predizer os mecanismos que levam ao empacotamento
       molecular nos fármacos e suas consequências na qualidade e eficácia dos medicamentos.
     `,
-        img: "/assets/img/speakers/alejandro_pedro.jpg",
-        action: () => {
-          alert("You clicked on the second speaker");
-        }
+        img: "/assets/img/speakers/alejandro_pedro.jpg"
       },
       {
-        name: "Dr. Fabício Augusto de Lima",
+        name: "Dr. Fabrício Augusto de Lima",
         institution:
           "Clínica de Radioterapia e Quimioterapia de Presidente Prudente.",
         speaking:
@@ -221,10 +215,7 @@ export default class Evento extends Vue {
       baseado no reconhecimento de padrões e inteligência artificial, assim como a atuação clínica deste
       profissional nos tratamentos de câncer que envolvem radioterapia e medicina nuclear.
     `,
-        offset: "-15px",
-        action: () => {
-          alert("You clicked on the third speaker");
-        }
+        offset: "-15px"
       },
       {
         name: `Msc Camilo de Lelis Medeiros de Morais`,
@@ -257,7 +248,7 @@ de câncer`,
         action: ``
       },
       {
-        name: `Jancarlos Menezes Lapa`,
+        name: `Prof. Dr. Jancarlos Menezes Lapa`,
         institution: `Universidade Federal da Bahia`,
         speaking: `STEAM BY ME A experiência de uma Comunidade de Prática de Ensino de
 Ciências enquanto estratégia formativa de professores de Ciências dentro de
@@ -331,30 +322,6 @@ uma abordagem STEAM`,
         action: ``
       },
       {
-        name: `Feliz Alberto Ribeiro Gouveia`,
-        institution: `Universidade Fernando Pessoa`,
-        speaking: `IA e Engenharia de Software`,
-        description: `
-      Feliz Ribeiro Gouveia é professor associado com agregação na Universidade Fernando
-      Pessoa, Porto. Licenciado em Eng Electrotécnica pela Universidade do Porto (1986) e doutorado em
-      14Computação pela Universidade de Tecnologia de Compiègne, França (1992). Tem desenvolvido investigação
-      na área de agentes e Inteligência Artificial, representação de conhecimento e modelos semânticos. Participou
-      em mais de 20 projetos de I&D financiados, e é autor ou co-autor de uma centena de publicações em revistas
-      e conferências internacionais. É autor do livro Fundamentos de Bases de Dados, FCA, Lisboa (2014).
-    `,
-        img: ``,
-        subjectResume: `
-      A Engenharia de Software, como disciplina, muito tem contribuído para o sucesso dos projetos de
-      desenvolvimento de software. No entanto, cada projeto traz novos desafios, complexidades e torna a
-      reutilização e a aprendizagem de casos anteriores muito difícil. Acresce que as pilhas tecnológicas são cada
-      vez mais complexas e com interações muito difíceis de prever. É neste campo que a IA pode automatizar
-      etapas de processos e contribuir para o maior sucesso dos projetos de software. Vamos rever as áreas onde a
-      automação já contribuiu bastante, e identificar as áreas onde a IA pode trazer uma nova perspetiva.
-    `,
-        offset: ``,
-        action: ``
-      },
-      {
         name: `Luciano Lacerda`,
         institution: `Totvs`,
         speaking: `Mercado tecnológico, adaptação e transformação dos negócios`,
@@ -399,7 +366,7 @@ uma abordagem STEAM`,
       huge and complex data sets such as myriads of textual legal decisions. In this talk, I will present an approach
       for predicting Brazilian court decisions which is also able to predict whether the decision will be unanimous.
       This approach reaches 82% of accuracy (F1-score) on a data set composed of 4,043 cases from a Brazilian
-      court. To our knowledge, this is the first study to forecast judge decisions in Brazil.        
+      court. To our knowledge, this is the first study to forecast judge decisions in Brazil.
     `,
         offset: ``,
         action: ``
@@ -546,7 +513,7 @@ Constrained Reconstruction`,
         action: ``
       },
       {
-        name: `Amadeu Moura Bego`,
+        name: `Prof. Dr. Amadeu Moura Bego`,
         institution: `Universidade Estadual Paulista (UNESP)`,
         speaking: `Você trabalha ou só dá aula? Um olhar sobre as pesquisas acerca da formação profissional de
 professores de química`,
@@ -555,6 +522,18 @@ professores de química`,
         subjectResume: `
       Esta palestra discute a questão da profissionalização do trabalho docente e quais são os saberes
       profissionais necessários para a valorização da atividade docente e a ressignificação de seus status social.
+    `,
+        offset: ``,
+        action: ``
+      },
+      {
+        name: `Prof. Dr. Luiz Gonzaga Roversi`,
+        institution: `Universidade Federal de Goiás`,
+        speaking: `Estágio Supervisionado, Física, Campo Escolar, Campo Universitário, GGP, Sindicatos, Secretarias de Educação...: um contexto tecnocientífico à luz de uma análise “Big Data”`,
+        description: `Graduado em Física pela Unesp-Rio Claro (Universidade Estadual Paulista Júlio de Mesquita Filho) em 1998. Doutorado e Mestrado em Educação para a Ciência pela Universidade Estadual Paulista Júlio de Mesquita Filho (Unesp-Bauru), obtidos nos anos de 2008 e 2002, respectivamente. Atuou como Professor Efetivo da Educação Básica II (física e química - Secretaria de Estado da Educacao de São Paulo) entre os anos de 1998 e 2009. Atualmente é Professor Associado do Instituto de Física da UFG e do Programa de Pós-Graduação Educação em Ciências e Matemática da UFG. Tem experiência na área de Educação em Ciências, com ênfase em Sociologia da Ciência, da Tecnologia e da Tecnociência e Formação de Professores pertencentes à interseção do Campo Escolar e do Campo Universitário, o Grande Grupo de Pesquisa-Física. Sente-se, tome-mos a atividade do pensar...`,
+        img: `/assets/img/speakers/luiz_gonzaga.jpg`,
+        subjectResume: `
+    O Estágio Supervisionado em Física, um tipo de relação entre os campos escolar e universitário, levado a cabo atualmente pelos campos da escola João Barbosa Reis, Waldemar Mundim, Tancredo de Almeida Neves, Maria Nosídia das Palmeiras Neves e CEPAE e pelo subcampo científico do IF da UFG vem se constituindo e construindo um espaço social dinâmico e complexo de formação desde 2010. Espaço social com marcas típicas do contexto tecnocientífico, dentre as quais se destacam: a produção de grande quantidade e diversidade de informação, a interação e o entrelaçamento de e entre os campos sindicais, das secretarias de educação e outros e, não menos importante, a fluidez e superficialidade das relações entre pessoas e coisas e vice-versa. Não por acaso, a este cenário, típico da contemporaneidade, se lança uma análise do tipo “Big Data” articulada aos pressupostos teóricos do Grande Grupo de Pesquisa, o GGP, de base bourdieusiana.
     `,
         offset: ``,
         action: ``
