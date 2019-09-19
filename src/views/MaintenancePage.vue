@@ -28,7 +28,6 @@ export default {
 html,
 body {
   height: 100%;
-  // background: url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/dark_fish_skin.png);
   color: white;
   font-family: "Inconsolata", monospace;
   font-size: 100%;

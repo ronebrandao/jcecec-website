@@ -3,7 +3,9 @@
     <header class="banner" :style="{backgroundImage: `url(${defaults.bgBanner})`}">
       <div>
         <div>
-          <div :style="{backgroundImage: `url(${speaker.img})`}"></div>
+          <div
+            :style="{backgroundImage: `url(${speaker.img ? speaker.img : 'https://png.pngtree.com/element_our/png/20181206/users-vector-icon-png_260862.jpg'})`}"
+          ></div>
         </div>
         <div>
           <div>
@@ -15,7 +17,6 @@
     </header>
 
     <div class="main">
-
       <label for="palestra">
         <h4>Palestra</h4>
       </label>
@@ -38,7 +39,6 @@
           <p>{{speaker.description}}</p>
         </div>
       </div>
-
     </div>
   </div>
 </template>
@@ -73,7 +73,6 @@ export default class SpeakerProfile extends Vue {
 <style scoped>
 .banner {
   position: relative;
-  margin-top: 113.75px;
   height: 250px;
   background-size: cover;
   background-attachment: fixed;
@@ -165,10 +164,6 @@ export default class SpeakerProfile extends Vue {
   padding: 5px 0;
   transition: background-color 300ms ease;
 }
-.main h4:hover {
-  cursor: pointer;
-  background-color: lightgray;
-}
 .main p {
   text-align: justify;
 }
@@ -181,11 +176,8 @@ export default class SpeakerProfile extends Vue {
 .main label {
   display: block;
 }
-.main input[type=checkbox] {
+.main input[type="checkbox"] {
   display: none !important;
-}
-.main .toggle:checked + div {
-  height: 0;
 }
 @media screen and (max-width: 768px) {
   .main {
@@ -214,5 +206,4 @@ export default class SpeakerProfile extends Vue {
     font-size: 1.25rem;
   }
 }
-
 </style>

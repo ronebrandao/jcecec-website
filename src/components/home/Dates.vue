@@ -5,14 +5,19 @@
     </div>
     <div style="max-width:700px;margin: 30px auto 10px;">
       <v-data-table
-        :headers="headers"
+        hide-headers
         :items="dates"
         hide-actions
-        class="elevation-1"
+        class="elevation-1 datas"
         item-key="id"
         loading="true"
         no-data-text="Nenhum dado cadastrado"
-      ></v-data-table>
+      >
+        <template v-slot:items="props">
+          <td class="text-xs-center">{{ props.item.date }}</td>
+          <td class="text-xs-center">{{ props.item.event }}</td>
+        </template>
+      </v-data-table>
     </div>
   </div>
 </template>
@@ -24,41 +29,35 @@ import { Component, Vue, Prop } from "vue-property-decorator";
   components: {}
 })
 export default class Dates extends Vue {
-  constructor() {
-    super();
-  }
-
   private headers = [
     {
       text: "data",
       align: "left",
-      value: "date"
+      value: "date",
+      sortable: false
     },
     {
       text: "data2",
       align: "right",
-      value: "date"
+      value: "date",
+      sortable: false
     }
   ];
 
   private dates = [
     {
-      id: 1,
-      date: "01-01-2019"
+      date: "30/10",
+      event: "Prazo para as submissões"
     },
     {
-      id: 2,
-      date: "01-01-2019"
-    },
-    {
-      id: 3,
-      date: "01-01-2019"
-    },
-    {
-      id: 4,
-      date: "01-01-2019"
+      date: "11/11 a 14/11",
+      event: "Data do evento"
     }
   ];
+
+  constructor() {
+    super();
+  }
 }
 </script>
 
@@ -68,5 +67,9 @@ export default class Dates extends Vue {
   color: #0065a0;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
+}
+
+.datas td {
+  font-size: 16px;
 }
 </style>

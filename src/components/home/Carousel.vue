@@ -9,7 +9,7 @@
                 <img src="assets/img/logo-clean.webp" class="logo" />
                 <img src="assets/img/logo-clean.webp" class="logo back" />
                 <div>
-                  <span class="date">6 a 9 de Novembro</span>
+                  <span class="date">11 a 14 de Novembro</span>
                 </div>
                 <hr />
                 <div>

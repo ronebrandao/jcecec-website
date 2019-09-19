@@ -40,7 +40,9 @@ export default class Speaker extends Vue {
       ? `url(${this.speaker.img})`
       : `url(https://png.pngtree.com/element_our/png/20181206/users-vector-icon-png_260862.jpg)`;
 
-    this.customSize = this.speaker.customSize;
+    this.customSize = this.speaker.customSize
+      ? this.speaker.customSize
+      : "100%";
   }
 
   private showProfile(name: string) {
