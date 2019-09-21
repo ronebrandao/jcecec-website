@@ -218,7 +218,7 @@ export default class NavBar extends Vue {}
 }
 
 .menu-mobile {
-  position: absolute;
+  position: fixed;
   z-index: 1000;
   background-color: white;
   padding: 15px;
