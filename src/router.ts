@@ -64,6 +64,12 @@ const router = new Router({
       name: "competicao",
       component: () =>
         import(/* webpackChunkName: "account" */ "./views/MaintenancePage.vue")
+    },
+    {
+      path: "/notfound",
+      name: "notfound",
+      component: () =>
+        import(/* webpackChunkName: "account" */ "./views/four04.vue")
     }
   ]
 });
