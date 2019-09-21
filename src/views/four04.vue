@@ -1,12 +1,12 @@
 <template>
 
-    <div id="four04">
+    <div id="four04" class="view">
         <span>
             404
         </span>
         <div>
-            There's something wrong here, please, go back to the home page clicking&nbsp;
-            <a href="/#/">here</a>
+            Página não encontrada, volte para a primeira página clicando&nbsp;
+            <router-link to="/">aqui.</router-link>
         </div>
     </div>
 
