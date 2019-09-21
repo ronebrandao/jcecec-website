@@ -72,10 +72,9 @@ export default class Login extends mixins(LoaderMixin, NotificationMixin) {
       this.cognito
         .authenticateUser(this.email.toLowerCase(), this.password)
         .then(session => {
-          this.$store.dispatch("setSession", session);
-
           getUser(session.getIdToken().payload["email"]).then(result => {
             if (result.success) {
+              this.$store.dispatch("setSession", session);
               this.$store.dispatch("setUser", result.data);
               this.$router.push("/conta");
               this.hideLoader();

@@ -124,4 +124,8 @@ export default class SubmissionForm extends mixins(
   display: flex;
   justify-content: center;
 }
+
+.headline {
+  color: #272727 !important;
+}
 </style>
