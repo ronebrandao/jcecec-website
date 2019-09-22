@@ -176,7 +176,7 @@ import Institution from "@/services/models/institutions";
 import { createUser } from "@/services/user";
 import LoaderMixin from "@/mixins/loader";
 import NotificationMixin from "@/mixins/notification";
-import { setCognitoUser } from "../../services/authentication";
+import { setCognitoUser, logOut } from "../../services/authentication";
 
 @Component({
   components: {}
@@ -325,9 +325,12 @@ export default class SignUp extends mixins(LoaderMixin, NotificationMixin) {
         "custom:type": "user"
       })
       .then(result => {
+        logOut();
         this.$store.commit("setUser", result);
         this.$localStorage.set("userForm", JSON.stringify(this.form));
         setCognitoUser(this.form.email); //gambi
+
+        this.showSuccessNotification("Inscrição realizada com sucesso.");
 
         this.hideLoader();
 
