@@ -5,7 +5,7 @@ import Home from "./views/Home.vue";
 Vue.use(Router);
 
 const router = new Router({
-  mode: 'history',
+  mode: "history",
   routes: [
     {
       path: "/",
@@ -28,7 +28,7 @@ const router = new Router({
       path: "/submissao",
       name: "submissao",
       component: () =>
-        import(/* webpackChunkName: "about" */ "./views/Login.vue")
+        import(/* webpackChunkName: "submissions" */ "./views/SubmissionRules.vue")
     },
     {
       path: "/conta",

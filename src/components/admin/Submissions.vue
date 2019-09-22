@@ -53,10 +53,10 @@
             class="elevation-1"
           >
             <template v-slot:items="props">
-              <td>
+              <td class="text-xs-center">
                 <v-checkbox v-model="props.selected" primary hide-details></v-checkbox>
               </td>
-              <td>{{ props.item.id }}</td>
+              <td class="text-xs-center">{{ props.item.id }}</td>
               <td class="text-xs-center">{{ props.item.title }}</td>
               <td class="text-xs-center">
                 <v-btn small :color="props.item.color">{{ props.item.status }}</v-btn>
@@ -166,6 +166,12 @@ export default class Submissions extends mixins(
   private selected: any = [];
   private date: Date = null;
   private headers = [
+    {
+      text: "#",
+      align: "left",
+      value: "noth",
+      sortable: false
+    },
     {
       text: "Número",
       align: "center",

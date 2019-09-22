@@ -1,6 +1,10 @@
 <template>
   <div class="obs-page view">
-    <PhotoHeader title="Evento" description="Descrição dos eventos da jornada"></PhotoHeader>
+    <PhotoHeader
+      title="Evento"
+      image="/assets/img/puc_sub.png"
+      description="Descrição dos eventos da jornada"
+    ></PhotoHeader>
 
     <Main>
       <Paragraph title="Histórico">
