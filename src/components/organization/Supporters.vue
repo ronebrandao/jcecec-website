@@ -11,7 +11,7 @@
       </div>
     </div>
     <v-divider></v-divider>
-    <h6>Apoio</h6>
+    <h6>Patrocínio</h6>
     <div class="row">
       <div class="col-md-12 text-center">
         <img src="/assets/img/fapeg.png" width="40%" />
