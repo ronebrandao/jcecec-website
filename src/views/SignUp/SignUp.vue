@@ -330,8 +330,6 @@ export default class SignUp extends mixins(LoaderMixin, NotificationMixin) {
         this.$localStorage.set("userForm", JSON.stringify(this.form));
         setCognitoUser(this.form.email); //gambi
 
-        this.showSuccessNotification("Inscrição realizada com sucesso.");
-
         this.hideLoader();
 
         this.$router.push("cadastro/confirmacao");

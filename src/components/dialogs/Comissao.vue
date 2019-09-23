@@ -1,6 +1,6 @@
 <template>
   <v-layout>
-    <v-dialog v-model="dialog" max-width="450">
+    <v-dialog v-model="dialog" persistent max-width="450">
       <v-card>
         <v-card-title class="headline">{{organizacao.nome}}</v-card-title>
         <v-card-text>

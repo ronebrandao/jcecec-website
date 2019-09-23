@@ -74,7 +74,8 @@ export default class Confirm extends mixins(NotificationMixin, LoaderMixin) {
             .then(userSession => {
               this.$store.commit("setUserSession", userSession);
               this.hideLoader();
-              this.$router.push("/");
+              this.$router.push("/conta");
+              this.showSuccessNotification("Inscrição realizada com sucesso.");
             })
             .catch(err => {
               this.hideLoader();
