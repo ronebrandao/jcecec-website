@@ -93,8 +93,7 @@ export default class SpeakerProfile extends Vue {
   height: 250px;
   border-radius: 35px;
   border: 5px solid white;
-  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.25),
-    0 10px 15px 0 rgba(0, 0, 0, 0.08);
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.25), 0 10px 15px 0 rgba(0, 0, 0, 0.08);
   background-size: cover;
 }
 .banner > div > div:last-child {
