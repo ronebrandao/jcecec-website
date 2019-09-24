@@ -8,9 +8,25 @@
           ></div>
         </div>
         <div>
-          <div>
+          <div class="datentime-container">
             <h1>{{speaker.name}}</h1>
             <h4>{{speaker.institution}}</h4>
+
+            <div class="datentime" v-if="speaker.datentime">
+              <div>
+                <i class="far fa-calendar-alt"></i>
+                <div>
+                  <div>Data: {{speaker.datentime.date}}</div>
+                  <div>{{speaker.datentime.time}}</div>
+                </div>
+              </div>
+              <div>
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                  <div>{{speaker.datentime.place}}</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -93,8 +109,7 @@ export default class SpeakerProfile extends Vue {
   height: 250px;
   border-radius: 35px;
   border: 5px solid white;
-  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.25),
-    0 10px 15px 0 rgba(0, 0, 0, 0.08);
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.25), 0 10px 15px 0 rgba(0, 0, 0, 0.08);
   background-size: cover;
 }
 .banner > div > div:last-child {
@@ -176,7 +191,7 @@ export default class SpeakerProfile extends Vue {
 .main label {
   display: block;
 }
-.main input[type="checkbox"] {
+.main input[type=checkbox] {
   display: none !important;
 }
 @media screen and (max-width: 768px) {
@@ -186,7 +201,7 @@ export default class SpeakerProfile extends Vue {
 }
 @media screen and (max-width: 425px) {
   .main {
-    padding: 40px 32px;
+    padding: 80px 32px;
   }
 }
 @media screen and (min-width: 1640px) {
@@ -204,6 +219,46 @@ export default class SpeakerProfile extends Vue {
 
   h4 {
     font-size: 1.25rem;
+  }
+}
+.datentime-container {
+  position: relative;
+}
+.datentime-container .datentime {
+  position: absolute;
+  display: flex;
+  border-top: 2px solid;
+  padding-top: 8px;
+}
+.datentime-container .datentime > div {
+  display: flex;
+}
+.datentime-container .datentime > div:last-child {
+  margin-left: 15px;
+}
+.datentime-container .datentime > div i {
+  font-size: 18pt;
+}
+.datentime-container .datentime > div div {
+  font-size: 10pt;
+  margin-left: 5px;
+  font-style: italic;
+}
+@media screen and (max-width: 768px) {
+  .datentime-container .datentime {
+    width: 100%;
+    justify-content: center;
+  }
+  .datentime-container .datentime > div div {
+    text-align: left;
+  }
+}
+@media screen and (max-width: 425px) {
+  .datentime-container .datentime {
+    flex-direction: column;
+  }
+  .datentime-container .datentime > div {
+    justify-content: center;
   }
 }
 </style>
