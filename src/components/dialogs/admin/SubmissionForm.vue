@@ -102,18 +102,22 @@ export default class SubmissionForm extends mixins(
   private async submit() {
     //@ts-ignore
     if (this.$refs.form.validate()) {
-      this.showLoader();
-      submitWork(this.$store.state.user.id, this.title, this.file)
-        .then(result => {
-          if (result.success) {
+      if (this.fileName.includes(".pdf")) {
+        this.showLoader();
+        submitWork(this.$store.state.user.id, this.title, this.file)
+          .then(result => {
+            if (result.success) {
+              this.hideLoader();
+              this.dialog = false;
+            }
+          })
+          .catch(err => {
             this.hideLoader();
-            this.dialog = false;
-          }
-        })
-        .catch(err => {
-          this.hideLoader();
-          this.showServerErorNotification();
-        });
+            this.showServerErorNotification();
+          });
+      } else {
+        this.showErrorNotification("Somente arquivos .pdf são permitidos.");
+      }
     }
   }
 }
