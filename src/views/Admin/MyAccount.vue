@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-toolbar>
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-side-icon v-if="isAdminOrProofreader" @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>Conta</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
@@ -64,6 +64,10 @@ export default class MyAccount extends mixins(LoaderMixin) {
   private signOut() {
     logOut();
     this.$router.push("/");
+  }
+
+  get isAdminOrProofreader() {
+    return this.$store.state.user.type !== "user";
   }
 }
 </script>
