@@ -7,7 +7,9 @@
           <v-expansion-panel v-model="panel" expand>
             <v-expansion-panel-content>
               <template v-slot:header>
-                <div class="titles">Normas para Apresentação dos Trabalhos</div>
+                <div class="titles">
+                  <v-icon class="mr-2">fas fa-file-alt</v-icon>Normas para Apresentação dos Trabalhos
+                </div>
               </template>
               <v-card>
                 <v-card-text class="grey lighten-3">
@@ -103,7 +105,9 @@
             </v-expansion-panel-content>
             <v-expansion-panel-content>
               <template v-slot:header>
-                <div class="titles">Normas para Apresentação de Pôsteres</div>
+                <div class="titles">
+                  <v-icon class="mr-2">fas fa-file-alt</v-icon>Normas para Apresentação de Pôsteres
+                </div>
               </template>
               <v-card>
                 <v-card-text class="grey lighten-3">
@@ -126,7 +130,9 @@
             </v-expansion-panel-content>
             <v-expansion-panel-content>
               <template v-slot:header>
-                <div class="titles">Normas para Apresentação Oral</div>
+                <div class="titles">
+                  <v-icon class="mr-2">fas fa-file-alt</v-icon>Normas para Apresentação Oral
+                </div>
               </template>
               <v-card>
                 <v-card-text class="grey lighten-3">
@@ -147,7 +153,9 @@
             </v-expansion-panel-content>
             <v-expansion-panel-content>
               <template v-slot:header>
-                <div class="titles">Certificados de Participação e Apresentação de Trabalhos</div>
+                <div class="titles">
+                  <v-icon class="mr-2">fas fa-user-check</v-icon>Certificados de Participação e Apresentação de Trabalhos
+                </div>
               </template>
               <v-card>
                 <v-card-text class="grey lighten-3">
@@ -163,6 +171,40 @@
                   <p>
                     3. Os Certificados estarão disponíveis para impressão no site da PUC pelo período de 60 (sessenta) dias após
                     o evento. Depois desse prazo não mais será possível obter o certificado.
+                  </p>
+                </v-card-text>
+              </v-card>
+            </v-expansion-panel-content>
+
+            <v-expansion-panel-content>
+              <template v-slot:header>
+                <div class="d-flex">
+                  <div class="titles">
+                    <v-icon class="mr-2">fas fa-award</v-icon>Premiações
+                  </div>
+                </div>
+              </template>
+              <v-card>
+                <v-card-text class="grey lighten-3">
+                  <p>1. A ECEC oferece aos apresentadores de trabalhos 3 modalidades de prêmios.</p>
+                  <ul class="my-2" id="aceitacao">
+                    <li>Prêmio Cientista ECEC Euler</li>
+                    <li>Prêmio Cientista ECEC Gauss</li>
+                    <li>Prêmio ECEC Marie Curie</li>
+                  </ul>
+                  <p>
+                    2. Os trabalhos cujos autores estejam ausentes na data da apresentação são excluídos do processo de
+                    premiação da JCECEC.
+                  </p>
+                  <p>3. A JCECEC confere o Prêmio Cientista ECEC Euler ao melhor trabalho apresentado na forma oral.</p>
+                  <p>4. A JCECEC confere o Prêmio Cientista ECEC Gauss ao melhor trabalho apresentado na forma de pôster.</p>
+                  <p>
+                    5. A JCECEC confere o prêmio ECEC Marie Curie ao melhor trabalho inscritos na categoria Iniciação
+                    Científica.
+                  </p>
+                  <p>
+                    6. Todos os trabalhos premiados serão convidados a publicar um artigo completo na Revista da Escola de
+                    Ciências Exatas e da Computação – RECEC.
                   </p>
                 </v-card-text>
               </v-card>
