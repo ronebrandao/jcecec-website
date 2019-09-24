@@ -5,7 +5,11 @@
         </PhotoHeader>
         
         <Main>
-            <MiniCourse></MiniCourse>
+            <div>
+                <div :v-for="(course, index) in coursesList" :key="index">
+                    <div>{{course.title}}</div>
+                </div>
+            </div>
         </Main>
 
     </div>
@@ -17,6 +21,7 @@ import { Component, Vue, Prop} from "vue-property-decorator";
 import PhotoHeader from "../components/organization/PhotoHeader.vue"
 import Main from "../components/organization/Main.vue"
 import MiniCourse from "../components/miniCourse/index.vue"
+import Courses from "@/models/miniCourses"
 
 @Component({
     components: {
@@ -27,12 +32,17 @@ import MiniCourse from "../components/miniCourse/index.vue"
 })
 export default class MiniCourses extends Vue {
 
+    private coursesList: any;   
+
     private title = "Minicursos";
     private description = "Minicursos da jornada";
     private background = "https://cdn.pixabay.com/photo/2016/02/05/16/19/offices-1181385_960_720.jpg"
 
     constructor(){
         super();
+
+        this.coursesList = Courses;
+        console.log(this.coursesList);
     }
 }
 </script>
