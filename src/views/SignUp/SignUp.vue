@@ -306,6 +306,7 @@ export default class SignUp extends mixins(LoaderMixin, NotificationMixin) {
 
       this.signUp().then(result => {
         if (result.success) {
+          this.$store.dispatch("setUser", result.data);
           this.signUpCognito();
         } else {
           this.showServerErorNotification();
@@ -326,7 +327,6 @@ export default class SignUp extends mixins(LoaderMixin, NotificationMixin) {
       })
       .then(result => {
         logOut();
-        this.$store.commit("setUser", result);
         this.$localStorage.set("userForm", JSON.stringify(this.form));
         setCognitoUser(this.form.email); //gambi
 
