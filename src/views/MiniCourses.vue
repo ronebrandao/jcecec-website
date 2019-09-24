@@ -5,9 +5,10 @@
         </PhotoHeader>
         
         <Main>
-            <div>
-                <div :v-for="(course, index) in coursesList" :key="index">
-                    <div>{{course.title}}</div>
+            <div class="courses-list">
+                <div v-for="(course, index) in coursesList" :key="index">
+                    <MiniCourse :course="course"></MiniCourse>
+                    <hr>
                 </div>
             </div>
         </Main>
@@ -42,11 +43,14 @@ export default class MiniCourses extends Vue {
         super();
 
         this.coursesList = Courses;
+
         console.log(this.coursesList);
     }
 }
 </script>
 
 <style scoped>
+.courses-list > div:not(:first-child) {
+  margin-top: 35px;
+}
 </style>
-
