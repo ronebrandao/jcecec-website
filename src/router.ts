@@ -58,7 +58,7 @@ const router = new Router({
       path: "/minicursos",
       name: "minicursos",
       component: () =>
-        import(/* webpackChunkName: "account" */ "./views/MaintenancePage.vue")
+        import(/* webpackChunkName: "account" */ "./views/MiniCourses.vue")
     },
     {
       path: "/competicao",
