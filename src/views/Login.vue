@@ -15,11 +15,11 @@
         ></v-text-field>
         <v-btn type="submit" color="primary">Acessar</v-btn>
         <v-btn flat color="indigo" @click="redirectSignUp">Não se inscreveu?</v-btn>
-        <div class="row mt-2">
+        <!-- <div class="row mt-2">
           <div class="col">
             <a @click="esqueciSenha">Esqueci minha senha</a>
           </div>
-        </div>
+        </div>-->
       </v-form>
     </v-container>
   </v-layout>
