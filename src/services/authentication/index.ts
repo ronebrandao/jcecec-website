@@ -1,5 +1,9 @@
 import Cognito from "@/cognito";
 import store from "@/store";
+import {
+  CognitoUserSession,
+  CognitoRefreshToken
+} from "amazon-cognito-identity-js";
 
 const auth = new Cognito();
 
@@ -26,4 +30,14 @@ export function getUser() {
 
 export function setCognitoUser(username: string) {
   auth.setCognitoUser(username);
+}
+
+export function getSession(): Promise<CognitoUserSession> {
+  return auth.getUserSession();
+}
+
+export function refreshSession(
+  refreshToken: CognitoRefreshToken
+): Promise<any | CognitoUserSession> {
+  return auth.refreshSession(refreshToken);
 }

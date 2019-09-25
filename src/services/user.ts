@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "@/config/axios";
 import SignUpForm from "@/models/forms/SignUpForm";
 import { formatarData } from "@/helpers/index";
 

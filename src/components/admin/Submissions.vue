@@ -47,6 +47,7 @@
             :loading="loading"
             :search="search"
             v-model="selected"
+            disable-initial-sort
             item-key="id"
             rows-per-page-text="Itens por página:"
             no-data-text="Ops! Parece que você ainda não tem nenhuma submissão."
