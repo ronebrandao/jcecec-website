@@ -9,5 +9,6 @@ export default class MiniCourse extends Vue {
 
     constructor(){
         super();
+        
     }
 }
