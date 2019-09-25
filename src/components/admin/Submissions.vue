@@ -103,7 +103,7 @@
               >Sua pesquisa por "{{ search }}" não teve nenhum resultado.</v-alert>
             </template>
           </v-data-table>
-          <SubmissionForm />
+          <SubmissionForm @submissionCompleted="loadData()" />
           <ProofcheckForm
             :showDialog="showRevisionDialog"
             :submissionId="submissionId"
@@ -195,6 +195,7 @@ export default class Submissions extends mixins(
   private loadData() {
     this.loading = true;
     this.refreshing = true;
+
     getUserSubmissions(this.$store.state.user.id)
       .then(result => {
         if (result.success) {

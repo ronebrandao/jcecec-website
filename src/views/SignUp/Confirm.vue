@@ -39,7 +39,8 @@ import {
   confirmUser,
   login,
   resendCode,
-  getUser
+  getUser,
+  setCognitoUser
 } from "../../services/authentication";
 
 @Component({
@@ -57,6 +58,10 @@ export default class Confirm extends mixins(NotificationMixin, LoaderMixin) {
     super();
 
     this.code = "";
+  }
+
+  private created() {
+    // setCognitoUser(this.$store.state.user.email);
   }
 
   private confirmUser() {
@@ -93,7 +98,7 @@ export default class Confirm extends mixins(NotificationMixin, LoaderMixin) {
     resendCode()
       .then(() => this.disableButton())
       .catch(() => {
-        this.showServerErorNotification();
+        this.showErrorNotification("PIN inválido ou expirado.");
       });
   }
 

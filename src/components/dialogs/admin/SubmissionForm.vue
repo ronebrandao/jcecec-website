@@ -109,6 +109,7 @@ export default class SubmissionForm extends mixins(
             if (result.success) {
               this.hideLoader();
               this.dialog = false;
+              this.$emit("submissionCompleted");
             }
           })
           .catch(err => {
