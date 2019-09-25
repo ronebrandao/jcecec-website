@@ -304,14 +304,28 @@ export default class SignUp extends mixins(LoaderMixin, NotificationMixin) {
     if (this.$refs.form.validate() && this.validatePassword()) {
       this.showLoader();
 
-      this.signUp().then(result => {
-        if (result.success) {
-          this.$store.dispatch("setUser", result.data);
-          this.signUpCognito();
-        } else {
+      this.signUp()
+        .then(result => {
+          result = result.data;
+
+          if (result.success) {
+            this.$store.dispatch("setUser", result.data);
+            this.signUpCognito();
+          } else {
+            this.hideLoader();
+            if (result.code === "user_exists") {
+              this.showErrorNotification(
+                "Já existe um usuário com este e-mail."
+              );
+            } else {
+              this.showServerErorNotification();
+            }
+          }
+        })
+        .catch(err => {
+          this.hideLoader();
           this.showServerErorNotification();
-        }
-      });
+        });
     }
   }
 

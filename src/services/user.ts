@@ -1,10 +1,11 @@
 import axios from "@/config/axios";
+import axiosWithoutAuth from "axios";
 import SignUpForm from "@/models/forms/SignUpForm";
 import { formatarData } from "@/helpers/index";
 
 const API_URL = process.env.VUE_APP_API_URL + "users/";
 
-export async function createUser(user: SignUpForm): Promise<any> {
+export function createUser(user: SignUpForm): Promise<any> {
   const {
     firstName,
     lastName,
@@ -23,7 +24,7 @@ export async function createUser(user: SignUpForm): Promise<any> {
 
   const birthDate = formatarData(user.birthDate);
 
-  const resp = await axios.post(API_URL, {
+  return axiosWithoutAuth.post(API_URL, {
     firstName,
     lastName,
     email,
@@ -39,8 +40,6 @@ export async function createUser(user: SignUpForm): Promise<any> {
     neighborhood,
     complement
   });
-
-  return resp.data;
 }
 
 export async function getUser(email: string): Promise<any> {
