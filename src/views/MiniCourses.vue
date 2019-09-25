@@ -2,6 +2,7 @@
 
     <div>
         <PhotoHeader :title="title" :description="description" :image="background" offset="calc((-110/523)*100vw + 67.304015296px)">
+            <i>>> Inscrições em breve</i>
         </PhotoHeader>
         
         <Main>

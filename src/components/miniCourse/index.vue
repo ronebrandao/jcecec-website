@@ -35,4 +35,3 @@
 
 <style src="./miniCourse.css" scoped>
 </style>
-
