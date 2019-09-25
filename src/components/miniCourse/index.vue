@@ -9,8 +9,8 @@
         
         <div class="info-h">
             <div>
-                <h5>Instrutor: {{course.instructor}}</h5>
-                <h6>Instituição: {{course.institution}}</h6>
+                <h5 :title="course.instructor">Instrutor: {{course.instructor}}</h5>
+                <h6 :title="course.institution">Instituição: {{course.institution}}</h6>
             </div>
             <div class="date-time-place">
                 <i class="far fa-calendar-alt"></i>
@@ -35,4 +35,3 @@
 
 <style src="./miniCourse.css" scoped>
 </style>
-

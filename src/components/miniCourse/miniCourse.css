@@ -4,12 +4,7 @@
   grid-auto-rows: auto auto;
   grid-template-areas: "title title" "info desc";
 }
-.miniCourse h1,
-.miniCourse h2,
-.miniCourse h3,
-.miniCourse h4,
-.miniCourse h5,
-.miniCourse h6 {
+.miniCourse h1, .miniCourse h2, .miniCourse h3, .miniCourse h4, .miniCourse h5, .miniCourse h6 {
   text-transform: unset;
   font-weight: unset;
   color: initial;
@@ -40,8 +35,7 @@
 .miniCourse .info-h > div:first-child {
   font-style: italic;
 }
-.miniCourse .info-h > div:first-child h5,
-.miniCourse .info-h > div:first-child h6 {
+.miniCourse .info-h > div:first-child h5, .miniCourse .info-h > div:first-child h6 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -64,4 +58,20 @@
 }
 .miniCourse .desc {
   grid-area: desc;
+}
+@media screen and (max-width: 768px) {
+  .miniCourse {
+    grid-template-columns: 100%;
+    grid-auto-rows: repeat(3, auto);
+    grid-template-areas: "title" "desc" "info";
+  }
+  .miniCourse .title h1 {
+    white-space: unset;
+    font-size: 17pt;
+  }
+}
+@media screen and (max-width: 425px) {
+  .miniCourse .title h1 {
+    font-size: 14pt;
+  }
 }
