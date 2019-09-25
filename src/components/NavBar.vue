@@ -22,11 +22,12 @@
     <div class="nav-info">
       <img src="assets/img/lampada.png" alt />
       <div>
-        <span class="title">IV JCECEC</span>
+        <span class="title">IV JCECEC e I JCR</span>
         <br />
         <span>
           Jornada Científica da Escola de
-          <br />Ciências Exatas e da Computação
+          <br />Ciências Exatas e da Computação e
+          <br />Jornada Científica Regional
         </span>
       </div>
 
@@ -218,7 +219,7 @@ export default class NavBar extends Vue {}
 }
 
 .menu-mobile {
-  position: absolute;
+  position: fixed;
   z-index: 1000;
   background-color: white;
   padding: 15px;

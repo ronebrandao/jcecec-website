@@ -29,7 +29,12 @@ const speakers = [
       é o desafio mais importante desta atividade.
     `,
     img: "/assets/img/speakers/rosa_maria_castro.jpg",
-    customSize: "85%"
+    customSize: "85%",
+    datentime: {
+      date: "11/11",
+      time: "20:00 - 22:00",
+      place: "Auditório I, Área II"
+    }
   },
   {
     name: "Prof. Dr. Alejandro Pedro Ayala",
@@ -72,7 +77,12 @@ const speakers = [
       sólido, que contribui para caracterizar, entender e predizer os mecanismos que levam ao empacotamento
       molecular nos fármacos e suas consequências na qualidade e eficácia dos medicamentos.
     `,
-    img: "/assets/img/speakers/alejandro_pedro.jpg"
+    img: "/assets/img/speakers/alejandro_pedro.jpg",
+    datentime: {
+      date: "12/11",
+      time: "09:00 - 10:40",
+      place: "Auditório I, Área II"
+    }
   },
   {
     name: "Dr. Fabrício Augusto de Lima",
@@ -113,7 +123,12 @@ const speakers = [
       baseado no reconhecimento de padrões e inteligência artificial, assim como a atuação clínica deste
       profissional nos tratamentos de câncer que envolvem radioterapia e medicina nuclear.
     `,
-    offset: "-15px"
+    offset: "-15px",
+    datentime: {
+      date: "11/11",
+      time: "19:00 - 22:00",
+      place: "Auditório I, Área II"
+    }
   },
   {
     name: `Msc Camilo de Lelis Medeiros de Morais`,
@@ -143,7 +158,12 @@ de câncer`,
       diversos tipos de câncer.
     `,
     offset: ``,
-    action: ``
+    action: ``,
+    datentime: {
+      date: "12/11",
+      time: "09:00 - 10:40",
+      place: "Auditório II, Área II"
+    }
   },
   {
     name: `Prof. Dr. Jancarlos Menezes Lapa`,
@@ -173,7 +193,12 @@ uma abordagem STEAM`,
       estado da Bahia.
     `,
     offset: ``,
-    action: ``
+    action: ``,
+    datentime: {
+      date: "12/11",
+      time: "19:00 - 22:00",
+      place: "Auditório II, Área II"
+    }
   },
   {
     name: `Prof. Dra. Adda Daniela Lima Figueiredo Echalar`,
@@ -217,7 +242,12 @@ uma abordagem STEAM`,
       humanos de modo a fomentar mudanças estruturais no que está posto nas políticas.
     `,
     offset: ``,
-    action: ``
+    action: ``,
+    datentime: {
+      date: "12/11",
+      time: "19:00 - 20:40",
+      place: "Auditório III, Área II"
+    }
   },
   {
     name: `Luciano Lacerda`,
@@ -238,7 +268,12 @@ uma abordagem STEAM`,
       acadêmico.
     `,
     offset: ``,
-    action: ``
+    action: ``,
+    datentime: {
+      date: "13/11",
+      time: "09:00 - 10:40",
+      place: "Auditório I, Área II"
+    }
   },
   {
     name: `Prof. Dr. André Lage Freitas`,
@@ -267,7 +302,12 @@ uma abordagem STEAM`,
       court. To our knowledge, this is the first study to forecast judge decisions in Brazil.
     `,
     offset: ``,
-    action: ``
+    action: ``,
+    datentime: {
+      date: "13/11",
+      time: "19:00 - 20:40",
+      place: "Auditório I, Área II"
+    }
   },
   {
     name: `Engenheiro Alessandro Cunha`,
@@ -291,7 +331,12 @@ uma abordagem STEAM`,
       e vamos mostrar alguns projetos bem interessantes que estão sendo desenvolvidos nesta área.
     `,
     offset: ``,
-    action: ``
+    action: ``,
+    datentime: {
+      date: "13/11",
+      time: "09:00 - 10:40",
+      place: "Auditório II, Área II"
+    }
   },
   {
     name: `Prof. Msc. Clélia Brandão Alvarenga Craveiro`,
@@ -312,7 +357,12 @@ uma abordagem STEAM`,
       que 40% dos brasileiros de até 19 anos ainda não concluíram o ensino médio.
     `,
     offset: ``,
-    action: ``
+    action: ``,
+    datentime: {
+      date: "13/11",
+      time: "19:00 - 20:40",
+      place: "Auditório II, Área II"
+    }
   },
   {
     name: `Prof. Dr. Sergio Carrazedo Dantas`,
@@ -340,7 +390,12 @@ uma abordagem STEAM`,
       matemática.
     `,
     offset: ``,
-    action: ``
+    action: ``,
+    datentime: {
+      date: "13/11",
+      time: "19:00 - 20:40",
+      place: "Auditório III, Área II"
+    }
   },
   {
     name: `Prof. Richard Frayne`,
@@ -348,9 +403,7 @@ uma abordagem STEAM`,
     speaking: `New Horizons in MR Imaging – Opportunity and Challenges of Sparse Sampling and
 Constrained Reconstruction`,
     description: `
-      Professor of Brain Imaging, Radiology and Clinical Neurosciences, Hotchkiss Brain
-      Institute, University of Calgary; and Scientific Director, Seaman Family MR Research Centre, oothills
-      Medical Centre, Alberta Health Services Calgary, Alberta, CANADA T2N 2T9.
+    Richard Frayne is a Professor (with tenure) in the Departments of Radiology and Clinical Neuroscience, a member and the Deputy Director of the Hotchkiss Brain Institute (HBI, hbi.ucalgary.ca), and an associate member of the Libin Cardiovascular Institute of Alberta (libin.ucalgary.ca), all in the Cumming School of Medicine at the University of Calgary. He directs the Vascular Imaging Laboratory (www.ucalgary.ca/vil) of the Seaman Family Centre, Foothills Medical Centre, Alberta Health Services (mrcentre.ca) and from 2010-7 was the Centre’s Scientific Director. He was a Canada Research Chair in Image Science and, in 2010, he was appointed to the Hopewell Professorship in Brain Imaging. Dr Frayne’s research interests are in the development and application of new imaging techniques and tools in humans for the study, detection and treatment of neurovascular disease. His work bridges natural science and engineering through to clinical application. In addition to his core research interests, he actively collaborates with other researchers, particularly in the imaging of concussion, and epilepsy. He holds a BASc (Electrical Engineering, 1989) from the University of Waterloo and PhD from the University of Western Ontario (Medical Biophysics, 1994), and completed a post-doctoral fellowship in Medical Physics and Radiology at the University of Wisconsin-Madison (1996). Dr Frayne has over 30 years of experience in pursuing imaging research in a clinical environment. He has over 165 published, peer-reviewed publications, over 120 invited talks and over 500 scholarly presentations (h-index: 43 and more than 9,350 citations, Google Scholar). He also has 20 international patents and has had technology successfully commercialized. In 2018, he received the Alumni Achievement Medal from the Faculty of Engineering at the University of Waterloo.
     `,
     img: `/assets/img/speakers/richard_frayne.jpg`,
     subjectResume: `
@@ -373,7 +426,12 @@ Constrained Reconstruction`,
       reconstruction when employing these methods.
     `,
     offset: ``,
-    action: ``
+    action: ``,
+    datentime: {
+      date: "14/11",
+      time: "09:00 - 10:40",
+      place: "Auditório I, Área II"
+    }
   },
   {
     name: `Prof. Dra. Letícia Rittner`,
@@ -408,7 +466,12 @@ Constrained Reconstruction`,
       áreas do conhecimento? Até onde podemos (e devemos!) chegar?
     `,
     offset: ``,
-    action: ``
+    action: ``,
+    datentime: {
+      date: "14/11",
+      time: "19:00 - 20:40",
+      place: "Auditório I, Área II"
+    }
   },
   {
     name: `Prof. Dr. Amadeu Moura Bego`,
@@ -422,7 +485,12 @@ professores de química`,
       profissionais necessários para a valorização da atividade docente e a ressignificação de seus status social.
     `,
     offset: ``,
-    action: ``
+    action: ``,
+    datentime: {
+      date: "14/11",
+      time: "19:00 - 22:00",
+      place: "Auditório II, Área II"
+    }
   },
   {
     name: `Prof. Dr. Luiz Gonzaga Roversi`,
@@ -434,7 +502,12 @@ professores de química`,
     O Estágio Supervisionado em Física, um tipo de relação entre os campos escolar e universitário, levado a cabo atualmente pelos campos da escola João Barbosa Reis, Waldemar Mundim, Tancredo de Almeida Neves, Maria Nosídia das Palmeiras Neves e CEPAE e pelo subcampo científico do IF da UFG vem se constituindo e construindo um espaço social dinâmico e complexo de formação desde 2010. Espaço social com marcas típicas do contexto tecnocientífico, dentre as quais se destacam: a produção de grande quantidade e diversidade de informação, a interação e o entrelaçamento de e entre os campos sindicais, das secretarias de educação e outros e, não menos importante, a fluidez e superficialidade das relações entre pessoas e coisas e vice-versa. Não por acaso, a este cenário, típico da contemporaneidade, se lança uma análise do tipo “Big Data” articulada aos pressupostos teóricos do Grande Grupo de Pesquisa, o GGP, de base bourdieusiana.
     `,
     offset: ``,
-    action: ``
+    action: ``,
+    datentime: {
+      date: "14/11",
+      time: "19:00 - 22:00",
+      place: "Auditório III, Área II"
+    }
   }
 ];
 

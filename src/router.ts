@@ -5,6 +5,7 @@ import Home from "./views/Home.vue";
 Vue.use(Router);
 
 const router = new Router({
+  mode: "history",
   routes: [
     {
       path: "/",
@@ -27,7 +28,7 @@ const router = new Router({
       path: "/submissao",
       name: "submissao",
       component: () =>
-        import(/* webpackChunkName: "about" */ "./views/Login.vue")
+        import(/* webpackChunkName: "submissions" */ "./views/SubmissionRules.vue")
     },
     {
       path: "/conta",
@@ -57,13 +58,18 @@ const router = new Router({
       path: "/minicursos",
       name: "minicursos",
       component: () =>
-        import(/* webpackChunkName: "account" */ "./views/MaintenancePage.vue")
+        import(/* webpackChunkName: "account" */ "./views/MiniCourses.vue")
     },
     {
       path: "/competicao",
       name: "competicao",
       component: () =>
         import(/* webpackChunkName: "account" */ "./views/MaintenancePage.vue")
+    },
+    {
+      path: "*",
+      component: () =>
+        import(/* webpackChunkName: "account" */ "./views/four04.vue")
     }
   ]
 });

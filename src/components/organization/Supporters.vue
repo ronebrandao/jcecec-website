@@ -3,14 +3,18 @@
     <v-divider></v-divider>
     <h6>Organização</h6>
     <div class="row mt-5">
-      <div class="col-md-4 text-center">
-        <img src="/assets/img/puc.png" width="60%" />
+      <div class="col-md-6 text-center">
+        <img src="/assets/img/puc.png" width="50%" />
       </div>
-      <div class="col-md-4 text-center">
-        <img src="/assets/img/fapeg.png" width="60%" />
+      <div class="col-md-6 text-center">
+        <img src="/assets/img/ifg.png" width="50%" />
       </div>
-      <div class="col-md-4 text-center">
-        <img src="/assets/img/ifg.png" width="60%" />
+    </div>
+    <v-divider></v-divider>
+    <h6>Patrocínio</h6>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <img src="/assets/img/fapeg.png" width="40%" />
       </div>
     </div>
   </div>

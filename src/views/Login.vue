@@ -1,8 +1,8 @@
 <template>
-  <v-layout class="view">
+  <v-layout class>
     <v-container class="form-container">
       <v-form ref="form" v-model="valid" @submit.prevent="login">
-        <h6>Login</h6>
+        <h6>Acesso</h6>
         <v-text-field :rules="emailRules" v-model="email" label="E-mail" required box></v-text-field>
         <v-text-field
           :rules="passwrodRules"
@@ -13,9 +13,13 @@
           required
           box
         ></v-text-field>
-        <a @click="esqueciSenha">Esqueci minha senha</a>
         <v-btn type="submit" color="primary">Acessar</v-btn>
         <v-btn flat color="indigo" @click="redirectSignUp">Não se inscreveu?</v-btn>
+        <!-- <div class="row mt-2">
+          <div class="col">
+            <a @click="esqueciSenha">Esqueci minha senha</a>
+          </div>
+        </div>-->
       </v-form>
     </v-container>
   </v-layout>
@@ -72,10 +76,9 @@ export default class Login extends mixins(LoaderMixin, NotificationMixin) {
       this.cognito
         .authenticateUser(this.email.toLowerCase(), this.password)
         .then(session => {
-          this.$store.dispatch("setSession", session);
-
           getUser(session.getIdToken().payload["email"]).then(result => {
             if (result.success) {
+              this.$store.dispatch("setSession", session);
               this.$store.dispatch("setUser", result.data);
               this.$router.push("/conta");
               this.hideLoader();

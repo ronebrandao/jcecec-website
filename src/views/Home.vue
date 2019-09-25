@@ -45,6 +45,8 @@
 
     <Main>
       <Speakers :speakers="speakersList" :paginate="1" />
+
+      <Supporters />
     </Main>
 
     <div mt-5 mb-5 id="inscricoes" class="footer-subscription">
@@ -94,6 +96,7 @@ import Robot from "@/components/home/Robot.vue";
 import Main from "@/components/organization/Main.vue";
 import Paragraph from "@/components/organization/Paragraph.vue";
 import Dates from "@/components/home/Dates.vue";
+import Supporters from "@/components/organization/Supporters.vue";
 
 @Component({
   components: {
@@ -104,7 +107,8 @@ import Dates from "@/components/home/Dates.vue";
     Robot,
     Main,
     Paragraph,
-    Dates
+    Dates,
+    Supporters
   }
 })
 export default class Home extends Vue {

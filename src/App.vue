@@ -59,7 +59,6 @@ export default class App extends Vue {
 }
 
 .view {
-  box-shadow: inset 0 15px 30px 0 rgba(0, 0, 0, 0.11),
-    0 5px 15px 0 rgba(0, 0, 0, 0.08);
+  box-shadow: inset 0 7px 19px -7px rgba(0, 0, 0, 0.11);
 }
 </style>
