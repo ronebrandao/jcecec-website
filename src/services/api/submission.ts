@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "@/config/axios";
 import { saveAs } from "file-saver";
 
 const API_URL = process.env.VUE_APP_API_URL;
@@ -36,9 +36,13 @@ export function downloadFile(fileName: string) {
     .then(res => res.data);
 }
 
-export function setSubmissionProofreader(submissionId: number, proofreaderId: number) {
-  return axios.put(API_URL + "submissions/" + submissionId, {
-    proofreaderId
-  }).then(res => res.data);
+export function setSubmissionProofreader(
+  submissionId: number,
+  proofreaderId: number
+) {
+  return axios
+    .put(API_URL + "submissions/" + submissionId, {
+      proofreaderId
+    })
+    .then(res => res.data);
 }
-
