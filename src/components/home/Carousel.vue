@@ -1,5 +1,5 @@
 <template>
-  <v-layout row wrap>
+  <v-layout row wrap class="jcecec-slider">
     <v-flex xs12>
       <v-carousel hide-controls hide-delimiters height="900">
         <v-carousel-item v-for="(item,i) in items" :key="i" :src="item.src" hide-controls>
@@ -13,12 +13,13 @@
                 </div>
                 <hr />
                 <div>
-                  <span class="jcecec">IV JCECEC</span>
+                  <span class="jcecec">IV JCECEC e I JCR</span>
                 </div>
                 <div>
-                  <span
-                    class="jcecec-sub"
-                  >Jornada Científica da Escola de Ciências Exatas e Computação</span>
+                  <span class="jcecec-sub">
+                    Jornada Científica da Escola de Ciências Exatas e Computação e
+                    <br />Jornada Científica Regional
+                  </span>
                 </div>
                 <hr />
                 <div>
@@ -104,5 +105,11 @@ export default class Carousel extends Vue {
 
 hr {
   border: 1px solid #fff;
+}
+
+@media only screen and (max-width: 760px) {
+  .jcecec-slider {
+    display: none;
+  }
 }
 </style>
