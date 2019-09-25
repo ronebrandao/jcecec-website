@@ -67,7 +67,7 @@ export default class Cognito {
   }
 
   public resendCode(): Promise<boolean> {
-    this.cognitoUser = this.userPool.getCurrentUser();
+    this.cognitoUser = this.cognitoUser || this.userPool.getCurrentUser();
 
     return new Promise((resolve, reject) => {
       this.cognitoUser.resendConfirmationCode((err: Error) => {
@@ -108,7 +108,7 @@ export default class Cognito {
 
   public logOut() {
     this.cognitoUser = this.cognitoUser || this.userPool.getCurrentUser();
-    this.cognitoUser.signOut();
+    this.cognitoUser && this.cognitoUser.signOut();
   }
 
   public getUserSession(): Promise<CognitoUserSession> {

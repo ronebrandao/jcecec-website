@@ -176,7 +176,12 @@ import Institution from "@/services/models/institutions";
 import { createUser } from "@/services/user";
 import LoaderMixin from "@/mixins/loader";
 import NotificationMixin from "@/mixins/notification";
-import { setCognitoUser, logOut } from "../../services/authentication";
+import {
+  setCognitoUser,
+  logOut,
+  getSession
+} from "../../services/authentication";
+import { CognitoUserSession } from "amazon-cognito-identity-js";
 
 @Component({
   components: {}
@@ -307,7 +312,6 @@ export default class SignUp extends mixins(LoaderMixin, NotificationMixin) {
       this.signUp()
         .then(result => {
           result = result.data;
-
           if (result.success) {
             this.$store.dispatch("setUser", result.data);
             this.signUpCognito();
@@ -339,17 +343,25 @@ export default class SignUp extends mixins(LoaderMixin, NotificationMixin) {
         phone_number: "+55" + this.form.phoneNumber,
         "custom:type": "user"
       })
-      .then(result => {
-        logOut();
-        this.$localStorage.set("userForm", JSON.stringify(this.form));
+      .then(async result => {
         setCognitoUser(this.form.email); //gambi
+
+        logOut();
+
+        this.$localStorage.set("userForm", JSON.stringify(this.form));
 
         this.hideLoader();
 
         this.$router.push("cadastro/confirmacao");
       })
       .catch(err => {
-        this.showServerErorNotification();
+        this.hideLoader();
+
+        if (err.code === "UsernameExistsException") {
+          this.showErrorNotification("Já existe um usuário com este e-mail.");
+        } else {
+          this.showServerErorNotification();
+        }
       });
   }
 
