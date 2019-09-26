@@ -73,18 +73,6 @@ const Courses = [
     Relação 3D – 2D em aquisição. Imagem, Visão e modelagem de câmeras. Múltiplas Vistas. Características
     Intrínsecas. Visão estéreo. Movimento e rastreamento de objetos. Reconhecimento de Objetos. Aplicações e
     Efeitos Especiais.`,
-    date: "12/11",
-    time: "14:00-18:00",
-    place: "LAB105-C, Área II"
-  },
-  {
-    title: "Introdução a visão computacional",
-    instructor: "Prof. Dr. Gustavo Teodoro Laureano",
-    institution: "Instituto de Informática – UFG",
-    desc: `Introdução à Visão Computacional. Percepção e Inteligência. Processos em Visão Computacional.
-    Relação 3D – 2D em aquisição. Imagem, Visão e modelagem de câmeras. Múltiplas Vistas. Características
-    Intrínsecas. Visão estéreo. Movimento e rastreamento de objetos. Reconhecimento de Objetos. Aplicações e
-    Efeitos Especiais.`,
     date: "13/11",
     time: "14:00-18:00",
     place: "LAB101-C, Área II"
