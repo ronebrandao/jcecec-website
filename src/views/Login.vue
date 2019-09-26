@@ -92,6 +92,13 @@ export default class Login extends mixins(LoaderMixin, NotificationMixin) {
             this.showInvalidDataNotification();
           } else if (err.code === "UserNotFoundException") {
             this.showNonExistentUserNotification();
+          } else if (err.code === "UserNotConfirmedException") {
+            this.$router.push({
+              name: "confirmacao",
+              query: {
+                email: this.email
+              }
+            });
           } else {
             this.showServerErorNotification();
           }
