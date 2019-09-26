@@ -55,12 +55,6 @@ import { logOut } from "@/services/authentication";
 export default class MyAccount extends mixins(LoaderMixin) {
   private drawer: any = null;
 
-  private created() {
-    if (!this.$store.state.userSession) {
-      this.$router.push("/submissao");
-    }
-  }
-
   private signOut() {
     logOut();
     this.$router.push("/");

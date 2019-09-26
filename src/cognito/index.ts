@@ -53,12 +53,12 @@ export default class Cognito {
     });
   }
 
-  public confirmUser(code: string): Promise<boolean> {
+  public confirmUser(code: string): Promise<any> {
     this.cognitoUser = this.cognitoUser || this.userPool.getCurrentUser();
     return new Promise((resolve, reject) => {
       this.cognitoUser.confirmRegistration(code, true, err => {
         if (err) {
-          reject(false);
+          reject(err);
         }
 
         resolve(true);
@@ -111,7 +111,7 @@ export default class Cognito {
     this.cognitoUser && this.cognitoUser.signOut();
   }
 
-  public getUserSession(): Promise<CognitoUserSession> {
+  public getUserSession(): Promise<any> {
     this.cognitoUser = this.cognitoUser || this.userPool.getCurrentUser();
 
     return new Promise((resolve, reject) => {

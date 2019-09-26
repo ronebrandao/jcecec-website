@@ -91,9 +91,13 @@ export default class Confirm extends mixins(NotificationMixin, LoaderMixin) {
               this.showServerErorNotification();
             });
         })
-        .catch(() => {
+        .catch(err => {
+          if (err.code === "CodeMismatchException") {
+            this.showErrorNotification("PIN inválido ou expirado.");
+          } else {
+            this.showServerErorNotification();
+          }
           this.hideLoader();
-          this.showServerErorNotification();
         });
     }
   }
@@ -102,7 +106,7 @@ export default class Confirm extends mixins(NotificationMixin, LoaderMixin) {
     resendCode()
       .then(() => this.disableButton())
       .catch(() => {
-        this.showErrorNotification("PIN inválido ou expirado.");
+        this.showServerErorNotification();
       });
   }
 
