@@ -32,6 +32,8 @@ import { mixins } from "vue-class-component";
 import LoaderMixin from "@/mixins/loader";
 import NotificationMixin from "@/mixins/notification";
 import { getUser } from "@/services/user";
+import { getSession, refreshSession } from "../services/authentication";
+import { CognitoUserSession } from "amazon-cognito-identity-js";
 
 @Component
 export default class Login extends mixins(LoaderMixin, NotificationMixin) {
@@ -62,12 +64,6 @@ export default class Login extends mixins(LoaderMixin, NotificationMixin) {
     ];
   }
 
-  private created() {
-    if (this.$store.state.userSession) {
-      this.$router.push("/conta");
-    }
-  }
-
   private login() {
     // @ts-ignore
     if (this.$refs.form.validate()) {
@@ -91,7 +87,7 @@ export default class Login extends mixins(LoaderMixin, NotificationMixin) {
           if (err.code === "NotAuthorizedException") {
             this.showInvalidDataNotification();
           } else if (err.code === "UserNotFoundException") {
-            this.showNonExistentUserNotification();
+            this.showInvalidDataNotification();
           } else if (err.code === "UserNotConfirmedException") {
             this.$router.push({
               name: "confirmacao",

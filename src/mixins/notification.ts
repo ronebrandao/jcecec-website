@@ -45,7 +45,7 @@ export default class NotificationMixin extends Vue {
     this.$notify({
       type: "error",
       title: "Ops!",
-      text: "Usuário ou Senha inválido."
+      text: "Usuário ou Senha inválidos."
     });
   }
 

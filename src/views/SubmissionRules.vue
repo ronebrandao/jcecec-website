@@ -1,7 +1,6 @@
 <template>
   <div class="view">
     <div class="container mt-4">
-      <!-- <PhotoHeader title="Submissão" image="/assets/img/puc_sub.png"></PhotoHeader> -->
       <div class="row">
         <div class="col-md-7">
           <v-expansion-panel v-model="panel" expand>
@@ -222,10 +221,14 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 
+import { mixins } from "vue-class-component";
 import PhotoHeader from "@/components/organization/PhotoHeader.vue";
 import Main from "@/components/organization/Main.vue";
 import Paragraph from "@/components/organization/Paragraph.vue";
 import Login from "@/views/Login.vue";
+import { getSession, refreshSession } from "../services/authentication";
+import { CognitoUserSession } from "amazon-cognito-identity-js";
+import LoaderMixin from "../mixins/loader";
 
 @Component({
   components: {
@@ -235,8 +238,35 @@ import Login from "@/views/Login.vue";
     Login
   }
 })
-export default class SubmissionRules extends Vue {
+export default class SubmissionRules extends mixins(LoaderMixin) {
   private panel = [true, false, false];
+
+  private async created() {
+    try {
+      this.showLoader();
+      const session = await getSession();
+
+      if (session instanceof CognitoUserSession) {
+        if (session.isValid()) {
+          this.hideLoader();
+          this.$router.push("/conta");
+        } else {
+          const newSession = await refreshSession(session.getRefreshToken());
+
+          if (newSession instanceof CognitoUserSession) {
+            this.hideLoader();
+            this.$router.push("/conta");
+          } else {
+            this.hideLoader();
+            this.$router.push("/submissao");
+          }
+        }
+      }
+    } catch (error) {
+      this.hideLoader();
+      this.$router.push("/submissao");
+    }
+  }
 }
 </script>
 
