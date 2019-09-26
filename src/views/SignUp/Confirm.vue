@@ -54,6 +54,8 @@ export default class Confirm extends mixins(NotificationMixin, LoaderMixin) {
   private loading: boolean = false;
   private counter: number = 30;
 
+  private email = "";
+
   constructor() {
     super();
 
@@ -61,7 +63,9 @@ export default class Confirm extends mixins(NotificationMixin, LoaderMixin) {
   }
 
   private created() {
-    // setCognitoUser(this.$store.state.user.email);
+    this.email = this.$router.currentRoute.query.email as string;
+
+    this.email && setCognitoUser(this.email);
   }
 
   private confirmUser() {
