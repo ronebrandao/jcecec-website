@@ -130,9 +130,8 @@ export default class Home extends Vue {
       de Moda, e também nos cursos de 2o Ciclo de Design e Comunicação de Moda, Química Têxtil, Têxteis
       Avançados e Design e Marketing. Pesquisador-chefe e membro de pesquisa de vários projetos de P & D,
       apresentou como autor principal ou co-autor muitas dezenas de artigos de periódicos científicos e
-      comunicações em conferências internacionais. É Presidente do Conselho Pedagógico da Escola Superior de
-      Engenharia desde 2011. É Vice-Reitora da Escola Superior de Engenharia da Universidade do Minho desde
-      2013.
+      comunicações em conferências internacionais. É Presidente do Conselho Pedagógico da Escola de Engenharia desde 2011.
+      É Vice-Presidente da Escola de Engenharia da Universidade do Minho desde 2011.
     `,
         subjectResume: `
       Captar a atenção do diretor de Recursos Humanos, na análise de CV de um aluno de Engenharia,
@@ -147,7 +146,12 @@ export default class Home extends Vue {
       é o desafio mais importante desta atividade.
     `,
         img: "/assets/img/speakers/rosa_maria_castro.jpg",
-        customSize: "85%"
+        customSize: "85%",
+        datentime: {
+          date: "11/11",
+          time: "20:00 - 22:00",
+          place: "Auditório I, Área II"
+        }
       },
       {
         name: "Prof. Dr. Alejandro Pedro Ayala",
@@ -190,7 +194,12 @@ export default class Home extends Vue {
       sólido, que contribui para caracterizar, entender e predizer os mecanismos que levam ao empacotamento
       molecular nos fármacos e suas consequências na qualidade e eficácia dos medicamentos.
     `,
-        img: "/assets/img/speakers/alejandro_pedro.jpg"
+        img: "/assets/img/speakers/alejandro_pedro.jpg",
+        datentime: {
+          date: "12/11",
+          time: "09:00 - 10:40",
+          place: "Auditório I, Área II"
+        }
       },
       {
         name: "Dr. Fabrício Augusto de Lima",
@@ -231,7 +240,12 @@ export default class Home extends Vue {
       baseado no reconhecimento de padrões e inteligência artificial, assim como a atuação clínica deste
       profissional nos tratamentos de câncer que envolvem radioterapia e medicina nuclear.
     `,
-        offset: "-15px"
+        offset: "-15px",
+        datentime: {
+          date: "11/11",
+          time: "19:00 - 22:00",
+          place: "Auditório I, Área II"
+        }
       },
       {
         name: `Msc Camilo de Lelis Medeiros de Morais`,
@@ -261,7 +275,12 @@ de câncer`,
       diversos tipos de câncer.
     `,
         offset: ``,
-        action: ``
+        action: ``,
+        datentime: {
+          date: "12/11",
+          time: "09:00 - 10:40",
+          place: "Auditório II, Área II"
+        }
       },
       {
         name: `Prof. Dr. Jancarlos Menezes Lapa`,
@@ -291,7 +310,12 @@ uma abordagem STEAM`,
       estado da Bahia.
     `,
         offset: ``,
-        action: ``
+        action: ``,
+        datentime: {
+          date: "12/11",
+          time: "19:00 - 22:00",
+          place: "Auditório II, Área II"
+        }
       },
       {
         name: `Prof. Dra. Adda Daniela Lima Figueiredo Echalar`,
@@ -335,7 +359,12 @@ uma abordagem STEAM`,
       humanos de modo a fomentar mudanças estruturais no que está posto nas políticas.
     `,
         offset: ``,
-        action: ``
+        action: ``,
+        datentime: {
+          date: "12/11",
+          time: "19:00 - 20:40",
+          place: "Auditório III, Área II"
+        }
       },
       {
         name: `Luciano Lacerda`,
@@ -356,7 +385,12 @@ uma abordagem STEAM`,
       acadêmico.
     `,
         offset: ``,
-        action: ``
+        action: ``,
+        datentime: {
+          date: "13/11",
+          time: "09:00 - 10:40",
+          place: "Auditório I, Área II"
+        }
       },
       {
         name: `Prof. Dr. André Lage Freitas`,
@@ -385,7 +419,12 @@ uma abordagem STEAM`,
       court. To our knowledge, this is the first study to forecast judge decisions in Brazil.
     `,
         offset: ``,
-        action: ``
+        action: ``,
+        datentime: {
+          date: "13/11",
+          time: "19:00 - 20:40",
+          place: "Auditório I, Área II"
+        }
       },
       {
         name: `Engenheiro Alessandro Cunha`,
@@ -409,17 +448,23 @@ uma abordagem STEAM`,
       e vamos mostrar alguns projetos bem interessantes que estão sendo desenvolvidos nesta área.
     `,
         offset: ``,
-        action: ``
+        action: ``,
+        datentime: {
+          date: "13/11",
+          time: "09:00 - 10:40",
+          place: "Auditório II, Área II"
+        }
       },
       {
         name: `Prof. Msc. Clélia Brandão Alvarenga Craveiro`,
         institution: `Pontíficia Universidade Catolica de Goiás`,
         speaking: `Educação: a Tecnopedagogia o Currículo e a Indústria`,
         description: `
-      Possui graduação em Pedagogia pela Universidade Católica de Goiás (1994) , especialização
-      em Metodologia do Ensino pela Universidade Católica de Goiás (1984) e mestrado em Educação pela
-      Universidade Federal de Goiás (1987). Tem experiência na área de Educação , com ênfase em Administração
-      Educacional.
+    Doutoranda em Educação na Universidade Lusófona de Tecnologia e Humanidades de Lisboa
+    Diretora da Escola de Formação de Professores e Humanidades da PUC - Goiás 2014 - 2015
+    Diretora de Políticas de Educação em Direitos Humanos e Cidadania - DPEDHUC – SECADI - MEC - 2012 - 2014.
+    Presidente do CNE - 2008 - 2010.
+    Reitora da PUC Goiás - 1994 - 2001
     `,
         img: `/assets/img/speakers/clelia_brandao.jpg`,
         subjectResume: `
@@ -430,7 +475,12 @@ uma abordagem STEAM`,
       que 40% dos brasileiros de até 19 anos ainda não concluíram o ensino médio.
     `,
         offset: ``,
-        action: ``
+        action: ``,
+        datentime: {
+          date: "13/11",
+          time: "19:00 - 20:40",
+          place: "Auditório II, Área II"
+        }
       },
       {
         name: `Prof. Dr. Sergio Carrazedo Dantas`,
@@ -458,7 +508,12 @@ uma abordagem STEAM`,
       matemática.
     `,
         offset: ``,
-        action: ``
+        action: ``,
+        datentime: {
+          date: "13/11",
+          time: "19:00 - 20:40",
+          place: "Auditório III, Área II"
+        }
       },
       {
         name: `Prof. Richard Frayne`,
@@ -466,9 +521,7 @@ uma abordagem STEAM`,
         speaking: `New Horizons in MR Imaging – Opportunity and Challenges of Sparse Sampling and
 Constrained Reconstruction`,
         description: `
-      Professor of Brain Imaging, Radiology and Clinical Neurosciences, Hotchkiss Brain
-      Institute, University of Calgary; and Scientific Director, Seaman Family MR Research Centre, oothills
-      Medical Centre, Alberta Health Services Calgary, Alberta, CANADA T2N 2T9.
+    Richard Frayne is a Professor (with tenure) in the Departments of Radiology and Clinical Neuroscience, a member and the Deputy Director of the Hotchkiss Brain Institute (HBI, hbi.ucalgary.ca), and an associate member of the Libin Cardiovascular Institute of Alberta (libin.ucalgary.ca), all in the Cumming School of Medicine at the University of Calgary. He directs the Vascular Imaging Laboratory (www.ucalgary.ca/vil) of the Seaman Family Centre, Foothills Medical Centre, Alberta Health Services (mrcentre.ca) and from 2010-7 was the Centre’s Scientific Director. He was a Canada Research Chair in Image Science and, in 2010, he was appointed to the Hopewell Professorship in Brain Imaging. Dr Frayne’s research interests are in the development and application of new imaging techniques and tools in humans for the study, detection and treatment of neurovascular disease. His work bridges natural science and engineering through to clinical application. In addition to his core research interests, he actively collaborates with other researchers, particularly in the imaging of concussion, and epilepsy. He holds a BASc (Electrical Engineering, 1989) from the University of Waterloo and PhD from the University of Western Ontario (Medical Biophysics, 1994), and completed a post-doctoral fellowship in Medical Physics and Radiology at the University of Wisconsin-Madison (1996). Dr Frayne has over 30 years of experience in pursuing imaging research in a clinical environment. He has over 165 published, peer-reviewed publications, over 120 invited talks and over 500 scholarly presentations (h-index: 43 and more than 9,350 citations, Google Scholar). He also has 20 international patents and has had technology successfully commercialized. In 2018, he received the Alumni Achievement Medal from the Faculty of Engineering at the University of Waterloo.
     `,
         img: `/assets/img/speakers/richard_frayne.jpg`,
         subjectResume: `
@@ -491,7 +544,12 @@ Constrained Reconstruction`,
       reconstruction when employing these methods.
     `,
         offset: ``,
-        action: ``
+        action: ``,
+        datentime: {
+          date: "14/11",
+          time: "09:00 - 10:40",
+          place: "Auditório I, Área II"
+        }
       },
       {
         name: `Prof. Dra. Letícia Rittner`,
@@ -526,7 +584,12 @@ Constrained Reconstruction`,
       áreas do conhecimento? Até onde podemos (e devemos!) chegar?
     `,
         offset: ``,
-        action: ``
+        action: ``,
+        datentime: {
+          date: "14/11",
+          time: "19:00 - 20:40",
+          place: "Auditório I, Área II"
+        }
       },
       {
         name: `Prof. Dr. Amadeu Moura Bego`,
@@ -540,19 +603,29 @@ professores de química`,
       profissionais necessários para a valorização da atividade docente e a ressignificação de seus status social.
     `,
         offset: ``,
-        action: ``
+        action: ``,
+        datentime: {
+          date: "14/11",
+          time: "19:00 - 22:00",
+          place: "Auditório II, Área II"
+        }
       },
       {
         name: `Prof. Dr. Luiz Gonzaga Roversi`,
         institution: `Universidade Federal de Goiás`,
         speaking: `Estágio Supervisionado, Física, Campo Escolar, Campo Universitário, GGP, Sindicatos, Secretarias de Educação...: um contexto tecnocientífico à luz de uma análise “Big Data”`,
         description: `Graduado em Física pela Unesp-Rio Claro (Universidade Estadual Paulista Júlio de Mesquita Filho) em 1998. Doutorado e Mestrado em Educação para a Ciência pela Universidade Estadual Paulista Júlio de Mesquita Filho (Unesp-Bauru), obtidos nos anos de 2008 e 2002, respectivamente. Atuou como Professor Efetivo da Educação Básica II (física e química - Secretaria de Estado da Educacao de São Paulo) entre os anos de 1998 e 2009. Atualmente é Professor Associado do Instituto de Física da UFG e do Programa de Pós-Graduação Educação em Ciências e Matemática da UFG. Tem experiência na área de Educação em Ciências, com ênfase em Sociologia da Ciência, da Tecnologia e da Tecnociência e Formação de Professores pertencentes à interseção do Campo Escolar e do Campo Universitário, o Grande Grupo de Pesquisa-Física. Sente-se, tome-mos a atividade do pensar...`,
-        img: `/assets/img/speakers/luiz_gonzaga.jpg`,
+        img: `/assets/img/speakers/luiz_gonzaga.png`,
         subjectResume: `
     O Estágio Supervisionado em Física, um tipo de relação entre os campos escolar e universitário, levado a cabo atualmente pelos campos da escola João Barbosa Reis, Waldemar Mundim, Tancredo de Almeida Neves, Maria Nosídia das Palmeiras Neves e CEPAE e pelo subcampo científico do IF da UFG vem se constituindo e construindo um espaço social dinâmico e complexo de formação desde 2010. Espaço social com marcas típicas do contexto tecnocientífico, dentre as quais se destacam: a produção de grande quantidade e diversidade de informação, a interação e o entrelaçamento de e entre os campos sindicais, das secretarias de educação e outros e, não menos importante, a fluidez e superficialidade das relações entre pessoas e coisas e vice-versa. Não por acaso, a este cenário, típico da contemporaneidade, se lança uma análise do tipo “Big Data” articulada aos pressupostos teóricos do Grande Grupo de Pesquisa, o GGP, de base bourdieusiana.
     `,
         offset: ``,
-        action: ``
+        action: ``,
+        datentime: {
+          date: "14/11",
+          time: "19:00 - 22:00",
+          place: "Auditório III, Área II"
+        }
       }
     ];
   }

@@ -12,9 +12,8 @@ const speakers = [
       de Moda, e também nos cursos de 2o Ciclo de Design e Comunicação de Moda, Química Têxtil, Têxteis
       Avançados e Design e Marketing. Pesquisador-chefe e membro de pesquisa de vários projetos de P & D,
       apresentou como autor principal ou co-autor muitas dezenas de artigos de periódicos científicos e
-      comunicações em conferências internacionais. É Presidente do Conselho Pedagógico da Escola Superior de
-      Engenharia desde 2011. É Vice-Reitora da Escola Superior de Engenharia da Universidade do Minho desde
-      2013.
+      comunicações em conferências internacionais. É Presidente do Conselho Pedagógico da Escola de Engenharia desde 2011.
+      É Vice-Presidente da Escola de Engenharia da Universidade do Minho desde 2011.
     `,
     subjectResume: `
       Captar a atenção do diretor de Recursos Humanos, na análise de CV de um aluno de Engenharia,
@@ -343,10 +342,11 @@ uma abordagem STEAM`,
     institution: `Pontíficia Universidade Catolica de Goiás`,
     speaking: `Educação: a Tecnopedagogia o Currículo e a Indústria`,
     description: `
-      Possui graduação em Pedagogia pela Universidade Católica de Goiás (1994) , especialização
-      em Metodologia do Ensino pela Universidade Católica de Goiás (1984) e mestrado em Educação pela
-      Universidade Federal de Goiás (1987). Tem experiência na área de Educação , com ênfase em Administração
-      Educacional.
+    Doutoranda em Educação na Universidade Lusófona de Tecnologia e Humanidades de Lisboa
+    Diretora da Escola de Formação de Professores e Humanidades da PUC - Goiás 2014 - 2015
+    Diretora de Políticas de Educação em Direitos Humanos e Cidadania - DPEDHUC – SECADI - MEC - 2012 - 2014.
+    Presidente do CNE - 2008 - 2010.
+    Reitora da PUC Goiás - 1994 - 2001
     `,
     img: `/assets/img/speakers/clelia_brandao.jpg`,
     subjectResume: `
@@ -497,7 +497,7 @@ professores de química`,
     institution: `Universidade Federal de Goiás`,
     speaking: `Estágio Supervisionado, Física, Campo Escolar, Campo Universitário, GGP, Sindicatos, Secretarias de Educação...: um contexto tecnocientífico à luz de uma análise “Big Data”`,
     description: `Graduado em Física pela Unesp-Rio Claro (Universidade Estadual Paulista Júlio de Mesquita Filho) em 1998. Doutorado e Mestrado em Educação para a Ciência pela Universidade Estadual Paulista Júlio de Mesquita Filho (Unesp-Bauru), obtidos nos anos de 2008 e 2002, respectivamente. Atuou como Professor Efetivo da Educação Básica II (física e química - Secretaria de Estado da Educacao de São Paulo) entre os anos de 1998 e 2009. Atualmente é Professor Associado do Instituto de Física da UFG e do Programa de Pós-Graduação Educação em Ciências e Matemática da UFG. Tem experiência na área de Educação em Ciências, com ênfase em Sociologia da Ciência, da Tecnologia e da Tecnociência e Formação de Professores pertencentes à interseção do Campo Escolar e do Campo Universitário, o Grande Grupo de Pesquisa-Física. Sente-se, tome-mos a atividade do pensar...`,
-    img: `/assets/img/speakers/luiz_gonzaga.jpg`,
+    img: `/assets/img/speakers/luiz_gonzaga.png`,
     subjectResume: `
     O Estágio Supervisionado em Física, um tipo de relação entre os campos escolar e universitário, levado a cabo atualmente pelos campos da escola João Barbosa Reis, Waldemar Mundim, Tancredo de Almeida Neves, Maria Nosídia das Palmeiras Neves e CEPAE e pelo subcampo científico do IF da UFG vem se constituindo e construindo um espaço social dinâmico e complexo de formação desde 2010. Espaço social com marcas típicas do contexto tecnocientífico, dentre as quais se destacam: a produção de grande quantidade e diversidade de informação, a interação e o entrelaçamento de e entre os campos sindicais, das secretarias de educação e outros e, não menos importante, a fluidez e superficialidade das relações entre pessoas e coisas e vice-versa. Não por acaso, a este cenário, típico da contemporaneidade, se lança uma análise do tipo “Big Data” articulada aos pressupostos teóricos do Grande Grupo de Pesquisa, o GGP, de base bourdieusiana.
     `,
