@@ -7,7 +7,7 @@
             <v-expansion-panel-content>
               <template v-slot:header>
                 <div class="titles">
-                  <v-icon class="mr-2">fas fa-file-alt</v-icon>Formatação do texto a ser submetido
+                  <v-icon class="mr-2">fas fa-file-alt</v-icon>Formatação do texto para submissão
                 </div>
               </template>
               <v-card>
@@ -103,7 +103,7 @@
                     <li>Carvalho, R. V, Kleijn, J., Verbeek, F.J.: A Multi-Scale Extensive Petri Net Model Of The Bacterial – Macrophage Interaction. In: Heiner, M. (ed.) 5th International Workshop on Biological Processes & Petri Nets. pp. 15–29. CEUR Workshop Proceedings, Tunis, Tunisia (2014).</li>
                   </ul>
                   <v-btn type="submit" color="primary" href="/assets/JCECEC_template.docx">
-                    BAIXAR TEMAPLTE
+                    BAIXAR TEMPLATE
                     <v-icon right dark>cloud_download</v-icon>
                   </v-btn>
                 </v-card-text>
