@@ -70,6 +70,11 @@ const router = new Router({
       path: "*",
       component: () =>
         import(/* webpackChunkName: "account" */ "./views/four04.vue")
+    },
+    {
+      path: "/jges",
+      component: () =>
+        import(/* webpackChunkName: "account" */ "./views/JGES.vue")
     }
   ]
 });
