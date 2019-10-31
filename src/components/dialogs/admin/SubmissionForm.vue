@@ -103,19 +103,23 @@ export default class SubmissionForm extends mixins(
     //@ts-ignore
     if (this.$refs.form.validate()) {
       if (this.fileName.includes(".pdf")) {
-        this.showLoader();
-        submitWork(this.$store.state.user.id, this.title, this.file)
-          .then(result => {
-            if (result.success) {
+        if (new Date() < new Date("11/05/2019")) {
+          this.showLoader();
+          submitWork(this.$store.state.user.id, this.title, this.file)
+            .then(result => {
+              if (result.success) {
+                this.hideLoader();
+                this.dialog = false;
+                this.$emit("submissionCompleted");
+              }
+            })
+            .catch(err => {
               this.hideLoader();
-              this.dialog = false;
-              this.$emit("submissionCompleted");
-            }
-          })
-          .catch(err => {
-            this.hideLoader();
-            this.showServerErorNotification();
-          });
+              this.showServerErorNotification();
+            });
+        } else {
+          this.showWarningNotification("As submissões foram encerradas.");
+        }
       } else {
         this.showErrorNotification("Somente arquivos .pdf são permitidos.");
       }
