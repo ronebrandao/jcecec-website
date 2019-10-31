@@ -14,8 +14,16 @@
         no-data-text="Nenhum dado cadastrado"
       >
         <template v-slot:items="props">
-          <td class="text-xs-center">{{ props.item.date }}</td>
-          <td class="text-xs-center">{{ props.item.event }}</td>
+        <tr>
+          <td class="text-xs-center">
+            <del v-if="props.item.disabled">{{ props.item.date }}</del>
+            <span v-else>{{ props.item.date }}</span>
+          </td>
+          <td class="text-xs-center">
+            <del v-if="props.item.disabled">{{ props.item.event }}</del>
+            <span v-else>{{ props.item.event }}</span>
+          </td>
+          </tr>
         </template>
       </v-data-table>
     </div>
@@ -47,11 +55,18 @@ export default class Dates extends Vue {
   private dates = [
     {
       date: "30/10",
-      event: "Prazo para as submissões"
+      event: "Prazo para as submissões",
+      disabled: true
+    },
+    {
+      date: "04/11",
+      event: "Prazo para as submissões",
+      disabled: false
     },
     {
       date: "11/11 a 14/11",
-      event: "Data do evento"
+      event: "Data do evento",
+      disabled: false
     }
   ];
 
