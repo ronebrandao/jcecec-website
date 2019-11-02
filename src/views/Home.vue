@@ -6,8 +6,6 @@
 
     <Dates />
 
-    <Robot />
-
     <v-layout row wrap>
       <v-flex xs12 sm12>
         <v-parallax dark src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg">
