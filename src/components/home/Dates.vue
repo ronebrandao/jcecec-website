@@ -61,6 +61,11 @@ export default class Dates extends Vue {
     {
       date: "04/11",
       event: "Prazo para as submissões",
+      disabled: true
+    },
+    {
+      date: "05/11",
+      event: "Prazo para as submissões",
       disabled: false
     },
     {

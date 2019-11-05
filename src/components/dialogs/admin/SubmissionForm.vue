@@ -103,7 +103,7 @@ export default class SubmissionForm extends mixins(
     //@ts-ignore
     if (this.$refs.form.validate()) {
       if (this.fileName.includes(".pdf")) {
-        if (new Date() < new Date("11/05/2019")) {
+        if (new Date() < new Date("11/06/2019")) {
           this.showLoader();
           submitWork(this.$store.state.user.id, this.title, this.file)
             .then(result => {
