@@ -57,3 +57,14 @@ export function upgradeUser(email: string, type: string) {
     })
     .then(res => res.data);
 }
+
+export function setSubmissionProofreaders(
+  submissionId: number,
+  proofreaders: number[]
+) {
+  return axios
+    .put(API_URL + submissionId, {
+      proofreaders
+    })
+    .then(res => res.data);
+}

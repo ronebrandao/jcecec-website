@@ -40,7 +40,7 @@
 import { Vue, Prop, Component, Watch, Inject } from "vue-property-decorator";
 import { mixins } from "vue-class-component";
 
-import { getUsers } from "../../../services/user";
+import { getUsers, setSubmissionProofreaders } from "../../../services/user";
 import { setSubmissionProofreader } from "@/services/api/submission";
 import NotificationMixin from "@/mixins/notification";
 import LoaderMixin from "@/mixins/loader";
@@ -111,20 +111,22 @@ export default class SetProofreaderDialog extends mixins(
     this.$emit("hidden");
   }
 
-  private setProofreader() {
-    // this.showLoader();
-    // setSubmissionProofreader(this.submissionId, this.revisor)
-    //   .then((resp: any) => {
-    //     if (resp.success) {
-    //       this.showSuccessNotification("Revisor atribuido com sucesso!");
-    //     }
-    //     this.hideLoader();
-    //     this.hideDialog();
-    //   })
-    //   .catch(err => {
-    //     this.showErrorNotification("Ocorreu um erro ao atribuir o revisor.");
-    //     this.hideLoader();
-    //   });
+  private async setProofreader() {
+    this.showLoader();
+    try {
+      await setSubmissionProofreaders(this.submissionId, [
+        this.revisor1,
+        this.revisor2,
+        this.revisor3
+      ]);
+
+      this.showSuccessNotification("Revisores atribuidos com sucesso!");
+      this.hideDialog();
+      this.hideLoader();
+    } catch (error) {
+      this.showErrorNotification("Ocorreu um erro ao atribuir os revisores.");
+      this.hideLoader();
+    }
   }
 }
 </script>
