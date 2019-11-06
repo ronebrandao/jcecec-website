@@ -216,8 +216,9 @@ export default class Submissions extends mixins(
         this.refreshing = false;
       })
       .catch(err => {
+        console.log(err);
         this.showErrorNotification(
-          "Ocorreu um erro ao carregas as submissões."
+          "Ocorreu um erro ao carregar as submissões."
         );
         this.refreshing = false;
         this.loading = false;
@@ -249,8 +250,8 @@ export default class Submissions extends mixins(
   private mapStatus(status: string) {
     if (status === "pendente") {
       return { color: "", text: "PENDENTE" };
-    } else if (status === "aceito-em-revisao") {
-      return { color: "warning", text: "ACEITO - EM REVISÃO" };
+    } else if (status === "revisao") {
+      return { color: "warning", text: "EM REVISÃO" };
     } else if (status === "reprovado") {
       return { color: "error", text: "NÃO ACEITO" };
     } else if (status === "aprovado") {
