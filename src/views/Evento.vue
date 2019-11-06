@@ -236,41 +236,6 @@ export default class Evento extends Vue {
     }
   },
   {
-    name: `Msc Camilo de Lelis Medeiros de Morais`,
-    institution: `School of Pharmacy and Biomedical Sciences, University of Central Lancashire, Reino Unido.
-Lancashire Teaching Hospitals NHS Foundation Trust, Royal Preston Hospital, Reino Unido.`,
-    speaking: `Biospectroscopia para diagnóstico clínico: métodos alternativos para detecção
-de câncer`,
-    description: `
-      Candidato a PhD em Quimiometria na School of Pharmacy and Biomedical Sciences,
-      University of Central Lancashire, Reino Unido. Pesquisador honorário do Departamento de Neuropatologia
-      na Lancashire Teaching Hospitals NHS Foundation Trust, Royal Preston Hospital, Reino Unido.
-    `,
-    img: `/assets/img/speakers/camilo_lelis.jpg`,
-    subjectResume: `
-      O uso de espectroscopia vibracional (infravermelho e Raman) para análise não-destrutiva de
-      materiais biológicos é uma área de rápida expansão, em que existe um alto foco no desenvolvimento de
-      metodologias mais simples, rápidas e baratas para diagnóstico clínico. Através da interação entre luz e a
-      amostra de estudo (por exemplo, biofluidos, como sangue e urina, ou tecidos) é possível obter um sinal
-      espectroquímico característico para cada paciente, denominado de espectro de impressão-digital. O uso de
-      ferramentas computacionais é de fundamental importância para processar e interpretar os dados obtidos
-      experimentalmente, em que estratégias de pre-processamento de sinais, análise multivariada, seleção de
-      variáveis, e aprendizagem de máquina (machine-learning) são essenciais para se obter bons resultados
-      clínicos. Um exemplo em que a biospectroscopia é utilizada com sucesso é o diagnóstico de inúmeros tipos
-      de câncer e seus graus de agressividade usando apenas uma gota de sangue. Essa apresentação pretende
-      12mostrar através de exemplos reais no Reino Unido como é feito a aquisição e análise dos dados espectrais
-      provenientes de amostras clínicas para o desenvolvimento de metodologias alternativas para o diagnóstico de
-      diversos tipos de câncer.
-    `,
-    offset: ``,
-    action: ``,
-    datentime: {
-      date: "12/11",
-      time: "09:00 - 10:40",
-      place: "Auditório II, Área II"
-    }
-  },
-  {
     name: `Prof. Dr. Jancarlos Menezes Lapa`,
     institution: `Universidade Federal da Bahia`,
     speaking: `STEAM BY ME A experiência de uma Comunidade de Prática de Ensino de
@@ -412,35 +377,6 @@ uma abordagem STEAM`,
       date: "13/11",
       time: "19:00 - 20:40",
       place: "Auditório I, Área II"
-    }
-  },
-  {
-    name: `Engenheiro Alessandro Cunha`,
-    institution: `Avnet`,
-    speaking: `Qual é o futuro da IoT?`,
-    description: `
-      Possui graduação em Engenharia Elétrica pela Universidade Sao Judas Tadeu (2003).
-      Atualmente cursa mestrado no Instituto Tecnológico de Aeronáutica - ITA, em São José dos Campos. Atuou
-      por mais de 10 anos na área de telecomunicações, prestando serviços para empresas como NEC, Siemens,
-      Motorola, Nortel, Lucent, etc. Além das diversas operadoras de telefonica celular: VIVO, Claro, TIM,
-      Vesper, Embratel, OI, etc. Tem experiência na área de Engenharia Elétrica, com ênfase em
-      Telecomunicações, atuando principalmente nos temas: microcontroladores, sistemas embarcados e
-      robótica. (Texto informado pelo autor)
-    `,
-    img: `/assets/img/speakers/alessandro_cunha.jpg`,
-    subjectResume: `
-      A palavra IoT (Internet of Things) tem sido utilizada em diversas previsões de futuro como algo
-      que vai revolucionar a experiência humana nas mais diversas áreas (agricultura, medicina, advocacia,
-      produção industrial, etc.). Mas o que realmente já está implantado e funcionando e o que realmente parece
-      que será aplicado num futuro próximo? Nesta palestra iremos mostrar alguns casos reais de produtos de IoT
-      e vamos mostrar alguns projetos bem interessantes que estão sendo desenvolvidos nesta área.
-    `,
-    offset: ``,
-    action: ``,
-    datentime: {
-      date: "13/11",
-      time: "09:00 - 10:40",
-      place: "Auditório II, Área II"
     }
   },
   {
