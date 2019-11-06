@@ -62,6 +62,7 @@
             <v-text-field
               v-model="form.phoneNumber"
               label="Telefone"
+              :rules="requiredRule"
               required
               mask="(##) #####-####"
               prepend-icon="phone"
@@ -129,8 +130,6 @@
             <v-text-field
               v-model="form.streetNumber"
               label="Número"
-              :rules="requiredRule"
-              required
               box
             ></v-text-field>
           </v-flex>

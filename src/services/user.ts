@@ -15,7 +15,6 @@ export function createUser(user: SignUpForm): Promise<any> {
     type,
     cep,
     street,
-    streetNumber,
     state,
     city,
     neighborhood,
@@ -23,6 +22,7 @@ export function createUser(user: SignUpForm): Promise<any> {
   } = user;
 
   const birthDate = formatarData(user.birthDate);
+  const streetNumber = user.streetNumber || 0;
 
   return axiosWithoutAuth.post(API_URL, {
     firstName,
@@ -66,7 +66,7 @@ export function setSubmissionProofreaders(
   proofreaders: number[]
 ) {
   return axios
-    .put(API_URL + submissionId, {
+    .put(API_URL + "submission/" + submissionId, {
       proofreaders
     })
     .then(res => res.data);

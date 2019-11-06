@@ -29,9 +29,10 @@
             <v-btn
               small
               color="success"
+              :disabled="selected.length > 0 && selected[0].has_proofreaders"
               v-show="isAdmin && selected.length > 0"
               @click="showSetProofreader(selected)"
-            >Atribuir revisor</v-btn>
+            >{{selected.length > 0 && selected[0].has_proofreaders ? 'Trabalho em revisão' : 'Atribuir revisor'}}</v-btn>
             <v-spacer></v-spacer>
             <v-text-field
               v-model="search"
@@ -124,7 +125,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Watch } from "vue-property-decorator";
 import { mixins } from "vue-class-component";
 import LoaderMixin from "@/mixins/loader";
 import { getUserSubmissions, downloadFile } from "@/services/api/submission";
@@ -185,6 +186,13 @@ export default class Submissions extends mixins(
   ];
 
   private submissions: any = [];
+
+  @Watch("selected")
+  selectedChanged(newVal: any) {
+    if (newVal.length > 1) {
+      this.selected.shift();
+    }
+  }
 
   private created() {
     this.verifyUser();
@@ -249,8 +257,8 @@ export default class Submissions extends mixins(
   private mapStatus(status: string) {
     if (status === "pendente") {
       return { color: "", text: "PENDENTE" };
-    } else if (status === "aceito-em-revisao") {
-      return { color: "warning", text: "ACEITO - EM REVISÃO" };
+    } else if (status === "revisao") {
+      return { color: "warning", text: "EM REVISÃO" };
     } else if (status === "reprovado") {
       return { color: "error", text: "NÃO ACEITO" };
     } else if (status === "aprovado") {
