@@ -224,8 +224,9 @@ export default class Submissions extends mixins(
         this.refreshing = false;
       })
       .catch(err => {
+        console.log(err);
         this.showErrorNotification(
-          "Ocorreu um erro ao carregas as submissões."
+          "Ocorreu um erro ao carregar as submissões."
         );
         this.refreshing = false;
         this.loading = false;
