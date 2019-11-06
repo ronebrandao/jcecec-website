@@ -50,6 +50,9 @@ export async function getUsers(): Promise<any> {
   return await axios.get(API_URL).then(res => res.data);
 }
 
+export async function getUsersExcept(id: number): Promise<any> {
+  return await axios.get(API_URL + id + '/except').then(res => res.data);
+}
 export function upgradeUser(email: string, type: string) {
   return axios
     .put(API_URL + email, {

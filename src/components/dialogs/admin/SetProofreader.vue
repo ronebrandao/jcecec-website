@@ -40,7 +40,7 @@
 import { Vue, Prop, Component, Watch, Inject } from "vue-property-decorator";
 import { mixins } from "vue-class-component";
 
-import { getUsers, setSubmissionProofreaders } from "../../../services/user";
+import { getUsersExcept, setSubmissionProofreaders } from "../../../services/user";
 import { setSubmissionProofreader } from "@/services/api/submission";
 import NotificationMixin from "@/mixins/notification";
 import LoaderMixin from "@/mixins/loader";
@@ -57,6 +57,7 @@ export default class SetProofreaderDialog extends mixins(
   private dialog: boolean = false;
   private revisores: any = null;
   private submissionId: any = null;
+  private submissionUserId: any = null;
 
   private revisor1: any = null;
   private revisor2: any = null;
@@ -75,16 +76,15 @@ export default class SetProofreaderDialog extends mixins(
   @Watch("submission")
   private submissionChanged(newValue: any) {
     this.submissionId = newValue.length > 0 && newValue[0].id;
+    this.submissionUserId = newValue.length > 0 && newValue[0].user_id;
   }
 
   private shownDialog() {
     this.showLoader();
-    getUsers()
+    getUsersExcept(this.submissionUserId)
       .then(resp => {
         if (resp.success) {
-          this.revisores = resp.data.filter(
-            (user: any) => user.type === "proofreader"
-          );
+          this.revisores = resp.data;
 
           this.revisores = this.revisores.map((revisor: any) => {
             return {
