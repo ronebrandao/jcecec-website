@@ -79,7 +79,7 @@
                   </template>
                   <span>Baixar arquivo</span>
                 </v-tooltip>
-                <v-tooltip bottom>
+                <v-tooltip bottom v-if="props.item.isProofReader">
                   <template v-slot:activator="{ on }">
                     <v-btn
                       fab
@@ -108,6 +108,8 @@
           <ProofcheckForm
             :showDialog="showRevisionDialog"
             :submissionId="submissionId"
+            :submissionUserId="$store.state.user.id"
+            @loadData="loadData"
             @hidden="hideProofreadDialog"
           />
           <SetProofreader
@@ -142,6 +144,7 @@ interface Submission {
   status: string;
   created_at: string;
   color: string;
+  isProofReader: boolean;
 }
 
 @Component({
@@ -196,7 +199,6 @@ export default class Submissions extends mixins(
 
   private created() {
     this.verifyUser();
-
     this.loadData();
   }
 
@@ -207,13 +209,22 @@ export default class Submissions extends mixins(
     getUserSubmissions(this.$store.state.user.id)
       .then(result => {
         if (result.success) {
-          result.data.forEach((item: Submission) => {
+          result.data.proofreader_submissions.map((item: Submission) => {
             item.created_at = new Date(item.created_at).toLocaleDateString();
             item.color = this.mapStatus(item.status).color;
             item.status = this.mapStatus(item.status).text;
+            item.isProofReader = true;
           });
+          result.data.own_submissions.map((item: Submission) => {
+            item.created_at = new Date(item.created_at).toLocaleDateString();
+            item.color = this.mapStatus(item.status).color;
+            item.status = this.mapStatus(item.status).text;
+            item.isProofReader = false;
+          });
+          let subResp = result.data.proofreader_submissions;
+          subResp = subResp.concat(result.data.own_submissions);
 
-          this.submissions = result.data;
+          this.submissions = subResp;
         } else {
           this.showErrorNotification(
             "Não foi possível carregar as submissões."

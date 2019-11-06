@@ -158,6 +158,7 @@ export default class ProofcheckForm extends mixins(
 ) {
   @Prop({ type: Boolean, default: false }) private showDialog: boolean;
   @Prop(Number) private submissionId: number;
+  @Prop(Number) private submissionUserId: number;
   private dialog: boolean = false;
   private valid: boolean = false;
   private title: string = "";
@@ -288,24 +289,6 @@ export default class ProofcheckForm extends mixins(
   @Watch("showDialog")
   private showDialogChanged(newValue: boolean, oldValue: boolean) {
     this.dialog = newValue;
-    this.shownDialog();
-  }
-
-  private shownDialog(): void {
-    if (this.submissionId !== 0) {
-      // this.showLoader();
-      // getProofread(this.submissionId)
-      //   .then(result => {
-      //     if (result.success) {
-      //       this.mapValues(result.data);
-      //     }
-      //     // this.hideLoader();
-      //   })
-      //   .catch(err => {
-      //     console.log(err);
-      //     // this.hideLoader();
-      //   });
-    }
   }
 
   private hideDialog() {
@@ -322,6 +305,7 @@ export default class ProofcheckForm extends mixins(
       }
     }
     let data = {
+      userId: this.submissionUserId,
       submissionId: this.submissionId,
       originalidade: this.items.workOriginalite.valueSelected,
       contribuicao: this.items.areaContribution.valueSelected,
@@ -333,12 +317,16 @@ export default class ProofcheckForm extends mixins(
       indicacao: this.items.indication.valueSelected,
       mensagemOrganizacao: this.mensagemOrganizacao
     };
+    this.showLoader();
     saveProofRead(data)
       .then(() => {
         this.showSuccessNotification("Revisão enviada com sucesso.");
+        this.hideLoader();
         this.hideDialog();
+        this.$emit("loadData");
       })
       .catch(err => {
+        this.hideLoader();
         console.log(err);
         this.showErrorNotification("Ocorreu um problema ao enviar revisão.");
       });
