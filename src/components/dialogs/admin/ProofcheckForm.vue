@@ -278,6 +278,7 @@ export default class ProofcheckForm extends mixins(
   private async saveRevision() {
     for (let prop in this.items) {
       if (Object.prototype.hasOwnProperty.call(this.items, prop)) {
+        // @ts-ignore
         if (!this.items[prop].valueSelected) {
           this.showErrorNotification("Por favor, preencha todos os campos.");
           return;
