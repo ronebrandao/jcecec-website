@@ -23,5 +23,5 @@ export async function getProofread(submissionId: number) {
 }
 
 export function saveProofRead(data: any): Promise<any> {
-  return axios.post(API_URL, data).then(res => res.data).catch(err => err.message)
+  return axios.post(API_URL, data).then(res => res.data)
 }
