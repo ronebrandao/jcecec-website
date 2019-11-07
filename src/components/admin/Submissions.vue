@@ -94,6 +94,21 @@
                   </template>
                   <span>Revisar submissão</span>
                 </v-tooltip>
+                <!-- <v-tooltip bottom v-if="isAdmin">
+                  <template v-slot:activator="{ on }">
+                    <v-btn
+                      fab
+                      flat
+                      small
+                      v-on="on"
+                      v-if="isAdmin"
+                      @click="showSummary(props.item.id)"
+                    >
+                      <v-icon dark color="gray">pageview</v-icon>
+                    </v-btn>
+                  </template>
+                  <span>Revisões</span>
+                </v-tooltip> -->
               </td>
             </template>
             <template v-slot:no-results>
@@ -117,6 +132,10 @@
             :submission="selected"
             @hidden="hideSetProofreader"
           />
+          <ProofreadsSummary 
+          :showDialog="showProofreaderSummaryDialog"
+          @hidden="hideSummary"
+          />
         </v-tab-item>
         <v-tab-item :value="'mobile-tabs-5-2'">
           <Users />
@@ -136,6 +155,7 @@ import { saveAs } from "file-saver";
 import SubmissionForm from "@/components/dialogs/admin/SubmissionForm.vue";
 import ProofcheckForm from "@/components/dialogs/admin/ProofcheckForm.vue";
 import SetProofreader from "@/components/dialogs/admin/SetProofreader.vue";
+import ProofreadsSummary from "@/components/dialogs/admin/ProofreadsSummary.vue";
 import Users from "@/components/admin/Users.vue";
 
 interface Submission {
@@ -152,6 +172,7 @@ interface Submission {
     SubmissionForm,
     ProofcheckForm,
     SetProofreader,
+    ProofreadsSummary,
     Users
   }
 })
@@ -164,6 +185,7 @@ export default class Submissions extends mixins(
   private activeTab: any = null;
   private showRevisionDialog: boolean = false;
   private showSetProofreaderDialog: boolean = false;
+  private showProofreaderSummaryDialog: boolean = false;
   private submissionId: number = 0;
   private loading = false;
   private refreshing = false;
@@ -209,22 +231,19 @@ export default class Submissions extends mixins(
     getUserSubmissions(this.$store.state.user.id)
       .then(result => {
         if (result.success) {
-          result.data.proofreader_submissions.map((item: Submission) => {
-            item.created_at = new Date(item.created_at).toLocaleDateString();
-            item.color = this.mapStatus(item.status).color;
-            item.status = this.mapStatus(item.status).text;
-            item.isProofReader = true;
-          });
-          result.data.own_submissions.map((item: Submission) => {
-            item.created_at = new Date(item.created_at).toLocaleDateString();
-            item.color = this.mapStatus(item.status).color;
-            item.status = this.mapStatus(item.status).text;
-            item.isProofReader = false;
-          });
-          let subResp = result.data.proofreader_submissions;
-          subResp = subResp.concat(result.data.own_submissions);
+          if (result.data.proofreader_submissions) {
+            this.filterResults(result.data.proofreader_submissions, true)
+            this.filterResults(result.data.own_submissions)
 
-          this.submissions = subResp;
+            let subResp = result.data.proofreader_submissions;
+            subResp = subResp.concat(result.data.own_submissions);
+
+            this.submissions = subResp;
+          } else {
+
+            this.filterResults(result.data, this.isAdmin ? true : false);
+            this.submissions = result.data;
+          }
         } else {
           this.showErrorNotification(
             "Não foi possível carregar as submissões."
@@ -278,6 +297,15 @@ export default class Submissions extends mixins(
     }
   }
 
+  private filterResults(items: any[], isProofReader = false) {
+    return items.map((item: Submission) => {
+      item.created_at = new Date(item.created_at).toLocaleDateString();
+      item.color = this.mapStatus(item.status).color;
+      item.status = this.mapStatus(item.status).text;
+      item.isProofReader = isProofReader;
+    });
+  }
+
   private showProofread(submissionId: number) {
     this.submissionId = submissionId;
     this.showRevisionDialog = true;
@@ -293,6 +321,14 @@ export default class Submissions extends mixins(
 
   private hideSetProofreader() {
     this.showSetProofreaderDialog = false;
+  }
+
+  private showSummary() {
+    this.showProofreaderSummaryDialog = true;
+  }
+
+  private hideSummary() {
+    this.showProofreaderSummaryDialog = false;
   }
 }
 </script>

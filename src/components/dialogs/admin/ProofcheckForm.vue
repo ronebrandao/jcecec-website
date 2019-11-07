@@ -108,20 +108,6 @@
                       :value="item.value"
                     ></v-radio>
                   </v-radio-group>
-                  <v-radio-group v-model="items.indication.valueSelected">
-                    <template v-slot:label>
-                      <div>
-                        <strong>{{items.indication.title}}</strong>
-                        {{items.indication.subtitle}}
-                      </div>
-                    </template>
-                    <v-radio
-                      v-for="(item, index) in items.indication.options"
-                      :key="index"
-                      :label="item.text"
-                      :value="item.value"
-                    ></v-radio>
-                  </v-radio-group>
                   <v-textarea
                     solo
                     label="Mensagem para a organização"
@@ -272,14 +258,8 @@ export default class ProofcheckForm extends mixins(
         { value: "oral-presentation", text: "Apresentação Oral" },
         { value: "poster", text: "Poster" }
       ]
-    },
-    indication: {
-      valueSelected: "",
-      group: "",
-      title: "Indicação: ",
-      subtitle: "Indicaria esse trabalho ao prêmio de melhor artigo da área?",
-      options: [{ value: "sim", text: "Sim" }, { value: "nao", text: "Nao" }]
     }
+  
   };
 
   constructor() {
@@ -314,7 +294,6 @@ export default class ProofcheckForm extends mixins(
       recomendacao: this.items.recomendation.valueSelected,
       confiancaRevisor: this.items.trust.valueSelected,
       categoria: this.items.category.valueSelected,
-      indicacao: this.items.indication.valueSelected,
       mensagemOrganizacao: this.mensagemOrganizacao
     };
     this.showLoader();
@@ -338,5 +317,9 @@ export default class ProofcheckForm extends mixins(
 #wrapper {
   display: flex;
   justify-content: center;
+}
+
+.headline {
+  color: #272727 !important;
 }
 </style>
