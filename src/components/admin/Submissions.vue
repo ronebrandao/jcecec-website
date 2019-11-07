@@ -29,9 +29,10 @@
             <v-btn
               small
               color="success"
+              :disabled="selected.length > 0 && selected[0].has_proofreaders"
               v-show="isAdmin && selected.length > 0"
               @click="showSetProofreader(selected)"
-            >Atribuir revisor</v-btn>
+            >{{selected.length > 0 && selected[0].has_proofreaders ? 'Trabalho em revisão' : 'Atribuir revisor'}}</v-btn>
             <v-spacer></v-spacer>
             <v-text-field
               v-model="search"
@@ -78,7 +79,7 @@
                   </template>
                   <span>Baixar arquivo</span>
                 </v-tooltip>
-                <v-tooltip bottom>
+                <v-tooltip bottom v-if="props.item.isProofReader">
                   <template v-slot:activator="{ on }">
                     <v-btn
                       fab
@@ -93,6 +94,21 @@
                   </template>
                   <span>Revisar submissão</span>
                 </v-tooltip>
+                <!-- <v-tooltip bottom v-if="isAdmin">
+                  <template v-slot:activator="{ on }">
+                    <v-btn
+                      fab
+                      flat
+                      small
+                      v-on="on"
+                      v-if="isAdmin"
+                      @click="showSummary(props.item.id)"
+                    >
+                      <v-icon dark color="gray">pageview</v-icon>
+                    </v-btn>
+                  </template>
+                  <span>Revisões</span>
+                </v-tooltip> -->
               </td>
             </template>
             <template v-slot:no-results>
@@ -107,12 +123,18 @@
           <ProofcheckForm
             :showDialog="showRevisionDialog"
             :submissionId="submissionId"
+            :submissionUserId="$store.state.user.id"
+            @loadData="loadData"
             @hidden="hideProofreadDialog"
           />
           <SetProofreader
             :showDialog="showSetProofreaderDialog"
             :submission="selected"
             @hidden="hideSetProofreader"
+          />
+          <ProofreadsSummary 
+          :showDialog="showProofreaderSummaryDialog"
+          @hidden="hideSummary"
           />
         </v-tab-item>
         <v-tab-item :value="'mobile-tabs-5-2'">
@@ -124,7 +146,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Watch } from "vue-property-decorator";
 import { mixins } from "vue-class-component";
 import LoaderMixin from "@/mixins/loader";
 import { getUserSubmissions, downloadFile } from "@/services/api/submission";
@@ -133,6 +155,7 @@ import { saveAs } from "file-saver";
 import SubmissionForm from "@/components/dialogs/admin/SubmissionForm.vue";
 import ProofcheckForm from "@/components/dialogs/admin/ProofcheckForm.vue";
 import SetProofreader from "@/components/dialogs/admin/SetProofreader.vue";
+import ProofreadsSummary from "@/components/dialogs/admin/ProofreadsSummary.vue";
 import Users from "@/components/admin/Users.vue";
 
 interface Submission {
@@ -141,6 +164,7 @@ interface Submission {
   status: string;
   created_at: string;
   color: string;
+  isProofReader: boolean;
 }
 
 @Component({
@@ -148,6 +172,7 @@ interface Submission {
     SubmissionForm,
     ProofcheckForm,
     SetProofreader,
+    ProofreadsSummary,
     Users
   }
 })
@@ -160,6 +185,7 @@ export default class Submissions extends mixins(
   private activeTab: any = null;
   private showRevisionDialog: boolean = false;
   private showSetProofreaderDialog: boolean = false;
+  private showProofreaderSummaryDialog: boolean = false;
   private submissionId: number = 0;
   private loading = false;
   private refreshing = false;
@@ -186,9 +212,15 @@ export default class Submissions extends mixins(
 
   private submissions: any = [];
 
+  @Watch("selected")
+  selectedChanged(newVal: any) {
+    if (newVal.length > 1) {
+      this.selected.shift();
+    }
+  }
+
   private created() {
     this.verifyUser();
-
     this.loadData();
   }
 
@@ -199,13 +231,19 @@ export default class Submissions extends mixins(
     getUserSubmissions(this.$store.state.user.id)
       .then(result => {
         if (result.success) {
-          result.data.forEach((item: Submission) => {
-            item.created_at = new Date(item.created_at).toLocaleDateString();
-            item.color = this.mapStatus(item.status).color;
-            item.status = this.mapStatus(item.status).text;
-          });
+          if (result.data.proofreader_submissions) {
+            this.filterResults(result.data.proofreader_submissions, true)
+            this.filterResults(result.data.own_submissions)
 
-          this.submissions = result.data;
+            let subResp = result.data.proofreader_submissions;
+            subResp = subResp.concat(result.data.own_submissions);
+
+            this.submissions = subResp;
+          } else {
+
+            this.filterResults(result.data, this.isAdmin ? true : false);
+            this.submissions = result.data;
+          }
         } else {
           this.showErrorNotification(
             "Não foi possível carregar as submissões."
@@ -216,8 +254,9 @@ export default class Submissions extends mixins(
         this.refreshing = false;
       })
       .catch(err => {
+        console.log(err);
         this.showErrorNotification(
-          "Ocorreu um erro ao carregas as submissões."
+          "Ocorreu um erro ao carregar as submissões."
         );
         this.refreshing = false;
         this.loading = false;
@@ -249,13 +288,22 @@ export default class Submissions extends mixins(
   private mapStatus(status: string) {
     if (status === "pendente") {
       return { color: "", text: "PENDENTE" };
-    } else if (status === "aceito-em-revisao") {
-      return { color: "warning", text: "ACEITO - EM REVISÃO" };
+    } else if (status === "revisao") {
+      return { color: "warning", text: "EM REVISÃO" };
     } else if (status === "reprovado") {
       return { color: "error", text: "NÃO ACEITO" };
     } else if (status === "aprovado") {
       return { color: "success", text: "ACEITO" };
     }
+  }
+
+  private filterResults(items: any[], isProofReader = false) {
+    return items.map((item: Submission) => {
+      item.created_at = new Date(item.created_at).toLocaleDateString();
+      item.color = this.mapStatus(item.status).color;
+      item.status = this.mapStatus(item.status).text;
+      item.isProofReader = isProofReader;
+    });
   }
 
   private showProofread(submissionId: number) {
@@ -273,6 +321,14 @@ export default class Submissions extends mixins(
 
   private hideSetProofreader() {
     this.showSetProofreaderDialog = false;
+  }
+
+  private showSummary() {
+    this.showProofreaderSummaryDialog = true;
+  }
+
+  private hideSummary() {
+    this.showProofreaderSummaryDialog = false;
   }
 }
 </script>

@@ -21,3 +21,7 @@ export interface Proofread {
 export async function getProofread(submissionId: number) {
   return axios.get(API_URL + submissionId).then(res => res.data);
 }
+
+export function saveProofRead(data: any): Promise<any> {
+  return axios.post(API_URL, data).then(res => res.data)
+}

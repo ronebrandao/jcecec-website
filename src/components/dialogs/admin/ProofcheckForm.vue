@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-dialog v-model="dialog" persistent max-width="800px">
-      <v-form ref="form" v-model="valid" @submit.prevent="submit">
+      <v-form ref="form" v-model="valid" @submit.prevent="saveRevision">
         <v-card>
           <v-card-title>
             <span class="headline">Revisão</span>
@@ -10,21 +10,104 @@
             <v-container grid-list-md>
               <v-layout wrap>
                 <v-flex xs12>
-                  <v-radio-group v-for="(item) in items" :key="item.title" v-model="item.group">
+                  <v-radio-group v-model="items.workOriginalite.valueSelected">
                     <template v-slot:label>
                       <div>
-                        <strong>{{item.title}}</strong>
-                        {{item.subtitle}}
+                        <strong>{{items.workOriginalite.title}}</strong>
+                        {{items.workOriginalite.subtitle}}
                       </div>
                     </template>
                     <v-radio
-                      v-for="(item, index) in item.options"
+                      v-for="(item, index) in items.workOriginalite.options"
                       :key="index"
                       :label="item.text"
                       :value="item.value"
                     ></v-radio>
                   </v-radio-group>
-                  <v-textarea solo label="Mensagem para o autor" v-model="mensagemAutor" required></v-textarea>
+                  <v-radio-group v-model="items.areaContribution.valueSelected">
+                    <template v-slot:label>
+                      <div>
+                        <strong>{{items.areaContribution.title}}</strong>
+                        {{items.areaContribution.subtitle}}
+                      </div>
+                    </template>
+                    <v-radio
+                      v-for="(item, index) in items.areaContribution.options"
+                      :key="index"
+                      :label="item.text"
+                      :value="item.value"
+                    ></v-radio>
+                  </v-radio-group>
+                  <v-radio-group v-model="items.technicalQuality.valueSelected">
+                    <template v-slot:label>
+                      <div>
+                        <strong>{{items.technicalQuality.title}}</strong>
+                        {{items.technicalQuality.subtitle}}
+                      </div>
+                    </template>
+                    <v-radio
+                      v-for="(item, index) in items.technicalQuality.options"
+                      :key="index"
+                      :label="item.text"
+                      :value="item.value"
+                    ></v-radio>
+                  </v-radio-group>
+                  <v-radio-group v-model="items.presentationOrganization.valueSelected">
+                    <template v-slot:label>
+                      <div>
+                        <strong>{{items.presentationOrganization.title}}</strong>
+                        {{items.presentationOrganization.subtitle}}
+                      </div>
+                    </template>
+                    <v-radio
+                      v-for="(item, index) in items.presentationOrganization.options"
+                      :key="index"
+                      :label="item.text"
+                      :value="item.value"
+                    ></v-radio>
+                  </v-radio-group>
+                  <v-radio-group v-model="items.recomendation.valueSelected">
+                    <template v-slot:label>
+                      <div>
+                        <strong>{{items.recomendation.title}}</strong>
+                        {{items.recomendation.subtitle}}
+                      </div>
+                    </template>
+                    <v-radio
+                      v-for="(item, index) in items.recomendation.options"
+                      :key="index"
+                      :label="item.text"
+                      :value="item.value"
+                    ></v-radio>
+                  </v-radio-group>
+                  <v-radio-group v-model="items.trust.valueSelected">
+                    <template v-slot:label>
+                      <div>
+                        <strong>{{items.trust.title}}</strong>
+                        {{items.trust.subtitle}}
+                      </div>
+                    </template>
+                    <v-radio
+                      v-for="(item, index) in items.trust.options"
+                      :key="index"
+                      :label="item.text"
+                      :value="item.value"
+                    ></v-radio>
+                  </v-radio-group>
+                  <v-radio-group v-model="items.category.valueSelected">
+                    <template v-slot:label>
+                      <div>
+                        <strong>{{items.category.title}}</strong>
+                        {{items.category.subtitle}}
+                      </div>
+                    </template>
+                    <v-radio
+                      v-for="(item, index) in items.category.options"
+                      :key="index"
+                      :label="item.text"
+                      :value="item.value"
+                    ></v-radio>
+                  </v-radio-group>
                   <v-textarea
                     solo
                     label="Mensagem para a organização"
@@ -38,7 +121,7 @@
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn color="error" flat text @click="hideDialog">Cancelar</v-btn>
-            <v-btn type="submit" flat color="success" @click="submit">Submeter</v-btn>
+            <v-btn type="submit" flat color="success">Submeter</v-btn>
           </v-card-actions>
         </v-card>
       </v-form>
@@ -50,7 +133,7 @@
 import { Vue, Prop, Component, Watch, Inject } from "vue-property-decorator";
 import { mixins } from "vue-class-component";
 import { submitWork } from "@/services/api/submission";
-import { getProofread, Proofread } from "@/services/api/proofreads";
+import { getProofread, saveProofRead } from "@/services/api/proofreads";
 import LoaderMixin from "@/mixins/loader";
 import NotificationMixin from "@/mixins/notification";
 
@@ -61,15 +144,14 @@ export default class ProofcheckForm extends mixins(
 ) {
   @Prop({ type: Boolean, default: false }) private showDialog: boolean;
   @Prop(Number) private submissionId: number;
+  @Prop(Number) private submissionUserId: number;
   private dialog: boolean = false;
   private valid: boolean = false;
   private title: string = "";
-  private mensagemAutor = "";
   private mensagemOrganizacao = "";
-
-  private items = [
-    {
-      group: 0,
+  private items = {
+    workOriginalite: {
+      valueSelected: 0,
       title: "Originalidade do trabalho: ",
       subtitle:
         "Como você avalia a originalidade do trabalho apresentado nesse artigo?",
@@ -81,8 +163,8 @@ export default class ProofcheckForm extends mixins(
         { value: 1, text: "1. Nenhuma originalidade" }
       ]
     },
-    {
-      group: 0,
+    areaContribution: {
+      valueSelected: 0,
       title: "Contribuição para a área: ",
       subtitle: "Como você avalia a contribuição do artigo para a área?",
       options: [
@@ -96,8 +178,8 @@ export default class ProofcheckForm extends mixins(
         }
       ]
     },
-    {
-      group: 0,
+    technicalQuality: {
+      valueSelected: 0,
       title: "Qualidade técnica: ",
       subtitle:
         "Como você avalia a qualidade técnica do trabalho apresentado nesse artigo?",
@@ -112,8 +194,8 @@ export default class ProofcheckForm extends mixins(
         }
       ]
     },
-    {
-      group: 0,
+    presentationOrganization: {
+      valueSelected: 0,
       title: "Organização e apresentação: ",
       subtitle: `Como você avalia a legibilidade, clareza e organização desse artigo?
          As citaçôes e formatação estão de acordo com o estilo da conferência?`,
@@ -128,8 +210,8 @@ export default class ProofcheckForm extends mixins(
         }
       ]
     },
-    {
-      group: 0,
+    recomendation: {
+      valueSelected: 0,
       title: "Recomendação para esse trabalho: ",
       subtitle: "O que você recomenda para esse artigo?",
       options: [
@@ -146,7 +228,7 @@ export default class ProofcheckForm extends mixins(
         { value: 3, text: "3. Neutro - Não tenho certeza" },
         {
           value: 2,
-          text: "2. Rejeição frace - Não irei lutar fortemente contra"
+          text: "2. Rejeição fraca - Não irei lutar fortemente contra"
         },
         {
           value: 1,
@@ -155,8 +237,8 @@ export default class ProofcheckForm extends mixins(
         }
       ]
     },
-    {
-      group: "",
+    trust: {
+      valueSelected: "",
       title: "Confiança do revisor: ",
       subtitle: "Qual é a sua confiança a respeito dessa revisão?",
       options: [
@@ -168,22 +250,17 @@ export default class ProofcheckForm extends mixins(
         { value: 1, text: "Não sou um especialista na área" }
       ]
     },
-    {
-      group: "",
+    category: {
+      valueSelected: "",
       title: "Categoria: ",
       subtitle: "Em qual categoria o trabalho se enquadra?",
       options: [
         { value: "oral-presentation", text: "Apresentação Oral" },
         { value: "poster", text: "Poster" }
       ]
-    },
-    {
-      group: "",
-      title: "Indicação: ",
-      subtitle: "Indicaria esse trabalho ao prêmio de melhor artigo da área?",
-      options: [{ value: "sim", text: "Sim" }, { value: "nao", text: "Nao" }]
     }
-  ];
+  
+  };
 
   constructor() {
     super();
@@ -192,46 +269,47 @@ export default class ProofcheckForm extends mixins(
   @Watch("showDialog")
   private showDialogChanged(newValue: boolean, oldValue: boolean) {
     this.dialog = newValue;
-    this.shownDialog();
-  }
-
-  private shownDialog(): void {
-    if (this.submissionId !== 0) {
-      // this.showLoader();
-      getProofread(this.submissionId)
-        .then(result => {
-          if (result.success) {
-            this.mapValues(result.data);
-          }
-          // this.hideLoader();
-        })
-        .catch(err => {
-          console.log(err);
-          // this.hideLoader();
-        });
-    }
   }
 
   private hideDialog() {
     this.$emit("hidden");
   }
 
-  private mapValues(proofRead: Proofread) {
-    this.items[0].group = proofRead.originalidade;
-    this.items[1].group = proofRead.contribuicao;
-    this.items[3].group = proofRead.qualidade;
-    this.items[4].group = proofRead.organizacao;
-    this.items[5].group = proofRead.recomendacao;
-    this.items[6].group = proofRead.confianca_revisor;
-    this.items[7].group = proofRead.categoria;
-    this.items[8].group = proofRead.indicacao;
-
-    this.mensagemAutor = proofRead.mensagem_autor;
-    this.mensagemOrganizacao = proofRead.mensagem_organizacao;
-  }
-
-  private async submit() {
-    this.showWarningNotification("Função indisponível");
+  private async saveRevision() {
+    for (let prop in this.items) {
+      if (Object.prototype.hasOwnProperty.call(this.items, prop)) {
+        // @ts-ignore
+        if (!this.items[prop].valueSelected) {
+          this.showErrorNotification("Por favor, preencha todos os campos.");
+          return;
+        }
+      }
+    }
+    let data = {
+      userId: this.submissionUserId,
+      submissionId: this.submissionId,
+      originalidade: this.items.workOriginalite.valueSelected,
+      contribuicao: this.items.areaContribution.valueSelected,
+      qualidade: this.items.technicalQuality.valueSelected,
+      organizacao: this.items.presentationOrganization.valueSelected,
+      recomendacao: this.items.recomendation.valueSelected,
+      confiancaRevisor: this.items.trust.valueSelected,
+      categoria: this.items.category.valueSelected,
+      mensagemOrganizacao: this.mensagemOrganizacao
+    };
+    this.showLoader();
+    saveProofRead(data)
+      .then(() => {
+        this.showSuccessNotification("Revisão enviada com sucesso.");
+        this.hideLoader();
+        this.hideDialog();
+        this.$emit("loadData");
+      })
+      .catch(err => {
+        this.hideLoader();
+        console.log(err);
+        this.showErrorNotification("Ocorreu um problema ao enviar revisão.");
+      });
   }
 }
 </script>
@@ -240,5 +318,9 @@ export default class ProofcheckForm extends mixins(
 #wrapper {
   display: flex;
   justify-content: center;
+}
+
+.headline {
+  color: #272727 !important;
 }
 </style>

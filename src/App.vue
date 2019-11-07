@@ -39,7 +39,7 @@ export default class App extends Vue {
   text-align: center;
   color: #2c3e50;
   height: 100vh;
-  background-color: #fff;
+  background-color: #fff !important;
 }
 #nav {
   padding: 30px;
@@ -60,5 +60,9 @@ export default class App extends Vue {
 
 .view {
   box-shadow: inset 0 7px 19px -7px rgba(0, 0, 0, 0.11);
+}
+
+.theme--light.application {
+  background-color:  #ffffff !important;
 }
 </style>

@@ -40,6 +40,9 @@ export default new Vuex.Store<CustomStore>({
     },
     clearUserSession(state) {
       state.userSession = null;
+    },
+    clearUser(state) {
+      state.user = null;
     }
   },
   actions: {
@@ -51,6 +54,7 @@ export default new Vuex.Store<CustomStore>({
     },
     clearSession(context) {
       context.commit("clearUserSession");
+      context.commit("clearUser");
     }
   },
   plugins: [

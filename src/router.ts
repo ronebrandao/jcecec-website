@@ -61,15 +61,14 @@ const router = new Router({
         import(/* webpackChunkName: "account" */ "./views/MiniCourses.vue")
     },
     {
-      path: "/competicao",
-      name: "competicao",
-      component: () =>
-        import(/* webpackChunkName: "account" */ "./views/MaintenancePage.vue")
-    },
-    {
       path: "*",
       component: () =>
         import(/* webpackChunkName: "account" */ "./views/four04.vue")
+    },
+    {
+      path: "/jges",
+      component: () =>
+        import(/* webpackChunkName: "account" */ "./views/JGES.vue")
     }
   ]
 });

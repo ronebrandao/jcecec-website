@@ -12,9 +12,8 @@ const speakers = [
       de Moda, e também nos cursos de 2o Ciclo de Design e Comunicação de Moda, Química Têxtil, Têxteis
       Avançados e Design e Marketing. Pesquisador-chefe e membro de pesquisa de vários projetos de P & D,
       apresentou como autor principal ou co-autor muitas dezenas de artigos de periódicos científicos e
-      comunicações em conferências internacionais. É Presidente do Conselho Pedagógico da Escola Superior de
-      Engenharia desde 2011. É Vice-Reitora da Escola Superior de Engenharia da Universidade do Minho desde
-      2013.
+      comunicações em conferências internacionais. É Presidente do Conselho Pedagógico da Escola de Engenharia desde 2011.
+      É Vice-Presidente da Escola de Engenharia da Universidade do Minho desde 2011.
     `,
     subjectResume: `
       Captar a atenção do diretor de Recursos Humanos, na análise de CV de um aluno de Engenharia,
@@ -128,41 +127,6 @@ const speakers = [
       date: "11/11",
       time: "19:00 - 22:00",
       place: "Auditório I, Área II"
-    }
-  },
-  {
-    name: `Msc Camilo de Lelis Medeiros de Morais`,
-    institution: `School of Pharmacy and Biomedical Sciences, University of Central Lancashire, Reino Unido.
-Lancashire Teaching Hospitals NHS Foundation Trust, Royal Preston Hospital, Reino Unido.`,
-    speaking: `Biospectroscopia para diagnóstico clínico: métodos alternativos para detecção
-de câncer`,
-    description: `
-      Candidato a PhD em Quimiometria na School of Pharmacy and Biomedical Sciences,
-      University of Central Lancashire, Reino Unido. Pesquisador honorário do Departamento de Neuropatologia
-      na Lancashire Teaching Hospitals NHS Foundation Trust, Royal Preston Hospital, Reino Unido.
-    `,
-    img: `/assets/img/speakers/camilo_lelis.jpg`,
-    subjectResume: `
-      O uso de espectroscopia vibracional (infravermelho e Raman) para análise não-destrutiva de
-      materiais biológicos é uma área de rápida expansão, em que existe um alto foco no desenvolvimento de
-      metodologias mais simples, rápidas e baratas para diagnóstico clínico. Através da interação entre luz e a
-      amostra de estudo (por exemplo, biofluidos, como sangue e urina, ou tecidos) é possível obter um sinal
-      espectroquímico característico para cada paciente, denominado de espectro de impressão-digital. O uso de
-      ferramentas computacionais é de fundamental importância para processar e interpretar os dados obtidos
-      experimentalmente, em que estratégias de pre-processamento de sinais, análise multivariada, seleção de
-      variáveis, e aprendizagem de máquina (machine-learning) são essenciais para se obter bons resultados
-      clínicos. Um exemplo em que a biospectroscopia é utilizada com sucesso é o diagnóstico de inúmeros tipos
-      de câncer e seus graus de agressividade usando apenas uma gota de sangue. Essa apresentação pretende
-      12mostrar através de exemplos reais no Reino Unido como é feito a aquisição e análise dos dados espectrais
-      provenientes de amostras clínicas para o desenvolvimento de metodologias alternativas para o diagnóstico de
-      diversos tipos de câncer.
-    `,
-    offset: ``,
-    action: ``,
-    datentime: {
-      date: "12/11",
-      time: "09:00 - 10:40",
-      place: "Auditório II, Área II"
     }
   },
   {
@@ -310,43 +274,15 @@ uma abordagem STEAM`,
     }
   },
   {
-    name: `Engenheiro Alessandro Cunha`,
-    institution: `Avnet`,
-    speaking: `Qual é o futuro da IoT?`,
-    description: `
-      Possui graduação em Engenharia Elétrica pela Universidade Sao Judas Tadeu (2003).
-      Atualmente cursa mestrado no Instituto Tecnológico de Aeronáutica - ITA, em São José dos Campos. Atuou
-      por mais de 10 anos na área de telecomunicações, prestando serviços para empresas como NEC, Siemens,
-      Motorola, Nortel, Lucent, etc. Além das diversas operadoras de telefonica celular: VIVO, Claro, TIM,
-      Vesper, Embratel, OI, etc. Tem experiência na área de Engenharia Elétrica, com ênfase em
-      Telecomunicações, atuando principalmente nos temas: microcontroladores, sistemas embarcados e
-      robótica. (Texto informado pelo autor)
-    `,
-    img: `/assets/img/speakers/alessandro_cunha.jpg`,
-    subjectResume: `
-      A palavra IoT (Internet of Things) tem sido utilizada em diversas previsões de futuro como algo
-      que vai revolucionar a experiência humana nas mais diversas áreas (agricultura, medicina, advocacia,
-      produção industrial, etc.). Mas o que realmente já está implantado e funcionando e o que realmente parece
-      que será aplicado num futuro próximo? Nesta palestra iremos mostrar alguns casos reais de produtos de IoT
-      e vamos mostrar alguns projetos bem interessantes que estão sendo desenvolvidos nesta área.
-    `,
-    offset: ``,
-    action: ``,
-    datentime: {
-      date: "13/11",
-      time: "09:00 - 10:40",
-      place: "Auditório II, Área II"
-    }
-  },
-  {
     name: `Prof. Msc. Clélia Brandão Alvarenga Craveiro`,
     institution: `Pontíficia Universidade Catolica de Goiás`,
     speaking: `Educação: a Tecnopedagogia o Currículo e a Indústria`,
     description: `
-      Possui graduação em Pedagogia pela Universidade Católica de Goiás (1994) , especialização
-      em Metodologia do Ensino pela Universidade Católica de Goiás (1984) e mestrado em Educação pela
-      Universidade Federal de Goiás (1987). Tem experiência na área de Educação , com ênfase em Administração
-      Educacional.
+    Doutoranda em Educação na Universidade Lusófona de Tecnologia e Humanidades de Lisboa
+    Diretora da Escola de Formação de Professores e Humanidades da PUC - Goiás 2014 - 2015
+    Diretora de Políticas de Educação em Direitos Humanos e Cidadania - DPEDHUC – SECADI - MEC - 2012 - 2014.
+    Presidente do CNE - 2008 - 2010.
+    Reitora da PUC Goiás - 1994 - 2001
     `,
     img: `/assets/img/speakers/clelia_brandao.jpg`,
     subjectResume: `
@@ -497,7 +433,7 @@ professores de química`,
     institution: `Universidade Federal de Goiás`,
     speaking: `Estágio Supervisionado, Física, Campo Escolar, Campo Universitário, GGP, Sindicatos, Secretarias de Educação...: um contexto tecnocientífico à luz de uma análise “Big Data”`,
     description: `Graduado em Física pela Unesp-Rio Claro (Universidade Estadual Paulista Júlio de Mesquita Filho) em 1998. Doutorado e Mestrado em Educação para a Ciência pela Universidade Estadual Paulista Júlio de Mesquita Filho (Unesp-Bauru), obtidos nos anos de 2008 e 2002, respectivamente. Atuou como Professor Efetivo da Educação Básica II (física e química - Secretaria de Estado da Educacao de São Paulo) entre os anos de 1998 e 2009. Atualmente é Professor Associado do Instituto de Física da UFG e do Programa de Pós-Graduação Educação em Ciências e Matemática da UFG. Tem experiência na área de Educação em Ciências, com ênfase em Sociologia da Ciência, da Tecnologia e da Tecnociência e Formação de Professores pertencentes à interseção do Campo Escolar e do Campo Universitário, o Grande Grupo de Pesquisa-Física. Sente-se, tome-mos a atividade do pensar...`,
-    img: `/assets/img/speakers/luiz_gonzaga.jpg`,
+    img: `/assets/img/speakers/luiz_gonzaga.png`,
     subjectResume: `
     O Estágio Supervisionado em Física, um tipo de relação entre os campos escolar e universitário, levado a cabo atualmente pelos campos da escola João Barbosa Reis, Waldemar Mundim, Tancredo de Almeida Neves, Maria Nosídia das Palmeiras Neves e CEPAE e pelo subcampo científico do IF da UFG vem se constituindo e construindo um espaço social dinâmico e complexo de formação desde 2010. Espaço social com marcas típicas do contexto tecnocientífico, dentre as quais se destacam: a produção de grande quantidade e diversidade de informação, a interação e o entrelaçamento de e entre os campos sindicais, das secretarias de educação e outros e, não menos importante, a fluidez e superficialidade das relações entre pessoas e coisas e vice-versa. Não por acaso, a este cenário, típico da contemporaneidade, se lança uma análise do tipo “Big Data” articulada aos pressupostos teóricos do Grande Grupo de Pesquisa, o GGP, de base bourdieusiana.
     `,

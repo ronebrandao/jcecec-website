@@ -46,35 +46,23 @@
 
         <v-layout>
           <v-flex xs12 md6>
-            <v-menu
-              ref="menu"
-              v-model="menu"
-              :close-on-content-click="false"
-              transition="scale-transition"
-              offset-y
-              full-width
-              min-width="290px"
-            >
-              <template v-slot:activator="{ on }">
-                <v-text-field
-                  v-model="form.birthDate"
-                  label="Data de Nascimento"
-                  prepend-icon="event"
-                  @blur="date = parseDate(form.birthDate)"
-                  readonly
-                  required
-                  v-on="on"
-                  box
-                ></v-text-field>
-              </template>
-              <v-date-picker v-model="date" no-title @input="menu = false"></v-date-picker>
-            </v-menu>
+           <v-text-field
+              v-model="form.birthDate"
+              label="Data de Nascimento"
+              required
+              mask="##/##/####"
+              return-masked-value
+              prepend-icon="event"
+              box
+              :rules="dateRules"
+            ></v-text-field>
           </v-flex>
 
           <v-flex xs12 md6>
             <v-text-field
               v-model="form.phoneNumber"
               label="Telefone"
+              :rules="requiredRule"
               required
               mask="(##) #####-####"
               prepend-icon="phone"
@@ -142,8 +130,6 @@
             <v-text-field
               v-model="form.streetNumber"
               label="Número"
-              :rules="requiredRule"
-              required
               box
             ></v-text-field>
           </v-flex>
@@ -183,6 +169,8 @@ import {
 } from "../../services/authentication";
 import { CognitoUserSession } from "amazon-cognito-identity-js";
 
+import moment from "moment";
+
 @Component({
   components: {}
 })
@@ -198,6 +186,7 @@ export default class SignUp extends mixins(LoaderMixin, NotificationMixin) {
   private requiredRule: any;
   private emailRules: any;
   private passwrodRules: any;
+  private dateRules: any;
 
   private institutions: Institution[] = [];
   private institutionsNames: string[] = [];
@@ -255,6 +244,15 @@ export default class SignUp extends mixins(LoaderMixin, NotificationMixin) {
       // @ts-ignore
       v => (v && v.length >= 6) || "A senha deve conter pelo menos 6 caracteres"
     ];
+
+    this.dateRules = [
+      // @ts-ignore
+      v => !!v || "Campo obrigatório",
+      // @ts-ignore
+      v => (v && v.length >= 10) || "Data inválida",
+      // @ts-ignore
+      v => moment(v, 'DD-MM-YYYY').isValid() || "Data inválida"
+    ]
   }
 
   @Watch("form.cep")
@@ -262,11 +260,6 @@ export default class SignUp extends mixins(LoaderMixin, NotificationMixin) {
     if (value.length === 8) {
       this.populateFields();
     }
-  }
-
-  @Watch("date")
-  onDateChanged(value: string, oldValue: string) {
-    this.form.birthDate = this.formatDate(value);
   }
 
   @Watch("selectedState")
@@ -339,7 +332,7 @@ export default class SignUp extends mixins(LoaderMixin, NotificationMixin) {
         name: this.form.firstName,
         family_name: this.form.lastName,
         email: this.form.email,
-        birthdate: this.form.birthDate,
+        birthdate: this.parseDate(this.form.birthDate),
         phone_number: "+55" + this.form.phoneNumber,
         "custom:type": "user"
       })
@@ -383,21 +376,14 @@ export default class SignUp extends mixins(LoaderMixin, NotificationMixin) {
     });
   }
 
-  private formatDate(date: string): string {
-    if (!date) {
-      return null;
-    }
-
-    const [year, month, day] = date.split("-");
-    return `${day}/${month}/${year}`;
-  }
   private parseDate(date: string): string {
     if (!date) {
       return null;
     }
 
-    const [month, day, year] = date.split("/");
-    return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
+    const [day, month, year] = date.split("/");
+
+    return `${month.padStart(2, "0")}/${day.padStart(2, "0")}/${year}`;
   }
   private validatePassword(): boolean {
     if (this.form.password !== this.secondPassword) {
