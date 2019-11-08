@@ -1,0 +1,79 @@
+[
+	{
+		"date": "12/11",
+		"description": "An�lise nodal de circuito el�trico empregando computa��o paralela GPU CUDA",
+		"place": "Aud. I",
+		"speaker": "Machado, B.S. , Chaves, L. B. ,Galv�o Filho, A.R. , Carvalho, R.V. , Coelho, C.J.",
+		"time": "15:00"
+	},
+	{
+		"date": "12/11",
+		"description": "An�lise do FID na resson�ncia magn�tica por imageamento",
+		"place": "Aud. I",
+		"speaker": "Ara�jo, G., Costa, A., Costa, R.",
+		"time": "15:30"
+	},
+	{
+		"date": "12/11",
+		"description": "Modelagem de sistema de partida e parada de uma turbina hidrel�trica usando redes Petri",
+		"place": "Aud. I",
+		"speaker": "Silva, C.O., Carvalho, R.V., Galv�o Filho, A.R., Coelho, C.J.",
+		"time": "16:00"
+	},
+	{
+		"date": "12/11",
+		"description": "An�lise de imagens para a quantifica��o de col�nias de",
+		"place": "Aud. I",
+		"speaker": "Silva, E. R., Santos, J. M., Galv�o Filho, A. R., Gomes, R.P.,Carneiro, C.R., Coelho, C.J.",
+		"time": "16:30"
+	},
+	{
+		"date": "12/11",
+		"description": "bact�rias",
+		"place": "Hall dos Aud. II e III",
+		"speaker": "-",
+		"time": "17:00"
+	},
+	{
+		"date": "14/11",
+		"description": "Apresenta��o de Posters",
+		"place": "Aud. I",
+		"speaker": "Silva, D.F.C., Galv�o Filho, A.R., Carvalho, R.V., Coelho, C.J.",
+		"time": "15:00"
+	},
+	{
+		"date": "14/11",
+		"description": "Predi��o da queda da usina de Jirau utilizando redes neurais artificiais recorrentes LSTM",
+		"place": "Aud. I",
+		"speaker": "Brand�o, H. M. de L., Brand�o, H. M. de L.",
+		"time": "15:30"
+	},
+	{
+		"date": "14/11",
+		"description": "Simulador de Testes Adaptativos Baseado na Profici�ncia do Aluno",
+		"place": "Aud. I",
+		"speaker": "Sousa, G. T. A., Machado, B. S., Brodbeck, L. C., Galv�o Filho, A.R., Carvalho, R.V. , Coelho, C.J.",
+		"time": "16:00"
+	},
+	{
+		"date": "14/11",
+		"description": "Identifica��o de erros na lista de conectividade de",
+		"place": "Aud. I",
+		"speaker": "Neto, A.A.S.; Silva, H.V.L.; Xavier, D.S.; Lemos, R.P.; Kunzler, J.A.; Coelho, A.A.S; Ferreira, L.R.",
+		"time": "16:30"
+	},
+	{
+		"date": "14/11",
+		"description": "circuito el�trico empregando analisador l�xico e",
+		"place": "Aud. I",
+		"speaker": "Nascimento,V. D., Borges, J.P.N., Galv�o Filho, A.R., Gomes, R.P.,Carneiro, L.C., Coelho, C.J.",
+		"time": "17:00"
+	},
+	{
+		"date": "14/11",
+		"description": "sint�tico",
+		"place": "Aud. I",
+		"speaker": "Brand�o Filho, R.C., Ribeiro, F., Galv�o Filho, A.R.",
+		"time": "17:30"
+	}
+]

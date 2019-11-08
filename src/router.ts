@@ -69,7 +69,12 @@ const router = new Router({
       path: "/jges",
       component: () =>
         import(/* webpackChunkName: "account" */ "./views/JGES.vue")
-    }
+    },
+    {
+      path: "/programacao",
+      component: () =>
+        import(/* webpackChunkName: "account" */ "./views/Programacao.vue")
+    },
   ]
 });
 

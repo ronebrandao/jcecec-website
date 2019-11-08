@@ -1,0 +1,128 @@
+[
+	{
+		"date": "11/11",
+		"description": "Abertura / O meu futuro \"uma nova abordagem\"",
+		"place": "Aud. I",
+		"speaker": "Profa. Dra. Rosa Maria de Castro Fernandes",
+		"time": "19:00"
+	},
+	{
+		"date": "12/11",
+		"description": "Desafios para a engenharia de cristais na ind�stria farmac�utica",
+		"place": "Aud. I",
+		"speaker": "Prof. Dr. Alejandro Pedro Ayala",
+		"time": "09:00"
+	},
+	{
+		"date": "12/11",
+		"description": "Novas tecnologias e novas profiss�es: perspectivas da F�sica M�dica no Brasil",
+		"place": "Aud. I",
+		"speaker": "Dr. Fabr�cio Augusto de Lima",
+		"time": "10:45"
+	},
+	{
+		"date": "12/11",
+		"description": "Novas tecnologias e novas profiss�es: perspectivas da F�sica M�dica no Brasil",
+		"place": "Aud. I",
+		"speaker": "Dr. Fabr�cio Augusto de Lima",
+		"time": "19:00"
+	},
+	{
+		"date": "12/11",
+		"description": "\"STEAM BY ME\": A experi�ncia de uma comunidade de pr�tica de ensino de ci�ncias enquanto estrat�gia formativa de professores de ci�ncias dentro de uma abordagem STEAM",
+		"place": "Aud. II",
+		"speaker": "Prof. Dr. Jancarlos Menezes Lapa",
+		"time": "19:00"
+	},
+	{
+		"date": "12/11",
+		"description": "Desafios para a engenharia de cristais na ind�stria farmac�utica",
+		"place": "Aud. I",
+		"speaker": "Prof. Dr. Alejandro Pedro Ayala",
+		"time": "20:30-"
+	},
+	{
+		"date": "12/11",
+		"description": "Tecnologias na Educa��o",
+		"place": "Aud. II",
+		"speaker": "Profa. Dra. Adda Daniela Lima Figueiredo Echalar",
+		"time": "20:30"
+	},
+	{
+		"date": "13/11",
+		"description": "Mercado Tecnol�gico, adapta��o e transforma��o dos neg�cios",
+		"place": "Aud. II",
+		"speaker": "Luciano Lacerda",
+		"time": "09:00"
+	},
+	{
+		"date": "13/11",
+		"description": "XIX Jornada Goiana de Engenharia de Software",
+		"place": "Aud. I",
+		"speaker": "Ver programa��o abaixo",
+		"time": "09 �s 18"
+	},
+	{
+		"date": "13/11",
+		"description": "Predicting Brazilian court decisions",
+		"place": "Aud. I",
+		"speaker": "Prof. Dr. Andr� Lage Freitas",
+		"time": "19:00"
+	},
+	{
+		"date": "13/11",
+		"description": "Tecnologia para aprender matem�tica",
+		"place": "Aud II",
+		"speaker": "Prof. Dr. Sergio Carrazedo Dantas",
+		"time": "19:00"
+	},
+	{
+		"date": "13/11",
+		"description": "Educa��o: a Tecnopedagogia o Curr�culo e a Ind�stria",
+		"place": "Aud. II",
+		"speaker": "Profa. MSC Cl�lia Brand�o Alvarenga Craveiro",
+		"time": "20:30 "
+	},
+	{
+		"date": "14/11",
+		"description": "New Horizons in MR Imaging - Opportunity and Challenges of Sparse Samplimg and Constrained Reconstruction",
+		"place": "Aud. I",
+		"speaker": "Prof. Dr. Richard Frayne",
+		"time": "09:00"
+	},
+	{
+		"date": "14/11",
+		"description": "null",
+		"place": "Aud. I",
+		"speaker": "Profa. Dra. Let�cia Rittner",
+		"time": "10:45"
+	},
+	{
+		"date": "14/11",
+		"description": "null",
+		"place": "Aud. I",
+		"speaker": "Profa. Dra. Let�cia Rittner",
+		"time": "19:00"
+	},
+	{
+		"date": "14/11",
+		"description": "null",
+		"place": "Aud. II",
+		"speaker": "Prof. Dr. Amadeu Moura Bego",
+		"time": "19:00"
+	},
+	{
+		"date": "14/11",
+		"description": "null",
+		"place": "Aud. I",
+		"speaker": "Prof. Dr. Richard Frayne",
+		"time": "20:30"
+	},
+	{
+		"date": "14/11",
+		"description": "null",
+		"place": "Aud. II",
+		"speaker": "Prof. Dr. Luiz Gonzaga Roversi",
+		"time": "20:30"
+	}
+]
