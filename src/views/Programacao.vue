@@ -1,29 +1,26 @@
 <template>
   <div class="programacao">
     <Main>
-      <div class="list">
-        <div class="item">
-          <div>
+      <div>
+        <Paragraph title="Título"></Paragraph>
+        <div class="list">
+          <div class="item" :for="(palestra, i) in palestras" :key="i">
             <div>
-              <i class="far fa-calendar-alt" title="Data"></i>
-              <p>12/12/1088</p>
+              <i :style="{gridArea: 'id'}" class="far fa-calendar-alt" title="Data"></i>
+              <i :style="{gridArea: 'ip'}" class="fas fa-map-marker" title="Local"></i>
+              <p :style="{gridArea: 'd'}"> {{ palestra.date }} </p>
+              <p :style="{gridArea: 'p'}">Lorem ipsum dolor sit amet.</p>
+              <i :style="{gridArea: 'it'}" class="far fa-clock"></i>
+              <p :style="{gridArea: 't'}">Lorem, ipsum dolor.</p>
             </div>
             <div>
-              <i class="fas fa-map-marker" title="Local"></i>
-              <p>Lorem ipsum dolor sit amet.</p>
+              <h4>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum magnam nisi deserunt ducimus aliquam! Adipisci?
+              </h4>
+              <h6>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur iusto dolore eum nisi.
+              </h6>
             </div>
-            <div>
-              <i class="far fa-clock"></i>
-              <p>Lorem, ipsum dolor.</p>
-            </div>
-          </div>
-          <div>
-            <h4>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum magnam nisi deserunt ducimus aliquam! Adipisci?
-            </h4>
-            <h6>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur iusto dolore eum nisi.
-            </h6>
           </div>
         </div>
       </div>
@@ -57,57 +54,75 @@ import speakers from "@/models/speakers";
 })
 export default class Programacao extends Vue {
 
+  private palestras: any;
+
   constructor() {
     super();
+
+    this.palestras = require('@/storage/programacao/palestras');
+    console.log(this.palestras);
   }
 }
 </script>
 
-<style>
+<style scoped>
+.programacao .list {
+  display: initial;
+}
 .programacao .list .item {
   display: flex;
+  margin-top: 22px;
 }
-.programacao .list .item > div :first-child {
+@media screen and (max-width: 425px) {
+  .programacao .list .item {
+    flex-direction: column-reverse;
+  }
+}
+.programacao .list .item > div:first-child {
   flex: 5;
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-template-rows: auto auto;
-  grid-template-areas: "d p" "t t";
+  grid-template-rows: repeat(4, auto);
+  grid-template-areas: "id ip" "d p" "it it" "t t";
+  text-align: center;
+  padding: 10px;
+  background-color: whitesmoke;
+  box-shadow: -2px 5px 6px rgba(0, 0, 0, 0.7);
 }
-.programacao .list .item > div :nth-child(2) {
+@media screen and (max-width: 425px) {
+  .programacao .list .item > div:first-child {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas: "id ip it" "d p t";
+    background-color: unset;
+    box-shadow: unset;
+  }
+}
+.programacao .list .item > div:first-child i {
+  font-size: 18pt;
+}
+.programacao .list .item > div:first-child p {
+  margin-top: 10px;
+  font-size: 10pt;
+  text-align: inherit;
+}
+@media screen and (max-width: 320px) {
+  .programacao .list .item > div:first-child p {
+    padding: 0 8px;
+  }
+}
+.programacao .list .item > div:nth-child(2) {
   flex: 18;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-left: 20px;
 }
-</style>
-
-
-.programacao{
-  .list{
-    
-    .item{
-      
-      display: flex;
-      
-      >div{
-        :first-child{
-          flex: 5;
-          display: grid;
-          grid-template-columns: 50% 50%;
-          grid-template-rows: auto auto;
-          grid-template-areas:
-              "d p"
-              "t t";
-        }
-        
-        :nth-child(2){
-          flex: 18;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-        }
-      }
-    }
+@media screen and (max-width: 425px) {
+  .programacao .list .item > div:nth-child(2) {
+    margin-left: unset;
+    margin-bottom: 15px;
+    text-align: center;
   }
 }
+</style>
