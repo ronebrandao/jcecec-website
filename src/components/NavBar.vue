@@ -12,6 +12,7 @@
       <ul>
         <router-link to="/" tag="li">Home</router-link>
         <router-link to="/evento" tag="li">Evento</router-link>
+        <router-link to="/programacao" tag="li">Programação</router-link>
         <router-link to="/minicursos" tag="li">Minicursos</router-link>
         <router-link to="/jges" tag="li">JGES</router-link>
         <router-link to="/cadastro" tag="li">Inscrição</router-link>

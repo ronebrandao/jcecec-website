@@ -1,30 +1,29 @@
 <template>
   <div class="programacao">
     <Main>
-      <div>
-        <Paragraph title="Título"></Paragraph>
+      <div v-for="(event, i) in events" :key="i">
+        <div class="title">
+          <Paragraph :title="event.title"></Paragraph>
+          <h5 v-if="event.description"><i> {{ event.description }} </i></h5>
+        </div>
         <div class="list">
-          <div class="item" :for="(palestra, i) in palestras" :key="i">
+          <div class="item" v-for="(o, i) in event.activities" :key="i">
             <div>
               <i :style="{gridArea: 'id'}" class="far fa-calendar-alt" title="Data"></i>
               <i :style="{gridArea: 'ip'}" class="fas fa-map-marker" title="Local"></i>
-              <p :style="{gridArea: 'd'}"> {{ palestra.date }} </p>
-              <p :style="{gridArea: 'p'}">Lorem ipsum dolor sit amet.</p>
-              <i :style="{gridArea: 'it'}" class="far fa-clock"></i>
-              <p :style="{gridArea: 't'}">Lorem, ipsum dolor.</p>
+              <p :style="{gridArea: 'd'}">{{ o.date }}</p>
+              <p :style="{gridArea: 'p'}"> {{ o.place }} </p>
+              <i :style="{gridArea: 'it'}" class="far fa-clock" title="Hora"></i>
+              <p :style="{gridArea: 't'}"> {{ o.time }} </p>
             </div>
             <div>
-              <h4>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum magnam nisi deserunt ducimus aliquam! Adipisci?
-              </h4>
-              <h6>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur iusto dolore eum nisi.
-              </h6>
+              <h4> {{ o.description }} </h4>
+              <h6> {{ o.speaker }} </h6>
             </div>
           </div>
         </div>
       </div>
-    </Main>    
+    </Main>
   </div>
 </template>
 
@@ -54,18 +53,63 @@ import speakers from "@/models/speakers";
 })
 export default class Programacao extends Vue {
 
-  private palestras: any;
+    private palestras: any;
+    private trabalhos: any;
+    private jges: any;
+    private minicursos: any;
+    private oficina: any;
+    private hackaton: any;
 
-  constructor() {
-    super();
+    private events: any;
 
-    this.palestras = require('@/storage/programacao/palestras');
-    console.log(this.palestras);
-  }
+    constructor(){
+      super();
+
+      this.palestras = require('@/storage/programacao/palestras').default;
+      this.trabalhos = require('@/storage/programacao/trabalhos').default;
+      this.jges = require('@/storage/programacao/jges').default;
+      this.minicursos = require('@/storage/programacao/minicursos').default;
+      this.oficina = require('@/storage/programacao/oficina').default;
+      this.hackaton = require('@/storage/programacao/hackaton').default;
+
+      this.events = [
+        {
+          title: 'Palestras – Auditórios da Área 2',
+          activities: this.palestras,
+        },
+        {
+          title: 'Apresentação de trabalhos – Área 2',
+          activities: this.trabalhos,
+        },
+        {
+          title: 'XIX Jornada Goiana em Engenharia de Software',
+          description: 'Tema: Saúde Mental e TI: Uma questão estratégica',
+          activities: this.jges,
+        },
+        {
+          title: 'Minicursos – Laboratórios da Área 2(horário 14:00 - 18:00)',
+          activities: this.minicursos,
+        },
+        {
+          title: 'Oficina – PROA Área 2(horário 19:00 - 22:00)',
+          activities: this.oficina,
+        },
+        {
+          title: 'II Hackathon PUC Goiás',
+          description: 'Tema: Educação para todos',
+          activities: this.hackaton,
+        },
+      ];
+    }
 }
 </script>
 
 <style scoped>
+.programacao .title {
+  padding: 20px;
+  background-color: whitesmoke;
+  box-shadow: -2px 5px 6px rgba(0, 0, 0, 0.7);
+}
 .programacao .list {
   display: initial;
 }
@@ -76,6 +120,15 @@ export default class Programacao extends Vue {
 @media screen and (max-width: 425px) {
   .programacao .list .item {
     flex-direction: column-reverse;
+  }
+  .programacao .list .item h3 {
+    font-size: 14pt !important;
+  }
+  .programacao .list .item h4 {
+    font-size: 12pt !important;
+  }
+  .programacao .list .item h6 {
+    font-size: 10pt !important;
   }
 }
 .programacao .list .item > div:first-child {
@@ -100,6 +153,7 @@ export default class Programacao extends Vue {
 }
 .programacao .list .item > div:first-child i {
   font-size: 18pt;
+  font-weight: bold;
 }
 .programacao .list .item > div:first-child p {
   margin-top: 10px;
