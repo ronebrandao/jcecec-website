@@ -47,7 +47,7 @@ export default [
         time: '15:30',
         description: 'Simulador de Testes Adaptativos Baseado na Proficiência do Aluno',
         speaker: 'Brandão, H. M. de L., Brandão, H. M. de L.',
-        place: '',
+        place: 'Aud. I',
     },
     {
         date: '14/11',
