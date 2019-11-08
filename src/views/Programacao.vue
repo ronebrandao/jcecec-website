@@ -108,7 +108,7 @@ export default class Programacao extends Vue {
 .programacao .title {
   padding: 20px;
   background-color: whitesmoke;
-  box-shadow: -2px 5px 6px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 .46875rem 2.1875rem rgba(0,0,0,.03),0 .9375rem 1.40625rem rgba(0,0,0,.03),0 .25rem .53125rem rgba(0,0,0,.05),0 .125rem .1875rem rgba(0,0,0,.03);;
 }
 .programacao .list {
   display: initial;
@@ -140,7 +140,7 @@ export default class Programacao extends Vue {
   text-align: center;
   padding: 10px;
   background-color: whitesmoke;
-  box-shadow: -2px 5px 6px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 .46875rem 2.1875rem rgba(0,0,0,.03),0 .9375rem 1.40625rem rgba(0,0,0,.03),0 .25rem .53125rem rgba(0,0,0,.05),0 .125rem .1875rem rgba(0,0,0,.03);;
 }
 @media screen and (max-width: 425px) {
   .programacao .list .item > div:first-child {
