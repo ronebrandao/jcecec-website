@@ -226,7 +226,7 @@ import speakers from "@/models/speakers";
     Supporters
   }
 })
-export default class Evento extends Vue {
+export default class JGES extends Vue {
 
   constructor() {
     super();
