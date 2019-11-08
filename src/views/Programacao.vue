@@ -87,11 +87,11 @@ export default class Programacao extends Vue {
           activities: this.jges,
         },
         {
-          title: 'Minicursos – Laboratórios da Área 2(horário 14:00 - 18:00)',
+          title: 'Minicursos – Laboratórios da Área 2 (horário 14:00 - 18:00)',
           activities: this.minicursos,
         },
         {
-          title: 'Oficina – PROA Área 2(horário 19:00 - 22:00)',
+          title: 'Oficina – PROA Área 2 (horário 19:00 - 22:00)',
           activities: this.oficina,
         },
         {
