@@ -36,8 +36,6 @@
         introduzida uma competição de robótica com a participação de alunos de escolas públicas e privadas de
         primeiro e segundo grau
       </Paragraph>
-
-      <Columns>
         <Paragraph title="II HACKATHON PUC GOIÁS">
           Hackatons são eventos cada vez mais frequentes nas comunidades tecnológicas que promovem o trabalho em
           equipe, divulgando os melhores alunos e oportunizando futuras vagas no mercado de trabalho. Estes eventos
@@ -48,19 +46,6 @@
           hackthons de âmbito nacional e internacional. A iniciativa de promover o I Hackathon da PUC GOIÁS no
           âmbito da JCECEC tem o propósito de produzir a experiência visando disseminar a ideia no âmbito regional.
         </Paragraph>
-
-        <Paragraph title="I COMPETIÇÃO DE ROBÓTICA">
-          As competições de robôs reúnem construtores de robôs que competem para mostrar qual deles é
-          capaz de cumprir da melhor forma um determinado objetivo especificado anteriormente à competição. As
-          competições podem ser diferenciadas segundo alguns critérios básicos, a saber: propósitos científicos e
-          acadêmicos, grau de autonomia exigida dos protótipos de robôs para a realização das tarefas a eles
-          solicitadas, restrições para a construção do protótipo, ou seja, o quão livre é a escolha das plataformas
-          robóticas que podem ser empregadas na construção dos protótipos e Ua maneira como a organização da
-          equipe está vinculada a iniciativas de instituições educacionais ou organizações formais. A competição de
-          robôs da IV JCECEC tem vai explorar dois dos critérios propósitos científicos e acadêmicos, grau de
-          autonomia exigida dos protótipos de robôs para a realização das tarefas a eles solicitadas.
-        </Paragraph>
-      </Columns>
     </Main>
 
     <Organization />
