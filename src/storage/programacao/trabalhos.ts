@@ -10,7 +10,7 @@ export default [
     {
         date: '12/11',
         time: '15:30',
-        description: 'Análise nodal de circuito elétrico empregando computação paralela GPU CUDA',
+        description: 'Análise do FID na ressonância magnética por imageamento',
         speaker: 'Araújo, G., Costa, A., Costa, R.',
         place: 'Aud. I',
     },
