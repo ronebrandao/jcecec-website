@@ -13,7 +13,7 @@
             <h4>{{speaker.institution}}</h4>
 
             <div class="datentime" v-if="speaker.datentime">
-              <div>
+              <!-- <div>
                 <i class="far fa-calendar-alt"></i>
                 <div>
                   <div>Data: {{speaker.datentime.date}}</div>
@@ -25,7 +25,7 @@
                 <div>
                   <div>{{speaker.datentime.place}}</div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>

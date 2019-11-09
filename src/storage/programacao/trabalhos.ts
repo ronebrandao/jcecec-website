@@ -3,14 +3,14 @@ export default [
     {
         date: '12/11',
         time: '15:00',
-        description: 'Análise nodal de circuito elétrico empregando computação paralela GPU CUDA',
-        speaker: 'Machado, B.S. , Chaves, L. B. ,Galvão Filho, A.R. , Carvalho, R.V. , Coelho, C.J.',
+        description: 'Estratégia de controle para a operação ótima do reservatório da usina hidrelétrica de Jirau utilizando otimização não linear',
+        speaker: 'Brandão Filho, R.C., Ribeiro, F., Galvão Filho, A.R. Carvalho, R.V., Coelho, C.J',
         place: 'Aud. I',
     },
     {
         date: '12/11',
         time: '15:30',
-        description: 'Análise nodal de circuito elétrico empregando computação paralela GPU CUDA',
+        description: 'Análise do FID na ressonância magnética por imageamento',
         speaker: 'Araújo, G., Costa, A., Costa, R.',
         place: 'Aud. I',
     },
@@ -73,8 +73,8 @@ export default [
     {
         date: '14/11',
         time: '17:30',
-        description: 'Estratégia de controle para a operação ótima do reservatório da usina hidrelétrica de Jirau utilizando otimização não linear',
-        speaker: 'Brandão Filho, R.C., Ribeiro, F., Galvão Filho, A.R. Carvalho, R.V., Coelho, C.J',
+        description: 'Análise nodal de circuito elétrico empregando computação paralela GPU CUDA',
+        speaker: 'Machado, B.S. , Chaves, L. B. ,Galvão Filho, A.R. , Carvalho, R.V. , Coelho, C.J.',
         place: 'Aud. I',
     },
 ]
