@@ -17,7 +17,7 @@ const Courses = [
   },
   {
     title: "Fluig e ferramentas da plataforma",
-    instructor: "Luvânio Lopes",
+    instructor: "Felipe Olah Braz",
     institution: "Totvs",
     desc: `O Fluig é uma plataforma WEB com (app mobile) concebida pela TOTVS no ano 2013 com
         finalidade de apoiar as empresas no mapeamento, gestão de processos, gestão de documentos e comunicação
@@ -141,6 +141,16 @@ const Courses = [
     date: "14/11",
     time: "14:00-18:00",
     place: "LAB104-C, Área II"
+  },
+  {
+    title: "Desmistificando recursos do Android",
+    instructor: "Adriano Souza, Alberto Felisberto, Arthur Guimarães, Felipe Manso, Giulliana Camozzi, Guilherme Thums, Lucas Marques, Moisés Vidal, Pedro Silva, Rodrigo Queiroz, Sade Escobar, Vítor Ferreira, Wanderson Silva, Welder Miranda, Zanderlan Neto",
+    institution:
+      "PUC Goiás",
+    desc: `Os alunos da turma CMP1552 irão demonstrar como é simples utilizar alguns recursos especiais do Android para dispositivos móveis como Notifications, Serviços em background, Face ID, Uso de Localização, GPS, Vídeo e Fotos, Mapas, Sensores de movimento e Wearbles. Nesta palestra os alunos irão demonstrar como conseguiram pesquisar e implementar estes recursos em aplicações reais para dispositivos móveis, além de apresentar demonstrações de apps criados por eles com o uso desses recursos temáticos.`,
+    date: "12/11",
+    time: "19:00-22:00",
+    place: "LAB101-C, Área II"
   }
 ];
 
