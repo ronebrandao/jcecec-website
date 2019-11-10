@@ -17,8 +17,8 @@ export default [
     {
         date: '12/11',
         time: '16:00',
-        description: 'Modelagem de sistema de partida e parada de uma turbina hidrelétrica usando redes Petri',
-        speaker: 'Silva, C.O., Carvalho, R.V., Galvão Filho, A.R., Coelho, C.J.',
+        description: 'Predição da queda da usina de Jirau utilizando redes neurais artificiais recorrentes LSTM',
+        speaker: 'Silva, D.F.C., Galvão Filho, A.R., Carvalho, R.V., Coelho, C.J.',
         place: 'Aud. I',
     },
     {
@@ -38,8 +38,8 @@ export default [
     {
         date: '14/11',
         time: '15:00',
-        description: 'Predição da queda da usina de Jirau utilizando redes neurais artificiais recorrentes LSTM',
-        speaker: 'Silva, D.F.C., Galvão Filho, A.R., Carvalho, R.V., Coelho, C.J.',
+        description: 'Modelagem de sistema de partida e parada de uma turbina hidrelétrica usando redes Petri',
+        speaker: 'Silva, C.O., Carvalho, R.V., Galvão Filho, A.R., Coelho, C.J.',
         place: 'Aud. I',
     },
     {
