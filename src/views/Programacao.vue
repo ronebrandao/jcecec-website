@@ -13,8 +13,8 @@
               <i :style="{gridArea: 'ip'}" class="fas fa-map-marker" title="Local"></i>
               <p :style="{gridArea: 'd'}">{{ o.date }}</p>
               <p :style="{gridArea: 'p'}"> {{ o.place }} </p>
-              <i :style="{gridArea: 'it'}" class="far fa-clock" title="Hora"></i>
-              <p :style="{gridArea: 't'}"> {{ o.time }} </p>
+              <i :style="{gridArea: 'it'}" v-if="o.time" class="far fa-clock" title="Hora"></i>
+              <p :style="{gridArea: 't'}" v-if="o.time"> {{ o.time }} </p>
             </div>
             <div>
               <h4> {{ o.description }} </h4>

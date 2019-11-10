@@ -336,30 +336,28 @@ uma abordagem STEAM`,
   {
     name: `Prof. Richard Frayne`,
     institution: `University of Calcary – Canadá`,
-    speaking: `New Horizons in MR Imaging – Opportunity and Challenges of Sparse Sampling and
-Constrained Reconstruction`,
+    speaking: `Novel Magnetic Resonance Techniques for the Study, Detection and Treatment of Neurovascular Disease`,
     description: `
     Richard Frayne is a Professor (with tenure) in the Departments of Radiology and Clinical Neuroscience, a member and the Deputy Director of the Hotchkiss Brain Institute (HBI, hbi.ucalgary.ca), and an associate member of the Libin Cardiovascular Institute of Alberta (libin.ucalgary.ca), all in the Cumming School of Medicine at the University of Calgary. He directs the Vascular Imaging Laboratory (www.ucalgary.ca/vil) of the Seaman Family Centre, Foothills Medical Centre, Alberta Health Services (mrcentre.ca) and from 2010-7 was the Centre’s Scientific Director. He was a Canada Research Chair in Image Science and, in 2010, he was appointed to the Hopewell Professorship in Brain Imaging. Dr Frayne’s research interests are in the development and application of new imaging techniques and tools in humans for the study, detection and treatment of neurovascular disease. His work bridges natural science and engineering through to clinical application. In addition to his core research interests, he actively collaborates with other researchers, particularly in the imaging of concussion, and epilepsy. He holds a BASc (Electrical Engineering, 1989) from the University of Waterloo and PhD from the University of Western Ontario (Medical Biophysics, 1994), and completed a post-doctoral fellowship in Medical Physics and Radiology at the University of Wisconsin-Madison (1996). Dr Frayne has over 30 years of experience in pursuing imaging research in a clinical environment. He has over 165 published, peer-reviewed publications, over 120 invited talks and over 500 scholarly presentations (h-index: 43 and more than 9,350 citations, Google Scholar). He also has 20 international patents and has had technology successfully commercialized. In 2018, he received the Alumni Achievement Medal from the Faculty of Engineering at the University of Waterloo.
     `,
     img: `/assets/img/speakers/richard_frayne.jpg`,
-    subjectResume: `
-      Magnetic resonance (MR) imaging is a powerful non-invasive tool in modern medicine and is used
-      worldwide to support important diagnostic medical decisions. Building on earlier discoveries in nuclear
-      magnetic resonance, the first MR scanner was commercialized in the early 1980s. These commercial
-      instruments mainly adopted a data acquisition and image reconstruction strategy known as “spin-warp” or
-      Cartesian imaging. Spin-warp imaging was a critical development that uses a series of gradient magnetic
-      fields to acquires MR data in k-space (the Fourier transform, FT, of image space). Image reconstruction is, in
-      principle, quite simple, only requiring FT of the acquired kspace data to produce an MR image. Spin-warp
-      imaging has a number of advantages including implicit averaging when using the FT and a predictable
-      response to most image artifacts (e.g., motion, fat-water off resonance). Spin-warp imaging, however, has
-      some drawbacks, primarily the lengthy time required to collect the entire k-space data set. Nonspin-warp
-      imaging approaches have been under investigation since before commercialization of MR and have found
-      specific application in areas including fast, dynamic (or time resolved) and short echo–time imaging. These
-      approaches include radial sampling (similar to computed tomography), spiral sampling and, most recently,
-      sparse sampling. In this presentation some sparse sampling approaches will be described and examples of
-      their application presented. Their advantages and disadvantages relative to the spin-warp imaging stand will
-      be discussed. Focus will be on the signal processing challenges in both data acquisition and image
-      reconstruction when employing these methods.
+    subjectResume: `Magnetic resonance (MR) imaging is a powerful non-invasive tool in modern medicine and is used worldwide to
+    support important diagnostic medical decisions. Building on earlier discoveries in nuclear magnetic resonance, the
+    first MR scanner was commercialized in the early 1980s. These commercial instruments mainly adopted a data
+    acquisition and image reconstruction strategy known as “spin-warp” or Cartesian imaging.[1] Spin-warp imaging
+    was a critical development that uses a series of gradient magnetic fields to acquires MR data in k-space (the Fourier
+    transform, FT, of image space). Image reconstruction is, in principle, quite simple, only requiring FT of the acquired
+    k-space data to produce an MR image. Spin-warp imaging has a number of advantages including implicit averaging
+    when using the FT and a predictable response to most image artefacts (e.g., motion, fat-water off resonance). Spin-
+    warp imaging, however, has some drawbacks, primarily the lengthy time required to collect the entire k-space data
+    set. Less conventional imaging approaches have been under investigation find specific application [2,3] in areas
+    including fast, dynamic (or time resolved) and short echo–time imaging. These approaches include radial sampling
+    (similar to computed tomography), spiral sampling and, most recently, sparse sampling. In this presentation some
+    sparse sampling approaches will be described and examples of their application presented. Their advantages and
+    disadvantages relative to the conventional spin-warp imaging stand will be discussed. Focus will be on the signal
+    processing challenges in both data acquisition and image reconstruction when employing these methods. Some
+    applications of these advanced MR imaging approaches for time-of-flight angiography, dynamic carotid artery
+    imaging and time-resolved imaging of contrast agent will be demonstrated. The lecture will be given in English.
     `,
     offset: ``,
     action: ``,
