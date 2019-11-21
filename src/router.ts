@@ -40,13 +40,13 @@ const router = new Router({
       path: "/evento",
       name: "evento",
       component: () =>
-        import(/* webpackChunkName: "account" */ "./views/Evento.vue")
+        import(/* webpackChunkName: "evento2" */ "./views/Evento.vue")
     },
     {
       path: "/profile",
       name: "speakerProfile",
       component: () =>
-        import(/* webpackChunkName: "account" */ "./views/SpeakerProfile.vue")
+        import(/* webpackChunkName: "speakerProfile" */ "./views/SpeakerProfile.vue")
     },
     {
       path: "/manutencao",
@@ -58,22 +58,22 @@ const router = new Router({
       path: "/minicursos",
       name: "minicursos",
       component: () =>
-        import(/* webpackChunkName: "account" */ "./views/MiniCourses.vue")
+        import(/* webpackChunkName: "minicurso" */ "./views/MiniCourses.vue")
     },
     {
       path: "*",
       component: () =>
-        import(/* webpackChunkName: "account" */ "./views/four04.vue")
+        import(/* webpackChunkName: "ops" */ "./views/four04.vue")
     },
     {
       path: "/jges",
       component: () =>
-        import(/* webpackChunkName: "account" */ "./views/JGES.vue")
+        import(/* webpackChunkName: "jges" */ "./views/JGES.vue")
     },
     {
       path: "/programacao",
       component: () =>
-        import(/* webpackChunkName: "account" */ "./views/Programacao.vue")
+        import(/* webpackChunkName: "programacao" */ "./views/Programacao.vue")
     },
   ]
 });

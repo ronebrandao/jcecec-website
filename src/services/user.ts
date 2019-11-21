@@ -5,6 +5,10 @@ import { formatarData } from "@/helpers/index";
 
 const API_URL = process.env.VUE_APP_API_URL + "users/";
 
+function isLetter(c: any) {
+  return c.toLowerCase() != c.toUpperCase();
+}
+
 export function createUser(user: SignUpForm): Promise<any> {
   const {
     firstName,
@@ -22,7 +26,7 @@ export function createUser(user: SignUpForm): Promise<any> {
   } = user;
 
   const birthDate = formatarData(user.birthDate);
-  const streetNumber = user.streetNumber || 0;
+  const streetNumber = user.streetNumber && isLetter(user.streetNumber) ? 0 : user.streetNumber || 0;
 
   return axiosWithoutAuth.post(API_URL, {
     firstName,

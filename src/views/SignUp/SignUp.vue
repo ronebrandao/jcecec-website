@@ -130,6 +130,7 @@
             <v-text-field
               v-model="form.streetNumber"
               label="Número"
+              mask="#######"
               box
             ></v-text-field>
           </v-flex>
@@ -331,7 +332,7 @@ export default class SignUp extends mixins(LoaderMixin, NotificationMixin) {
       .signUp(this.form.email, this.form.password, {
         name: this.form.firstName,
         family_name: this.form.lastName,
-        email: this.form.email,
+        email: this.form.email.toLowerCase(),
         birthdate: this.parseDate(this.form.birthDate),
         phone_number: "+55" + this.form.phoneNumber,
         "custom:type": "user"
@@ -407,4 +408,6 @@ label {
   font-weight: 500;
   float: left;
 }
+
+
 </style>
