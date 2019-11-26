@@ -64,7 +64,6 @@ import {
   getUsersExcept,
   setSubmissionProofreaders
 } from "../../../services/user";
-import { setSubmissionProofreader } from "@/services/api/submission";
 import NotificationMixin from "@/mixins/notification";
 import LoaderMixin from "@/mixins/loader";
 

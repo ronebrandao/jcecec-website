@@ -25,3 +25,7 @@ export async function getProofread(submissionId: number) {
 export function saveProofRead(data: any): Promise<any> {
   return axios.post(API_URL, data).then(res => res.data)
 }
+
+export function getProofreadSummary(submissionId: number) {
+  return axios.get(API_URL + submissionId).then(resp => resp.data);
+}

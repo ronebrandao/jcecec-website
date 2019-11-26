@@ -94,7 +94,7 @@
                   </template>
                   <span>Revisar submissão</span>
                 </v-tooltip>
-                <!-- <v-tooltip bottom v-if="isAdmin">
+                <v-tooltip bottom v-if="isAdmin">
                   <template v-slot:activator="{ on }">
                     <v-btn
                       fab
@@ -102,13 +102,13 @@
                       small
                       v-on="on"
                       v-if="isAdmin"
-                      @click="showSummary(props.item.id)"
+                      @click="showSummary(props.item.id, props.item.status)"
                     >
                       <v-icon dark color="gray">pageview</v-icon>
                     </v-btn>
                   </template>
                   <span>Revisões</span>
-                </v-tooltip> -->
+                </v-tooltip>
               </td>
             </template>
             <template v-slot:no-results>
@@ -134,6 +134,8 @@
           />
           <ProofreadsSummary 
           :showDialog="showProofreaderSummaryDialog"
+          :submissionId="submissionId"
+          :status="status"
           @hidden="hideSummary"
           />
         </v-tab-item>
@@ -192,6 +194,7 @@ export default class Submissions extends mixins(
   private search = "";
   private selected: any = [];
   private date: Date = null;
+  private status = "";
   private headers = [
     {
       text: "#",
@@ -323,7 +326,9 @@ export default class Submissions extends mixins(
     this.showSetProofreaderDialog = false;
   }
 
-  private showSummary() {
+  private showSummary(submissionId: number, status: string) {
+    this.status = status;
+    this.submissionId = submissionId;
     this.showProofreaderSummaryDialog = true;
   }
 

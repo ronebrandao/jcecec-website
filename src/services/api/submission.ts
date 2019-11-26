@@ -36,13 +36,13 @@ export function downloadFile(fileName: string) {
     .then(res => res.data);
 }
 
-export function setSubmissionProofreader(
+export function setSubmissionStatus(
   submissionId: number,
-  proofreaderId: number
+  status: string
 ) {
   return axios
     .put(API_URL + "submissions/" + submissionId, {
-      proofreaderId
+      status
     })
     .then(res => res.data);
 }
